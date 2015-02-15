@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20140214-64 [Mar 29 2014]
+ * AML Disassembler version 20140926-64 [Oct 16 2014]
  * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of ssdt4.dat, Sun Feb 15 07:13:03 2015
+ * Disassembly of ssdt4.dat, Sun Feb 15 17:36:58 2015
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -20,26 +20,26 @@ DefinitionBlock ("ssdt4.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 {
 
     External (_SB_.PCI0.SAT0, DeviceObj)
-    External (DSSP)
-    External (FHPP)
+    External (DSSP, IntObj)
+    External (FHPP, IntObj)
 
     Scope (\)
     {
         Name (STFE, Buffer (0x07)
         {
-             0x10, 0x06, 0x00, 0x00, 0x00, 0x00, 0xEF
+             0x10, 0x06, 0x00, 0x00, 0x00, 0x00, 0xEF       
         })
         Name (STFD, Buffer (0x07)
         {
-             0x90, 0x06, 0x00, 0x00, 0x00, 0x00, 0xEF
+             0x90, 0x06, 0x00, 0x00, 0x00, 0x00, 0xEF       
         })
         Name (FZTF, Buffer (0x07)
         {
-             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF5
+             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF5       
         })
         Name (DCFL, Buffer (0x07)
         {
-             0xC1, 0x00, 0x00, 0x00, 0x00, 0x00, 0xB1
+             0xC1, 0x00, 0x00, 0x00, 0x00, 0x00, 0xB1       
         })
         Name (SCBF, Buffer (0x15) {})
         Name (CMDC, Zero)

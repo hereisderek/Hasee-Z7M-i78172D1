@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20140214-64 [Mar 29 2014]
+ * AML Disassembler version 20140926-64 [Oct 16 2014]
  * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of ssdt3.dat, Sun Feb 15 07:13:03 2015
+ * Disassembly of ssdt3.dat, Sun Feb 15 17:36:58 2015
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -19,15 +19,15 @@
 DefinitionBlock ("ssdt3.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
 {
 
-    External (_PR_.CPU0, DeviceObj)
-    External (_PR_.CPU0._PPC)
-    External (_PR_.CPU1, DeviceObj)
-    External (_PR_.CPU2, DeviceObj)
-    External (_PR_.CPU3, DeviceObj)
-    External (_PR_.CPU4, DeviceObj)
-    External (_PR_.CPU5, DeviceObj)
-    External (_PR_.CPU6, DeviceObj)
-    External (_PR_.CPU7, DeviceObj)
+    External (_PR_.CPU0, ProcessorObj)
+    External (_PR_.CPU0._PPC, IntObj)
+    External (_PR_.CPU1, ProcessorObj)
+    External (_PR_.CPU2, ProcessorObj)
+    External (_PR_.CPU3, ProcessorObj)
+    External (_PR_.CPU4, ProcessorObj)
+    External (_PR_.CPU5, ProcessorObj)
+    External (_PR_.CPU6, ProcessorObj)
+    External (_PR_.CPU7, ProcessorObj)
 
     Scope (\)
     {
@@ -137,14 +137,10 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
             CreateField (Arg0, 0x40, Multiply (Local1, 0x08), TEMP)
             Name (STS0, Buffer (0x04)
             {
-                 0x00, 0x00, 0x00, 0x00
+                 0x00, 0x00, 0x00, 0x00                         
             })
             Concatenate (STS0, TEMP, Local2)
-            Return (COSC (Buffer (0x10)
-                {
-                    /* 0000 */   0x16, 0xA6, 0x77, 0x40, 0x0C, 0x29, 0xBE, 0x47,
-                    /* 0008 */   0x9E, 0xBD, 0xD8, 0x70, 0x58, 0x71, 0x39, 0x53
-                }, REVS, SIZE, Local2))
+            Return (COSC (ToUUID ("4077a616-290c-47be-9ebd-d87058713953"), REVS, SIZE, Local2))
         }
 
         Method (COSC, 4, NotSerialized)
@@ -155,11 +151,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
             CreateDWordField (Arg0, 0x04, IID1)
             CreateDWordField (Arg0, 0x08, IID2)
             CreateDWordField (Arg0, 0x0C, IID3)
-            Name (UID0, Buffer (0x10)
-            {
-                /* 0000 */   0x16, 0xA6, 0x77, 0x40, 0x0C, 0x29, 0xBE, 0x47,
-                /* 0008 */   0x9E, 0xBD, 0xD8, 0x70, 0x58, 0x71, 0x39, 0x53
-            })
+            Name (UID0, ToUUID ("4077a616-290c-47be-9ebd-d87058713953"))
             CreateDWordField (UID0, Zero, EID0)
             CreateDWordField (UID0, 0x04, EID1)
             CreateDWordField (UID0, 0x08, EID2)

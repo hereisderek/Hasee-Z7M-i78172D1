@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20140214-64 [Mar 29 2014]
+ * AML Disassembler version 20140926-64 [Oct 16 2014]
  * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of ssdt5.dat, Sun Feb 15 07:13:03 2015
+ * Disassembly of ssdt5.dat, Sun Feb 15 17:36:58 2015
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -19,45 +19,47 @@
 DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
 {
     /*
-     * iASL Warning: There were 4 external control methods found during
-     * disassembly, but additional ACPI tables to resolve these externals
-     * were not specified. This resulting disassembler output file may not
-     * compile because the disassembler did not know how many arguments
-     * to assign to these methods. To specify the tables needed to resolve
-     * external control method references, the -e option can be used to
-     * specify the filenames. Example iASL invocations:
-     *     iasl -e ssdt1.aml ssdt2.aml ssdt3.aml -d dsdt.aml
-     *     iasl -e dsdt.aml ssdt2.aml -d ssdt1.aml
-     *     iasl -e ssdt*.aml -d dsdt.aml
+     * iASL Warning: There were 7 external control methods found during
+     * disassembly, but only 4 were resolved (3 unresolved). Additional
+     * ACPI tables may be required to properly disassemble the code. This
+     * resulting disassembler output file may not compile because the
+     * disassembler did not know how many arguments to assign to the
+     * unresolved methods.
      *
-     * In addition, the -fe option can be used to specify a file containing
+     * If necessary, the -fe option can be used to specify a file containing
      * control method external declarations with the associated method
      * argument counts. Each line of the file must be of the form:
      *     External (<method pathname>, MethodObj, <argument count>)
+     * Invocation:
+     *     iasl -fe refs.txt -d dsdt.aml
+     *
+     * The following methods were unresolved and many not compile properly
+     * because the disassembler had to guess at the number of arguments
+     * required for each:
      */
-    External (ADBG, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (GUAM, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (HDOS, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (HNOT, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
+    External (GUAM, MethodObj)    // Warning: Unresolved method, guessing 1 arguments
+    External (HDOS, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
+    External (HNOT, MethodObj)    // Warning: Unresolved method, guessing 1 arguments
 
     External (_SB_.PCI0, DeviceObj)
+    External (_SB_.PCI0.AR02, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECOK, IntObj)
-    External (_SB_.PCI0.LPCB.EC__.OEM2, IntObj)
-    External (_SB_.PCI0.LPCB.EC__.WINF)
-    External (_SB_.PEPD)
-    External (_SB_.WMI_)
-    External (_SB_.WMI_.EVNT)
+    External (_SB_.PCI0.LPCB.EC__.OEM2, FieldUnitObj)
+    External (_SB_.PCI0.LPCB.EC__.WINF, FieldUnitObj)
+    External (_SB_.PCI0.PR02, MethodObj)    // 0 Arguments
+    External (_SB_.PEPD, UnknownObj)
+    External (_SB_.WMI_, UnknownObj)
+    External (_SB_.WMI_.EVNT, IntObj)
     External (_SB_.WMI_.HKDR, IntObj)
-    External (AR02, IntObj)
-    External (DSEN)
-    External (GPRW, IntObj)
-    External (OSYS)
-    External (P80H)
+    External (ADBG, MethodObj)    // 1 Arguments
+    External (DSEN, FieldUnitObj)
+    External (GPRW, MethodObj)    // 2 Arguments
+    External (OSYS, FieldUnitObj)
+    External (P80H, FieldUnitObj)
     External (PICM, IntObj)
-    External (PNHM)
-    External (PR02, IntObj)
-    External (S0ID)
-    External (SCIS)
+    External (PNHM, FieldUnitObj)
+    External (S0ID, FieldUnitObj)
+    External (SCIS, FieldUnitObj)
 
     OperationRegion (SANV, SystemMemory, 0xC9792E18, 0x016D)
     Field (SANV, AnyAcc, Lock, Preserve)
@@ -198,9 +200,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
 
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
-                Return (GPRW)
-                0x09
-                0x04
+                Return (GPRW (0x09, 0x04))
             }
 
             Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
@@ -226,10 +226,10 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
             {
                 If (PICM)
                 {
-                    Return (AR02)
+                    Return (AR02 ())
                 }
 
-                Return (PR02)
+                Return (PR02 ())
             }
 
             Method (_INI, 0, NotSerialized)  // _INI: Initialize
@@ -253,11 +253,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                 While (One)
                 {
                     Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
-                            }))
+                    If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                     {
                         While (One)
                         {
@@ -294,16 +290,16 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                         Else
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                     }
@@ -342,7 +338,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
 
                 Return (Buffer (One)
                 {
-                     0x00
+                     0x00                                           
                 })
             }
 
@@ -351,9 +347,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                 Name (_ADR, Zero)  // _ADR: Address
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
-                    Return (GPRW)
-                    0x09
-                    0x04
+                    Return (GPRW (0x09, 0x04))
                 }
             }
         }

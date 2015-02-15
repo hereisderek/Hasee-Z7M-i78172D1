@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20140214-64 [Mar 29 2014]
+ * AML Disassembler version 20140926-64 [Oct 16 2014]
  * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of ssdt8.dat, Sun Feb 15 07:13:03 2015
+ * Disassembly of ssdt8.dat, Sun Feb 15 17:36:58 2015
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -19,19 +19,19 @@
 DefinitionBlock ("ssdt8.aml", "SSDT", 1, "PmRef", "Cpu0Cst", 0x00003001)
 {
 
-    External (_PR_.CPU0, DeviceObj)
-    External (C3LT, IntObj)
-    External (C3MW, IntObj)
-    External (C6LT, IntObj)
-    External (C6MW, IntObj)
-    External (C7LT, IntObj)
-    External (C7MW, IntObj)
-    External (CDLT, IntObj)
-    External (CDLV, IntObj)
-    External (CDMW, IntObj)
-    External (CDPW, IntObj)
-    External (CFGD)
-    External (PDC0)
+    External (_PR_.C3LT, FieldUnitObj)
+    External (_PR_.C3MW, FieldUnitObj)
+    External (_PR_.C6LT, FieldUnitObj)
+    External (_PR_.C6MW, FieldUnitObj)
+    External (_PR_.C7LT, FieldUnitObj)
+    External (_PR_.C7MW, FieldUnitObj)
+    External (_PR_.CDLT, FieldUnitObj)
+    External (_PR_.CDLV, FieldUnitObj)
+    External (_PR_.CDMW, FieldUnitObj)
+    External (_PR_.CDPW, FieldUnitObj)
+    External (_PR_.CFGD, FieldUnitObj)
+    External (_PR_.CPU0, ProcessorObj)
+    External (PDC0, IntObj)
 
     Scope (\_PR.CPU0)
     {

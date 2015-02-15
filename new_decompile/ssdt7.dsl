@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20140214-64 [Mar 29 2014]
+ * AML Disassembler version 20140926-64 [Oct 16 2014]
  * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of ssdt7.dat, Sun Feb 15 07:13:03 2015
+ * Disassembly of ssdt7.dat, Sun Feb 15 17:36:58 2015
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -18,64 +18,45 @@
  */
 DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 {
-    /*
-     * iASL Warning: There were 17 external control methods found during
-     * disassembly, but additional ACPI tables to resolve these externals
-     * were not specified. This resulting disassembler output file may not
-     * compile because the disassembler did not know how many arguments
-     * to assign to these methods. To specify the tables needed to resolve
-     * external control method references, the -e option can be used to
-     * specify the filenames. Example iASL invocations:
-     *     iasl -e ssdt1.aml ssdt2.aml ssdt3.aml -d dsdt.aml
-     *     iasl -e dsdt.aml ssdt2.aml -d ssdt1.aml
-     *     iasl -e ssdt*.aml -d dsdt.aml
-     *
-     * In addition, the -fe option can be used to specify a file containing
-     * control method external declarations with the associated method
-     * argument counts. Each line of the file must be of the form:
-     *     External (<method pathname>, MethodObj, <argument count>)
-     */
-    External (_SB_.PCI0.PEG0.PEGP.RPP0, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.PEG0.PEGP.SGOF, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.PEG0.PEGP.SGON, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.PEG0.PEGP.SGPE, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.PEG0.PEGP.SGST, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.PEG0.PEGP.SPP0, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (DSEL, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (EBAS, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (ESEL, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (NVGA, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (NVHA, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (P8XH, MethodObj)    // Warning: Unresolved Method, guessing 3 arguments (may be incorrect, see warning above)
-    External (PNOT, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (PSEL, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (SGOF, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (SGON, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (SGPO, MethodObj)    // Warning: Unresolved Method, guessing 2 arguments (may be incorrect, see warning above)
 
-    External (_PR_.CPU0)
+    External (_PR_.CPU0, ProcessorObj)
     External (_PR_.CPU0._PPC, IntObj)
-    External (_PR_.CPU0._PSS, IntObj)
-    External (_PR_.CPU0._PTC)
+    External (_PR_.CPU0._PSS, PkgObj)
+    External (_PR_.CPU0._PTC, UnknownObj)
     External (_PR_.CPU0._TSS, IntObj)
-    External (_SB_.OSCO)
+    External (_SB_.OSCO, IntObj)
     External (_SB_.PCI0, DeviceObj)
     External (_SB_.PCI0.GFX0, DeviceObj)
     External (_SB_.PCI0.GFX0._DSM, IntObj)
-    External (_SB_.PCI0.LPCB.EC__.GPUT)
-    External (_SB_.PCI0.LPCB.EC__.TMP_, IntObj)
+    External (_SB_.PCI0.LPCB.EC__.GPUT, FieldUnitObj)
+    External (_SB_.PCI0.LPCB.EC__.TMP_, FieldUnitObj)
     External (_SB_.PCI0.PEG0, DeviceObj)
-    External (_SB_.PCI0.PEG0.ATID)
-    External (_SB_.PCI0.PEG0.CMDR, IntObj)
-    External (_SB_.PCI0.PEG0.D0ST)
-    External (_SB_.PCI0.PEG0.LNKD)
-    External (_SB_.PCI0.PEG0.NVID)
+    External (_SB_.PCI0.PEG0.ATID, FieldUnitObj)
+    External (_SB_.PCI0.PEG0.CMDR, FieldUnitObj)
+    External (_SB_.PCI0.PEG0.D0ST, FieldUnitObj)
+    External (_SB_.PCI0.PEG0.LNKD, FieldUnitObj)
+    External (_SB_.PCI0.PEG0.NVID, FieldUnitObj)
     External (_SB_.PCI0.PEG0.PEGP, DeviceObj)
-    External (_SB_.PCI0.PEG0.PEGP.GFBE)
-    External (_SB_.PCI0.PEG0.VEID)
-    External (HYSS, IntObj)
-    External (P80H)
-    External (SGPI, IntObj)
+    External (_SB_.PCI0.PEG0.PEGP.GFBE, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.RPP0, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.SGOF, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.SGON, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.SGPE, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.SGPI, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.SGST, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.SPP0, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.VEID, FieldUnitObj)
+    External (DSEL, FieldUnitObj)
+    External (EBAS, FieldUnitObj)
+    External (ESEL, FieldUnitObj)
+    External (HYSS, FieldUnitObj)
+    External (NVGA, FieldUnitObj)
+    External (NVHA, FieldUnitObj)
+    External (P80H, FieldUnitObj)
+    External (P8XH, MethodObj)    // 2 Arguments
+    External (PNOT, MethodObj)    // 0 Arguments
+    External (PSEL, FieldUnitObj)
 
     Scope (\_SB.PCI0)
     {
@@ -84,34 +65,38 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
     Scope (\_SB.PCI0.PEG0.PEGP)
     {
-        OperationRegion (PCI2, SystemMemory, EBAS (0x0500), Field (PCI2, DWordAcc, Lock, Preserve)
-            {
-                Offset (0x04), 
-                CMDR,   32, 
-                VGAR,   1984, 
-                Offset (0x488), 
-                    ,   25, 
-                NHDM,   1
-            })
+        OperationRegion (PCI2, SystemMemory, EBAS, 0x0500)
+        Field (PCI2, DWordAcc, Lock, Preserve)
+        {
+            Offset (0x04), 
+            CMDR,   32, 
+            VGAR,   1984, 
+            Offset (0x488), 
+                ,   25, 
+            NHDM,   1
+        }
+
         Name (VGAB, Buffer (0xF8)
         {
-             0x00
+             0x00                                           
         })
         Name (GPRF, Zero)
-        OperationRegion (NVHM, SystemMemory, NVHA (0x00020400), Field (NVHM, DWordAcc, NoLock, Preserve)
-            {
-                NVSG,   128, 
-                NVSZ,   32, 
-                NVVR,   32, 
-                NVHO,   32, 
-                RVBS,   32, 
-                RBF1,   262144, 
-                RBF2,   262144, 
-                RBF3,   262144, 
-                RBF4,   262144, 
-                MXML,   32, 
-                MXM3,   1600
-            })
+        OperationRegion (NVHM, SystemMemory, NVHA, 0x00020400)
+        Field (NVHM, DWordAcc, NoLock, Preserve)
+        {
+            NVSG,   128, 
+            NVSZ,   32, 
+            NVVR,   32, 
+            NVHO,   32, 
+            RVBS,   32, 
+            RBF1,   262144, 
+            RBF2,   262144, 
+            RBF3,   262144, 
+            RBF4,   262144, 
+            MXML,   32, 
+            MXM3,   1600
+        }
+
         Name (OPCE, 0x02)
         Name (OPTF, One)
         Name (DGPS, Zero)
@@ -161,7 +146,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         {
             If (LEqual (Arg0, Zero))
             {
-                SGPO (ESEL (One), Return (One))
+                SGPO (ESEL, One)
+                Return (One)
             }
 
             If (LEqual (Arg0, One))
@@ -171,23 +157,25 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
             If (LEqual (Arg0, 0x02))
             {
-                Return (SGPI)
-                ESEL (Return (Zero))
+                Return (SGPI (ESEL))
             }
+
+            Return (Zero)
         }
 
         Method (MXDS, 1, Serialized)
         {
             If (LEqual (Arg0, Zero))
             {
-                Return (SGPI)
-                DSEL ()
+                Return (SGPI (DSEL))
             }
             Else
             {
-                SGPO (DSEL (), One)
-                SGPO (PSEL (One), Return (Zero))
+                SGPO (DSEL, One)
+                SGPO (PSEL, One)
             }
+
+            Return (Zero)
         }
 
         Method (_ROM, 2, NotSerialized)  // _ROM: Read-Only Memory
@@ -203,18 +191,18 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
             {
                 Return (Buffer (Local1)
                 {
-                     0x00
+                     0x00                                           
                 })
             }
 
             Multiply (Local1, 0x08, Local3)
             Name (ROM1, Buffer (0x8000)
             {
-                 0x00
+                 0x00                                           
             })
             Name (ROM2, Buffer (Local1)
             {
-                 0x00
+                 0x00                                           
             })
             If (LLess (Local0, 0x8000))
             {
@@ -305,18 +293,14 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
             Return (Buffer (0x08)
             {
-                 0x00
+                 0x00                                           
             })
         }
 
         Method (HDSM, 4, Serialized)
         {
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            If (LEqual (Arg0, Buffer (0x10)
-                    {
-                        /* 0000 */   0x00, 0xA4, 0x04, 0x40, 0x7D, 0x91, 0xF2, 0x4C,
-                        /* 0008 */   0xB8, 0x9C, 0x79, 0xB6, 0x2F, 0xD5, 0x56, 0x65
-                    }))
+            If (LEqual (Arg0, ToUUID ("4004a400-917d-4cf2-b89c-79b62fd55665")))
             {
                 While (One)
                 {
@@ -325,7 +309,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     {
                         Return (Buffer (0x04)
                         {
-                             0x01, 0x00, 0x01, 0x01
+                             0x01, 0x00, 0x01, 0x01                         
                         })
                     }
                     Else
@@ -340,10 +324,10 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                             {
                                 Name (MXM3, Buffer (0x1D)
                                 {
-                                    /* 0000 */   0x4D, 0x58, 0x4D, 0x5F, 0x03, 0x00, 0x15, 0x00,
-                                    /* 0008 */   0x00, 0xFF, 0x09, 0xF0, 0xF9, 0x3E, 0x00, 0x00,
-                                    /* 0010 */   0x01, 0x1A, 0x04, 0x00, 0x03, 0x03, 0xF4, 0x01,
-                                    /* 0018 */   0x13, 0x02, 0xE8, 0x03, 0x4E
+                                    /* 0000 */  0x4D, 0x58, 0x4D, 0x5F, 0x03, 0x00, 0x15, 0x00,
+                                    /* 0008 */  0x00, 0xFF, 0x09, 0xF0, 0xF9, 0x3E, 0x00, 0x00,
+                                    /* 0010 */  0x01, 0x1A, 0x04, 0x00, 0x03, 0x03, 0xF4, 0x01,
+                                    /* 0018 */  0x13, 0x02, 0xE8, 0x03, 0x4E                   
                                 })
                                 Return (MXM3)
                             }
@@ -368,7 +352,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Name (CTXT, Zero)
         Method (_ON, 0, Serialized)  // _ON_: Power On
         {
-            P8XH (Zero, 0x78, SGON ())
+            P8XH (Zero, 0x78)
+            SGON ()
             Store (Zero, CMDR)
             Store (VGAB, VGAR)
             Store (0x00100006, CMDR)
@@ -380,54 +365,50 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (_OFF, 0, Serialized)  // _OFF: Power Off
         {
-            P8XH (Zero, 0x76, If (LEqual (CTXT, Zero))
-                {
-                    Store (VGAR, VGAB)
-                    Store (One, CTXT)
-                })
+            P8XH (Zero, 0x76)
+            If (LEqual (CTXT, Zero))
+            {
+                Store (VGAR, VGAB)
+                Store (One, CTXT)
+            }
+
             SGOF ()
         }
     }
 
     Scope (\_SB.PCI0.GFX0)
     {
-        OperationRegion (NVIG, SystemMemory, NVGA (0x0400), Field (NVIG, DWordAcc, NoLock, Preserve)
-            {
-                NISG,   128, 
-                NISZ,   32, 
-                NIVR,   32, 
-                GPSS,   32, 
-                GACD,   16, 
-                GATD,   16, 
-                LDES,   8, 
-                DKST,   8, 
-                DACE,   8, 
-                DHPE,   8, 
-                DHPS,   8, 
-                SGNC,   8, 
-                GPPO,   8, 
-                USPM,   8, 
-                GPSP,   8, 
-                TLSN,   8, 
-                DOSF,   8, 
-                ELCL,   16
-            })
+        OperationRegion (NVIG, SystemMemory, NVGA, 0x0400)
+        Field (NVIG, DWordAcc, NoLock, Preserve)
+        {
+            NISG,   128, 
+            NISZ,   32, 
+            NIVR,   32, 
+            GPSS,   32, 
+            GACD,   16, 
+            GATD,   16, 
+            LDES,   8, 
+            DKST,   8, 
+            DACE,   8, 
+            DHPE,   8, 
+            DHPS,   8, 
+            SGNC,   8, 
+            GPPO,   8, 
+            USPM,   8, 
+            GPSP,   8, 
+            TLSN,   8, 
+            DOSF,   8, 
+            ELCL,   16
+        }
+
         Method (HDSM, 4, Serialized)
         {
-            If (LEqual (Arg0, Buffer (0x10)
-                    {
-                        /* 0000 */   0x01, 0x2D, 0x13, 0xA3, 0xDA, 0x8C, 0xBA, 0x49,
-                        /* 0008 */   0xA5, 0x2E, 0xBC, 0x9D, 0x46, 0xDF, 0x6B, 0x81
-                    }))
+            If (LEqual (Arg0, ToUUID ("a3132d01-8cda-49ba-a52e-bc9d46df6b81")))
             {
                 Return (\_SB.PCI0.PEG0.PEGP.GPS (Arg0, Arg1, Arg2, Arg3))
             }
 
-            If (LEqual (Arg0, Buffer (0x10)
-                    {
-                        /* 0000 */   0x51, 0xA3, 0xEC, 0xCB, 0x7B, 0x06, 0x24, 0x49,
-                        /* 0008 */   0x9C, 0xBD, 0xB4, 0x6B, 0x00, 0xB8, 0x6F, 0x34
-                    }))
+            If (LEqual (Arg0, ToUUID ("cbeca351-067b-4924-9cbd-b46b00b86f34")))
             {
                 Return (\_SB.PCI0.PEG0.PEGP.NGC6 (Arg0, Arg1, Arg2, Arg3))
             }
@@ -436,11 +417,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
             Name (NBCI, Zero)
             Name (OPCI, Zero)
             Name (BUFF, Zero)
-            If (LEqual (Arg0, Buffer (0x10)
-                    {
-                        /* 0000 */   0xF8, 0xD8, 0x86, 0xA4, 0xDA, 0x0B, 0x1B, 0x47,
-                        /* 0008 */   0xA7, 0x2B, 0x60, 0x42, 0xA6, 0xB5, 0xBE, 0xE0
-                    }))
+            If (LEqual (Arg0, ToUUID ("a486d8f8-0bda-471b-a72b-6042a6b5bee0")))
             {
                 Store (One, OPCI)
             }
@@ -468,7 +445,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     {
                         Return (Buffer (0x04)
                         {
-                             0x7F, 0x00, 0x04, 0x00
+                             0x7F, 0x00, 0x04, 0x00                         
                         })
                     }
                     Else
@@ -477,7 +454,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                         {
                             Return (Buffer (0x04)
                             {
-                                 0x73, 0x00, 0x04, 0x00
+                                 0x73, 0x00, 0x04, 0x00                         
                             })
                         }
                         Else
@@ -486,7 +463,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                             {
                                 Return (Buffer (0x04)
                                 {
-                                     0x01, 0x18, 0x03, 0x0C
+                                     0x01, 0x18, 0x03, 0x0C                         
                                 })
                             }
                         }
@@ -497,7 +474,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                 {
                     Name (TEMP, Buffer (0x04)
                     {
-                         0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00                         
                     })
                     CreateDWordField (TEMP, Zero, STS0)
                     If (SGCI)
@@ -517,7 +494,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                 {
                     Name (TMP1, Buffer (0x04)
                     {
-                         0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00                         
                     })
                     CreateDWordField (TMP1, Zero, STS1)
                     ToInteger (Arg3, Local0)
@@ -548,7 +525,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                 {
                     Name (TMP2, Buffer (0x04)
                     {
-                         0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00                         
                     })
                     CreateDWordField (TMP2, Zero, STS2)
                     ToInteger (Arg3, Local0)
@@ -580,7 +557,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                 {
                     Name (TMP3, Buffer (0x04)
                     {
-                         0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00                         
                     })
                     CreateDWordField (TMP3, Zero, STS3)
                     ToInteger (Arg3, Local0)
@@ -611,35 +588,35 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     CreateWordField (Arg3, 0x02, USRG)
                     Name (OPVK, Buffer (0xE6)
                     {
-                        /* 0000 */   0xE4, 0x42, 0x5F, 0x14, 0x36, 0x26, 0x16, 0x37,
-                        /* 0008 */   0x4B, 0x56, 0xE6, 0x00, 0x00, 0x00, 0x01, 0x00,
-                        /* 0010 */   0x31, 0x34, 0x38, 0x35, 0x39, 0x37, 0x34, 0x35,
-                        /* 0018 */   0x36, 0x39, 0x38, 0x35, 0x47, 0x65, 0x6E, 0x75,
-                        /* 0020 */   0x69, 0x6E, 0x65, 0x20, 0x4E, 0x56, 0x49, 0x44,
-                        /* 0028 */   0x49, 0x41, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69,
-                        /* 0030 */   0x66, 0x69, 0x65, 0x64, 0x20, 0x4F, 0x70, 0x74,
-                        /* 0038 */   0x69, 0x6D, 0x75, 0x73, 0x20, 0x52, 0x65, 0x61,
-                        /* 0040 */   0x64, 0x79, 0x20, 0x4D, 0x6F, 0x74, 0x68, 0x65,
-                        /* 0048 */   0x72, 0x62, 0x6F, 0x61, 0x72, 0x64, 0x20, 0x66,
-                        /* 0050 */   0x6F, 0x72, 0x20, 0x37, 0x33, 0x36, 0x30, 0x31,
-                        /* 0058 */   0x39, 0x5F, 0x4D, 0x49, 0x52, 0x63, 0x20, 0x20,
-                        /* 0060 */   0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-                        /* 0068 */   0x2D, 0x20, 0x3C, 0x34, 0x27, 0x21, 0x58, 0x29,
-                        /* 0070 */   0x57, 0x27, 0x58, 0x20, 0x27, 0x25, 0x59, 0x5D,
-                        /* 0078 */   0x31, 0x29, 0x3A, 0x2A, 0x26, 0x39, 0x59, 0x43,
-                        /* 0080 */   0x56, 0x3B, 0x58, 0x56, 0x58, 0x3D, 0x59, 0x4E,
-                        /* 0088 */   0x3B, 0x3A, 0x35, 0x44, 0x25, 0x42, 0x5A, 0x48,
-                        /* 0090 */   0x55, 0x3A, 0x58, 0x4C, 0x25, 0x48, 0x54, 0x21,
-                        /* 0098 */   0x35, 0x4B, 0x4D, 0x37, 0x2C, 0x3C, 0x20, 0x2D,
-                        /* 00A0 */   0x20, 0x43, 0x6F, 0x70, 0x79, 0x72, 0x69, 0x67,
-                        /* 00A8 */   0x68, 0x74, 0x20, 0x32, 0x30, 0x31, 0x30, 0x20,
-                        /* 00B0 */   0x4E, 0x56, 0x49, 0x44, 0x49, 0x41, 0x20, 0x43,
-                        /* 00B8 */   0x6F, 0x72, 0x70, 0x6F, 0x72, 0x61, 0x74, 0x69,
-                        /* 00C0 */   0x6F, 0x6E, 0x20, 0x41, 0x6C, 0x6C, 0x20, 0x52,
-                        /* 00C8 */   0x69, 0x67, 0x68, 0x74, 0x73, 0x20, 0x52, 0x65,
-                        /* 00D0 */   0x73, 0x65, 0x72, 0x76, 0x65, 0x64, 0x2D, 0x31,
-                        /* 00D8 */   0x34, 0x38, 0x35, 0x39, 0x37, 0x34, 0x35, 0x36,
-                        /* 00E0 */   0x39, 0x38, 0x35, 0x28, 0x52, 0x29
+                        /* 0000 */  0xE4, 0x42, 0x5F, 0x14, 0x36, 0x26, 0x16, 0x37,
+                        /* 0008 */  0x4B, 0x56, 0xE6, 0x00, 0x00, 0x00, 0x01, 0x00,
+                        /* 0010 */  0x31, 0x34, 0x38, 0x35, 0x39, 0x37, 0x34, 0x35,
+                        /* 0018 */  0x36, 0x39, 0x38, 0x35, 0x47, 0x65, 0x6E, 0x75,
+                        /* 0020 */  0x69, 0x6E, 0x65, 0x20, 0x4E, 0x56, 0x49, 0x44,
+                        /* 0028 */  0x49, 0x41, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69,
+                        /* 0030 */  0x66, 0x69, 0x65, 0x64, 0x20, 0x4F, 0x70, 0x74,
+                        /* 0038 */  0x69, 0x6D, 0x75, 0x73, 0x20, 0x52, 0x65, 0x61,
+                        /* 0040 */  0x64, 0x79, 0x20, 0x4D, 0x6F, 0x74, 0x68, 0x65,
+                        /* 0048 */  0x72, 0x62, 0x6F, 0x61, 0x72, 0x64, 0x20, 0x66,
+                        /* 0050 */  0x6F, 0x72, 0x20, 0x37, 0x33, 0x36, 0x30, 0x31,
+                        /* 0058 */  0x39, 0x5F, 0x4D, 0x49, 0x52, 0x63, 0x20, 0x20,
+                        /* 0060 */  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+                        /* 0068 */  0x2D, 0x20, 0x3C, 0x34, 0x27, 0x21, 0x58, 0x29,
+                        /* 0070 */  0x57, 0x27, 0x58, 0x20, 0x27, 0x25, 0x59, 0x5D,
+                        /* 0078 */  0x31, 0x29, 0x3A, 0x2A, 0x26, 0x39, 0x59, 0x43,
+                        /* 0080 */  0x56, 0x3B, 0x58, 0x56, 0x58, 0x3D, 0x59, 0x4E,
+                        /* 0088 */  0x3B, 0x3A, 0x35, 0x44, 0x25, 0x42, 0x5A, 0x48,
+                        /* 0090 */  0x55, 0x3A, 0x58, 0x4C, 0x25, 0x48, 0x54, 0x21,
+                        /* 0098 */  0x35, 0x4B, 0x4D, 0x37, 0x2C, 0x3C, 0x20, 0x2D,
+                        /* 00A0 */  0x20, 0x43, 0x6F, 0x70, 0x79, 0x72, 0x69, 0x67,
+                        /* 00A8 */  0x68, 0x74, 0x20, 0x32, 0x30, 0x31, 0x30, 0x20,
+                        /* 00B0 */  0x4E, 0x56, 0x49, 0x44, 0x49, 0x41, 0x20, 0x43,
+                        /* 00B8 */  0x6F, 0x72, 0x70, 0x6F, 0x72, 0x61, 0x74, 0x69,
+                        /* 00C0 */  0x6F, 0x6E, 0x20, 0x41, 0x6C, 0x6C, 0x20, 0x52,
+                        /* 00C8 */  0x69, 0x67, 0x68, 0x74, 0x73, 0x20, 0x52, 0x65,
+                        /* 00D0 */  0x73, 0x65, 0x72, 0x76, 0x65, 0x64, 0x2D, 0x31,
+                        /* 00D8 */  0x34, 0x38, 0x35, 0x39, 0x37, 0x34, 0x35, 0x36,
+                        /* 00E0 */  0x39, 0x38, 0x35, 0x28, 0x52, 0x29             
                     })
                     If (LEqual (USRG, 0x564B))
                     {
@@ -659,39 +636,15 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     Return (Package (0x0A)
                     {
                         0xD0, 
-                        Buffer (0x10)
-                        {
-                            /* 0000 */   0x40, 0x2F, 0x1A, 0x92, 0xC4, 0x0D, 0x2D, 0x40,
-                            /* 0008 */   0xAC, 0x18, 0xB4, 0x84, 0x44, 0xEF, 0x9E, 0xD2
-                        }, 
-
+                        ToUUID ("921a2f40-0dc4-402d-ac18-b48444ef9ed2"), 
                         0xD9, 
-                        Buffer (0x10)
-                        {
-                            /* 0000 */   0x61, 0xD3, 0x2A, 0xC1, 0xA9, 0x9F, 0x74, 0x4C,
-                            /* 0008 */   0x90, 0x1F, 0x95, 0xCB, 0x09, 0x45, 0xCF, 0x3E
-                        }, 
-
+                        ToUUID ("c12ad361-9fa9-4c74-901f-95cb0945cf3e"), 
                         0xDB, 
-                        Buffer (0x10)
-                        {
-                            /* 0000 */   0x06, 0x80, 0x84, 0x42, 0x86, 0x88, 0x0E, 0x49,
-                            /* 0008 */   0x8C, 0x72, 0x2B, 0xDC, 0xA9, 0x3A, 0x8A, 0x09
-                        }, 
-
+                        ToUUID ("42848006-8886-490e-8c72-2bdca93a8a09"), 
                         0xEF, 
-                        Buffer (0x10)
-                        {
-                            /* 0000 */   0xD2, 0x85, 0xE4, 0xB3, 0xC1, 0x3C, 0x54, 0x4B,
-                            /* 0008 */   0x8F, 0x31, 0x77, 0xBA, 0x2F, 0xDC, 0x9E, 0xBE
-                        }, 
-
+                        ToUUID ("b3e485d2-3cc1-4b54-8f31-77ba2fdc9ebe"), 
                         0xF0, 
-                        Buffer (0x10)
-                        {
-                            /* 0000 */   0xB6, 0x6F, 0x0D, 0x36, 0x4E, 0x1D, 0xA6, 0x4F,
-                            /* 0008 */   0xB8, 0x48, 0x1B, 0xE3, 0x3D, 0xD8, 0xEC, 0x7B
-                        }
+                        ToUUID ("360d6fb6-1d4e-4fa6-b848-1be33dd8ec7b")
                     })
                 }
 
@@ -708,7 +661,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                     Store (Buffer (0x04)
                         {
-                             0x00, 0x00, 0x00, 0x00
+                             0x00, 0x00, 0x00, 0x00                         
                         }, Local0)
                     CreateField (Local0, Zero, One, OPEN)
                     CreateField (Local0, 0x03, 0x02, CGCS)
@@ -808,11 +761,11 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                 {
                     Name (FMSK, Buffer (0x08)
                     {
-                         0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+                         0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF 
                     })
                     Store (Buffer (0x08)
                         {
-                             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                         }, Local0)
                     Divide (Zero, 0x08, Local2, Local1)
                     ShiftLeft (One, Local2, Local2)
@@ -1097,7 +1050,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Name (MOCD, Zero)
         Name (TGPC, Buffer (0x04)
         {
-             0x00, 0x00, 0x00, 0x00
+             0x00, 0x00, 0x00, 0x00                         
         })
         Name (TDGC, Zero)
         Name (DGCX, Zero)
@@ -1114,14 +1067,14 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Method (GC6O, 0, Serialized)
         {
             Store ("<<< GC6O >>>", Debug)
-            While (LNotEqual (\_SB.PCI0.PEG0.PEGP.GFBE, One))
+            While (LNotEqual (\_SB.PCI0.PEG0.PEGP.GFBE (), One))
             {
                 Sleep (One)
             }
 
             \_SB.PCI0.PEG0.PEGP.SGPE (Zero)
             Store (Zero, \_SB.PCI0.PEG0.LNKD)
-            While (LNotEqual (\_SB.PCI0.PEG0.PEGP.GFBE, Zero))
+            While (LNotEqual (\_SB.PCI0.PEG0.PEGP.GFBE (), Zero))
             {
                 Sleep (One)
             }
@@ -1134,7 +1087,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Method (GETS, 0, Serialized)
         {
             Sleep (0x10)
-            If (LEqual (\_SB.PCI0.PEG0.PEGP.GFBE, One))
+            If (LEqual (\_SB.PCI0.PEG0.PEGP.GFBE (), One))
             {
                 Store ("<<< GETS() return 0x3 >>>", Debug)
                 Return (0x03)
@@ -1162,7 +1115,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                 {
                     Return (Buffer (0x04)
                     {
-                         0x1B, 0x00, 0x00, 0x00
+                         0x1B, 0x00, 0x00, 0x00                         
                     })
                 }
                 Else
@@ -1171,7 +1124,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     {
                         Name (JTB1, Buffer (0x04)
                         {
-                             0x00, 0x00, 0x00, 0x00
+                             0x00, 0x00, 0x00, 0x00                         
                         })
                         CreateField (JTB1, Zero, One, JTEN)
                         CreateField (JTB1, One, 0x02, SREN)
@@ -1224,7 +1177,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                                 Name (JTB3, Buffer (0x04)
                                 {
-                                     0x00, 0x00, 0x00, 0x00
+                                     0x00, 0x00, 0x00, 0x00                         
                                 })
                                 CreateField (JTB3, Zero, 0x03, GUPS)
                                 CreateField (JTB3, 0x03, One, GPGS)
@@ -1480,9 +1433,9 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
             Name (_UID, "OPT1")  // _UID: Unique ID
             Name (_WDG, Buffer (0x14)
             {
-                /* 0000 */   0x3C, 0x5C, 0xCB, 0xF6, 0xAE, 0x9C, 0xBD, 0x4E,
-                /* 0008 */   0xB5, 0x77, 0x93, 0x1E, 0xA3, 0x2A, 0x2C, 0xC0,
-                /* 0010 */   0x4D, 0x58, 0x01, 0x02
+                /* 0000 */  0x3C, 0x5C, 0xCB, 0xF6, 0xAE, 0x9C, 0xBD, 0x4E,
+                /* 0008 */  0xB5, 0x77, 0x93, 0x1E, 0xA3, 0x2A, 0x2C, 0xC0,
+                /* 0010 */  0x4D, 0x58, 0x01, 0x02                         
             })
             Method (WMMX, 3, NotSerialized)
             {

@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20140214-64 [Mar 29 2014]
+ * AML Disassembler version 20140926-64 [Oct 16 2014]
  * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of dsdt.dat, Sun Feb 15 07:13:03 2015
+ * Disassembly of dsdt.dat, Sun Feb 15 17:36:58 2015
  *
  * Original Table Header:
  *     Signature        "DSDT"
@@ -20,78 +20,80 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 {
     /*
      * iASL Warning: There were 10 external control methods found during
-     * disassembly, but additional ACPI tables to resolve these externals
-     * were not specified. This resulting disassembler output file may not
-     * compile because the disassembler did not know how many arguments
-     * to assign to these methods. To specify the tables needed to resolve
-     * external control method references, the -e option can be used to
-     * specify the filenames. Example iASL invocations:
-     *     iasl -e ssdt1.aml ssdt2.aml ssdt3.aml -d dsdt.aml
-     *     iasl -e dsdt.aml ssdt2.aml -d ssdt1.aml
-     *     iasl -e ssdt*.aml -d dsdt.aml
+     * disassembly, but only 3 were resolved (7 unresolved). Additional
+     * ACPI tables may be required to properly disassemble the code. This
+     * resulting disassembler output file may not compile because the
+     * disassembler did not know how many arguments to assign to the
+     * unresolved methods.
      *
-     * In addition, the -fe option can be used to specify a file containing
+     * If necessary, the -fe option can be used to specify a file containing
      * control method external declarations with the associated method
      * argument counts. Each line of the file must be of the form:
      *     External (<method pathname>, MethodObj, <argument count>)
+     * Invocation:
+     *     iasl -fe refs.txt -d dsdt.aml
+     *
+     * The following methods were unresolved and many not compile properly
+     * because the disassembler had to guess at the number of arguments
+     * required for each:
      */
-    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.GFX0.PDDS, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.PEG0.HPME, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.PEG0.PEGP.EPON, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.PEG1.HPME, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.PEG2.HPME, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.RP05.PEGP.EPON, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.TPM_.PTS_, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (PS0X, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (PS3X, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.GFX0.PDDS, MethodObj)    // Warning: Unresolved method, guessing 1 arguments
+    External (_SB_.PCI0.PEG1.HPME, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
+    External (_SB_.PCI0.PEG2.HPME, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
+    External (_SB_.PCI0.RP05.PEGP.EPON, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
+    External (_SB_.TPM_.PTS_, MethodObj)    // Warning: Unresolved method, guessing 1 arguments
+    External (PS0X, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
+    External (PS3X, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
 
-    External (_PR_.CFGD)
+    External (_PR_.CFGD, FieldUnitObj)
     External (_PR_.CPU0._PPC, IntObj)
-    External (_PR_.CPU0._PSS, IntObj)
-    External (_SB_.IAOE.AWT0)
-    External (_SB_.IAOE.AWT1)
-    External (_SB_.IAOE.AWT2)
+    External (_PR_.CPU0._PSS, PkgObj)
+    External (_SB_.IAOE.AWT0, UnknownObj)
+    External (_SB_.IAOE.AWT1, UnknownObj)
+    External (_SB_.IAOE.AWT2, UnknownObj)
     External (_SB_.IAOE.ECTM, IntObj)
-    External (_SB_.IAOE.FFSE)
-    External (_SB_.IAOE.IBT1)
+    External (_SB_.IAOE.FFSE, UnknownObj)
+    External (_SB_.IAOE.IBT1, UnknownObj)
     External (_SB_.IAOE.ITMR, IntObj)
-    External (_SB_.IAOE.PTSL)
+    External (_SB_.IAOE.PTSL, UnknownObj)
     External (_SB_.IAOE.RCTM, IntObj)
     External (_SB_.IAOE.WTMS, IntObj)
-    External (_SB_.IETM)
-    External (_SB_.IFFS.FFSS)
-    External (_SB_.IFFS.FFST)
-    External (_SB_.IFFS.GFFS)
-    External (_SB_.IFFS.GFTV)
-    External (_SB_.PCCD)
-    External (_SB_.PCCD.PENB)
-    External (_SB_.PCI0.B0D3.ABAR, IntObj)
-    External (_SB_.PCI0.B0D3.BARA)
-    External (_SB_.PCI0.GFX0.CLID)
-    External (_SB_.PCI0.GFX0.GSSE)
-    External (_SB_.PCI0.GFX0.LCD0)
-    External (_SB_.PCI0.GFX0.SKIP)
-    External (_SB_.PCI0.PEG0)
-    External (_SB_.PCI0.PEG0.PEGP)
-    External (_SB_.PCI0.PEG0.PEGP.LCD0)
-    External (_SB_.PCI0.PEG0.PEGP.NHDM)
-    External (_SB_.PCI0.PEG1)
-    External (_SB_.PCI0.PEG2)
-    External (GFX0)
-    External (GSMI)
-    External (LIDS, IntObj)
+    External (_SB_.IETM, UnknownObj)
+    External (_SB_.IFFS.FFSS, UnknownObj)
+    External (_SB_.IFFS.FFST, UnknownObj)
+    External (_SB_.IFFS.GFFS, UnknownObj)
+    External (_SB_.IFFS.GFTV, UnknownObj)
+    External (_SB_.PCCD, UnknownObj)
+    External (_SB_.PCCD.PENB, UnknownObj)
+    External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
+    External (_SB_.PCI0.B0D3.BARA, IntObj)
+    External (_SB_.PCI0.GFX0, UnknownObj)
+    External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
+    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
+    External (_SB_.PCI0.GFX0.LCD0, UnknownObj)
+    External (_SB_.PCI0.GFX0.SKIP, UnknownObj)
+    External (_SB_.PCI0.PEG0, UnknownObj)
+    External (_SB_.PCI0.PEG0.HPME, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.PEGP, UnknownObj)
+    External (_SB_.PCI0.PEG0.PEGP.EPON, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.LCD0, UnknownObj)
+    External (_SB_.PCI0.PEG0.PEGP.NHDM, FieldUnitObj)
+    External (_SB_.PCI0.PEG1, UnknownObj)
+    External (_SB_.PCI0.PEG2, UnknownObj)
+    External (GSMI, FieldUnitObj)
+    External (LIDS, FieldUnitObj)
     External (MDBG, IntObj)
-    External (NVHA)
-    External (PDC0)
-    External (PDC1)
-    External (PDC2)
-    External (PDC3)
-    External (PDC4)
-    External (PDC5)
-    External (PDC6)
-    External (PDC7)
-    External (SGMD)
+    External (NVHA, FieldUnitObj)
+    External (PDC0, IntObj)
+    External (PDC1, IntObj)
+    External (PDC2, IntObj)
+    External (PDC3, IntObj)
+    External (PDC4, IntObj)
+    External (PDC5, IntObj)
+    External (PDC6, IntObj)
+    External (PDC7, IntObj)
+    External (SGMD, FieldUnitObj)
 
     Name (SMBS, 0x0580)
     Name (SMBL, 0x20)
@@ -2184,11 +2186,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Return (BUF0)
             }
 
-            Name (GUID, Buffer (0x10)
-            {
-                /* 0000 */   0x5B, 0x4D, 0xDB, 0x33, 0xF7, 0x1F, 0x1C, 0x40,
-                /* 0008 */   0x96, 0x57, 0x74, 0x41, 0xC0, 0x3D, 0xD7, 0x66
-            })
+            Name (GUID, ToUUID ("33db4d5b-1ff7-401c-9657-7441c03dd766") /* PCI Host Bridge Device */)
             Name (SUPP, Zero)
             Name (CTRL, Zero)
             Name (XCNT, Zero)
@@ -2490,11 +2488,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     While (One)
                     {
                         Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, Buffer (0x10)
-                                {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
-                                }))
+                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
@@ -2519,8 +2513,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                     }
@@ -2545,7 +2539,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -2682,11 +2676,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     While (One)
                     {
                         Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, Buffer (0x10)
-                                {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
-                                }))
+                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
@@ -2711,8 +2701,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                     }
@@ -2737,7 +2727,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -2874,11 +2864,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     While (One)
                     {
                         Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, Buffer (0x10)
-                                {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
-                                }))
+                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
@@ -2903,8 +2889,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                     }
@@ -2929,7 +2915,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -3066,11 +3052,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     While (One)
                     {
                         Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, Buffer (0x10)
-                                {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
-                                }))
+                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
@@ -3095,8 +3077,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                     }
@@ -3121,7 +3103,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -3258,11 +3240,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     While (One)
                     {
                         Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, Buffer (0x10)
-                                {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
-                                }))
+                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
@@ -3287,8 +3265,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                     }
@@ -3313,7 +3291,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -3450,11 +3428,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     While (One)
                     {
                         Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, Buffer (0x10)
-                                {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
-                                }))
+                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
@@ -3479,8 +3453,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                     }
@@ -3505,7 +3479,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -3642,11 +3616,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     While (One)
                     {
                         Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, Buffer (0x10)
-                                {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
-                                }))
+                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
@@ -3671,8 +3641,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                     }
@@ -3697,7 +3667,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -3834,11 +3804,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     While (One)
                     {
                         Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, Buffer (0x10)
-                                {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
-                                }))
+                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
@@ -3863,8 +3829,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         {
                                             Return (Buffer (0x10)
                                             {
-                                                /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                             })
                                         }
                                     }
@@ -3889,7 +3855,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -3945,6 +3911,127 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Return (PR0F ())
                 }
             }
+
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
+            Zero
             Device (B0D4)
             {
                 Name (_ADR, 0x00040000)  // _ADR: Address
@@ -5740,8 +5827,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Return (PLDP)
@@ -5768,8 +5855,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -5797,8 +5884,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -5828,8 +5915,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 {
                                     Buffer (0x10)
                                     {
-                                        /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                        /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                        /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                        /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                     }
                                 })
                             }
@@ -5838,8 +5925,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                         }
@@ -5868,8 +5955,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 {
                                     Buffer (0x10)
                                     {
-                                        /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                        /* 0008 */   0xE0, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                        /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                        /* 0008 */  0xE0, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                     }
                                 })
                             }
@@ -5878,8 +5965,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                         }
@@ -5906,8 +5993,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -5937,8 +6024,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 {
                                     Buffer (0x10)
                                     {
-                                        /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                        /* 0008 */   0xB0, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                        /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                        /* 0008 */  0xB0, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                     }
                                 })
                             }
@@ -5947,8 +6034,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                         }
@@ -5975,8 +6062,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6004,8 +6091,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -6083,8 +6170,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Return (PLDP)
@@ -6111,8 +6198,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6140,8 +6227,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6169,8 +6256,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -6200,8 +6287,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -6224,34 +6311,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x14)
                                 {
-                                    /* 0000 */   0x82, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0x24, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0010 */   0xFF, 0xFF, 0xFF, 0xFF
-                                    /*           Revision : 02     */
-                                    /*        IgnoreColor : 01     */
-                                    /*              Color : 000000 */
-                                    /*              Width : 0000   */
-                                    /*             Height : 0000   */
-                                    /*        UserVisible : 00     */
-                                    /*               Dock : 00     */
-                                    /*                Lid : 01     */
-                                    /*              Panel : 04     */
-                                    /*   VerticalPosition : 00     */
-                                    /* HorizontalPosition : 01     */
-                                    /*              Shape : 07     */
-                                    /*   GroupOrientation : 00     */
-                                    /*         GroupToken : 00     */
-                                    /*      GroupPosition : 00     */
-                                    /*                Bay : 00     */
-                                    /*          Ejectable : 00     */
-                                    /*  OspmEjectRequired : 00     */
-                                    /*      CabinetNumber : 00     */
-                                    /*     CardCageNumber : 00     */
-                                    /*          Reference : 00     */
-                                    /*           Rotation : 00     */
-                                    /*              Order : 00     */
-                                    /*     VerticalOffset : FFFF   */
-                                    /*   HorizontalOffset : FFFF   */
+                                    /* 0000 */  0x82, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0x24, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0010 */  0xFF, 0xFF, 0xFF, 0xFF                         
                                 }
                             })
                         }
@@ -6278,8 +6340,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6307,8 +6369,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6753,11 +6815,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (CUID, 1, Serialized)
             {
-                If (LEqual (Arg0, Buffer (0x10)
-                        {
-                            /* 0000 */   0xA9, 0x12, 0x95, 0x7C, 0x05, 0x17, 0xB4, 0x4C,
-                            /* 0008 */   0xAF, 0x7D, 0x50, 0x6A, 0x24, 0x23, 0xAB, 0x71
-                        }))
+                If (LEqual (Arg0, ToUUID ("7c9512a9-1705-4cb4-af7d-506a2423ab71")))
                 {
                     Return (One)
                 }
@@ -6884,8 +6942,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -6925,8 +6983,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -6966,8 +7024,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7003,8 +7061,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7040,8 +7098,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x80, 0x02, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x02, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7081,8 +7139,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7122,8 +7180,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x03, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x03, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7159,8 +7217,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7196,8 +7254,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x04, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x04, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7264,8 +7322,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7280,34 +7338,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x14)
                             {
-                                /* 0000 */   0x82, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x24, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0010 */   0xFF, 0xFF, 0xFF, 0xFF
-                                /*           Revision : 02     */
-                                /*        IgnoreColor : 01     */
-                                /*              Color : 000000 */
-                                /*              Width : 0000   */
-                                /*             Height : 0000   */
-                                /*        UserVisible : 00     */
-                                /*               Dock : 00     */
-                                /*                Lid : 01     */
-                                /*              Panel : 04     */
-                                /*   VerticalPosition : 00     */
-                                /* HorizontalPosition : 01     */
-                                /*              Shape : 07     */
-                                /*   GroupOrientation : 00     */
-                                /*         GroupToken : 00     */
-                                /*      GroupPosition : 00     */
-                                /*                Bay : 00     */
-                                /*          Ejectable : 00     */
-                                /*  OspmEjectRequired : 00     */
-                                /*      CabinetNumber : 00     */
-                                /*     CardCageNumber : 00     */
-                                /*          Reference : 00     */
-                                /*           Rotation : 00     */
-                                /*              Order : 00     */
-                                /*     VerticalOffset : FFFF   */
-                                /*   HorizontalOffset : FFFF   */
+                                /* 0000 */  0x82, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x24, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0010 */  0xFF, 0xFF, 0xFF, 0xFF                         
                             }
                         })
                     }
@@ -7362,8 +7395,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7425,8 +7458,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7488,8 +7521,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7540,8 +7573,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7592,8 +7625,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7644,8 +7677,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7696,8 +7729,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7748,8 +7781,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7800,8 +7833,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7852,8 +7885,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x04, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x04, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -7904,8 +7937,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -9468,11 +9501,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -9480,7 +9509,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                         }
@@ -9494,7 +9523,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -9543,11 +9572,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -9555,7 +9580,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                         }
@@ -9569,7 +9594,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -9599,11 +9624,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_UID, One)  // _UID: Unique ID
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -9611,7 +9632,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                         }
@@ -9625,7 +9646,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -9704,11 +9725,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -9716,14 +9733,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -9737,7 +9754,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -9814,11 +9831,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -9826,14 +9839,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -9847,7 +9860,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -9890,11 +9903,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -9902,14 +9911,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -9923,7 +9932,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -9966,11 +9975,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -9978,14 +9983,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -9999,7 +10004,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10042,11 +10047,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -10054,14 +10055,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10075,7 +10076,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10124,11 +10125,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -10136,14 +10133,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10157,7 +10154,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10206,11 +10203,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -10218,14 +10211,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10239,7 +10232,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10288,11 +10281,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -10300,14 +10289,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10321,7 +10310,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10382,11 +10371,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -10394,14 +10379,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10415,7 +10400,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10524,11 +10509,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    If (LEqual (Arg0, Buffer (0x10)
-                            {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
-                            }))
+                    If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                     {
                         If (LEqual (Arg2, Zero))
                         {
@@ -10536,14 +10517,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10557,7 +10538,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -11012,14 +10993,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Name (PIB1, Buffer (0x07)
                         {
-                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF
+                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF       
                         })
                         Return (PIB1)
                     }
 
                     Name (PIB2, Buffer (0x07)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00       
                     })
                     Return (PIB2)
                 }
@@ -11045,14 +11026,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Name (PIB1, Buffer (0x07)
                         {
-                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF
+                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF       
                         })
                         Return (PIB1)
                     }
 
                     Name (PIB2, Buffer (0x07)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00       
                     })
                     Return (PIB2)
                 }
@@ -11078,14 +11059,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Name (PIB1, Buffer (0x07)
                         {
-                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF
+                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF       
                         })
                         Return (PIB1)
                     }
 
                     Name (PIB2, Buffer (0x07)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00       
                     })
                     Return (PIB2)
                 }
@@ -11111,14 +11092,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Name (PIB1, Buffer (0x07)
                         {
-                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF
+                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF       
                         })
                         Return (PIB1)
                     }
 
                     Name (PIB2, Buffer (0x07)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00       
                     })
                     Return (PIB2)
                 }
@@ -12057,7 +12038,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         If (CondRefOf (MDBG))
         {
             Return (MDBG)
-            //Arg0
+            Arg0
         }
 
         Return (Zero)
@@ -12152,7 +12133,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     Store (Or (0x02, Local0), \_SB.IAOE.WTMS)
                                     Name (TMR, Buffer (0x04)
                                     {
-                                         0x00, 0x00, 0x00, 0x00
+                                         0x00, 0x00, 0x00, 0x00                         
                                     })
                                     CreateField (TMR, Zero, 0x06, SEC)
                                     CreateField (TMR, 0x06, 0x06, MIN)
@@ -12827,11 +12808,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             CreateDWordField (Arg3, Zero, STS0)
             CreateDWordField (Arg3, 0x04, CAP0)
-            If (LEqual (Arg0, Buffer (0x10)
-                    {
-                        /* 0000 */   0x6E, 0xB0, 0x11, 0x08, 0x27, 0x4A, 0xF9, 0x44,
-                        /* 0008 */   0x8D, 0x60, 0x3C, 0xBB, 0xC2, 0x2E, 0x7B, 0x48
-                    }))
+            If (LEqual (Arg0, ToUUID ("0811b06e-4a27-44f9-8d60-3cbbc22e7b48") /* Platform-wide Capabilities */))
             {
                 If (LEqual (Arg1, One))
                 {
@@ -13402,17 +13379,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-                If (LEqual (Arg0, Buffer (0x10)
-                        {
-                            /* 0000 */   0xE0, 0xBF, 0xFE, 0xB8, 0xF8, 0xBA, 0x4B, 0x45,
-                            /* 0008 */   0xAE, 0xCD, 0x49, 0xFB, 0x91, 0x13, 0x7B, 0x21
-                        }))
+                If (LEqual (Arg0, ToUUID ("b8febfe0-baf8-454b-aecd-49fb91137b21")))
                 {
                     If (LEqual (Arg2, Zero))
                     {
                         Return (Buffer (One)
                         {
-                             0x07
+                             0x07                                           
                         })
                     }
 
@@ -13520,17 +13493,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                 }
 
-                If (LEqual (Arg0, Buffer (0x10)
-                        {
-                            /* 0000 */   0xA0, 0x40, 0xEB, 0xC4, 0xD2, 0x6C, 0xE2, 0x11,
-                            /* 0008 */   0xBC, 0xFD, 0x08, 0x00, 0x20, 0x0C, 0x9A, 0x66
-                        }))
+                If (LEqual (Arg0, ToUUID ("c4eb40a0-6cd2-11e2-bcfd-0800200c9a66")))
                 {
                     If (LEqual (Arg2, Zero))
                     {
                         Return (Buffer (One)
                         {
-                             0x07
+                             0x07                                           
                         })
                     }
 
@@ -14288,7 +14257,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x03
+                             0x03                                           
                         })
                     }
                     Else
@@ -14326,7 +14295,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x03
+                             0x03                                           
                         })
                     }
                     Else
@@ -14351,7 +14320,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                 Return (Buffer (One)
                 {
-                     0x00
+                     0x00                                           
                 })
             }
 
@@ -14365,7 +14334,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (0x02)
                         {
-                             0xFF, 0x01
+                             0xFF, 0x01                                     
                         })
                     }
                     Else
@@ -14552,7 +14521,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (One)
                         {
-                             0x03
+                             0x03                                           
                         })
                     }
                     Else
@@ -14587,51 +14556,35 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                 Return (Buffer (One)
                 {
-                     0x00
+                     0x00                                           
                 })
             }
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                If (LEqual (Arg0, Buffer (0x10)
-                        {
-                            /* 0000 */   0xA6, 0xFA, 0xDD, 0x3D, 0x1B, 0x36, 0xB4, 0x4E,
-                            /* 0008 */   0xA4, 0x24, 0x8D, 0x10, 0x08, 0x9D, 0x16, 0x53
-                        }))
+                If (LEqual (Arg0, ToUUID ("3dddfaa6-361b-4eb4-a424-8d10089d1653") /* Physical Presence Interface */))
                 {
                     Return (PPIR (Arg1, Arg2, Arg3))
                 }
 
-                If (LEqual (Arg0, Buffer (0x10)
-                        {
-                            /* 0000 */   0xED, 0x54, 0x60, 0x37, 0x13, 0xCC, 0x75, 0x46,
-                            /* 0008 */   0x90, 0x1C, 0x47, 0x56, 0xD7, 0xF2, 0xD4, 0x5D
-                        }))
+                If (LEqual (Arg0, ToUUID ("376054ed-cc13-4675-901c-4756d7f2d45d")))
                 {
                     Return (MORI (Arg1, Arg2, Arg3))
                 }
 
-                If (LEqual (Arg0, Buffer (0x10)
-                        {
-                            /* 0000 */   0xA5, 0x16, 0x8E, 0xCF, 0xE8, 0xC1, 0x25, 0x4E,
-                            /* 0008 */   0xB7, 0x12, 0x4F, 0x54, 0xA9, 0x67, 0x02, 0xC8
-                        }))
+                If (LEqual (Arg0, ToUUID ("cf8e16a5-c1e8-4e25-b712-4f54a96702c8")))
                 {
                     Return (CRYF (Arg1, Arg2, Arg3))
                 }
 
-                If (LEqual (Arg0, Buffer (0x10)
-                        {
-                            /* 0000 */   0xAB, 0x6C, 0xBF, 0x6B, 0x63, 0x54, 0x14, 0x47,
-                            /* 0008 */   0xB7, 0xCD, 0xF0, 0x20, 0x3C, 0x03, 0x68, 0xD4
-                        }))
+                If (LEqual (Arg0, ToUUID ("6bbf6cab-5463-4714-b7cd-f0203c0368d4")))
                 {
                     Return (STRT (Arg1, Arg2, Arg3))
                 }
 
                 Return (Buffer (One)
                 {
-                     0x00
+                     0x00                                           
                 })
             }
         }
@@ -14655,11 +14608,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         {
             Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            If (LEqual (Arg0, Buffer (0x10)
-                    {
-                        /* 0000 */   0xA6, 0xFA, 0xDD, 0x3D, 0x1B, 0x36, 0xB4, 0x4E,
-                        /* 0008 */   0xA4, 0x24, 0x8D, 0x10, 0x08, 0x9D, 0x16, 0x53
-                    }))
+            If (LEqual (Arg0, ToUUID ("3dddfaa6-361b-4eb4-a424-8d10089d1653") /* Physical Presence Interface */))
             {
                 While (One)
                 {
@@ -14668,7 +14617,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Return (Buffer (0x02)
                         {
-                             0xFF, 0x01
+                             0xFF, 0x01                                     
                         })
                     }
                     Else
@@ -14846,11 +14795,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             }
             Else
             {
-                If (LEqual (Arg0, Buffer (0x10)
-                        {
-                            /* 0000 */   0xED, 0x54, 0x60, 0x37, 0x13, 0xCC, 0x75, 0x46,
-                            /* 0008 */   0x90, 0x1C, 0x47, 0x56, 0xD7, 0xF2, 0xD4, 0x5D
-                        }))
+                If (LEqual (Arg0, ToUUID ("376054ed-cc13-4675-901c-4756d7f2d45d")))
                 {
                     While (One)
                     {
@@ -14859,7 +14804,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             Return (Buffer (One)
                             {
-                                 0x03
+                                 0x03                                           
                             })
                         }
                         Else
@@ -14896,7 +14841,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Return (Buffer (One)
             {
-                 0x00
+                 0x00                                           
             })
         }
     }
@@ -15491,14 +15436,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Name (INDX, Zero)
             Name (_WDG, Buffer (0x3C)
             {
-                /* 0000 */   0x6D, 0x0F, 0xBC, 0xAB, 0xA1, 0x8E, 0xD1, 0x11,
-                /* 0008 */   0x00, 0xA0, 0xC9, 0x06, 0x29, 0x10, 0x00, 0x00,
-                /* 0010 */   0x42, 0x42, 0x01, 0x02, 0x6B, 0x0F, 0xBC, 0xAB,
-                /* 0018 */   0xA1, 0x8E, 0xD1, 0x11, 0x00, 0xA0, 0xC9, 0x06,
-                /* 0020 */   0x29, 0x10, 0x00, 0x00, 0xD0, 0x00, 0x01, 0x08,
-                /* 0028 */   0x6C, 0x0F, 0xBC, 0xAB, 0xA1, 0x8E, 0xD1, 0x11,
-                /* 0030 */   0x00, 0xA0, 0xC9, 0x06, 0x29, 0x10, 0x00, 0x00,
-                /* 0038 */   0xD1, 0x00, 0x01, 0x08
+                /* 0000 */  0x6D, 0x0F, 0xBC, 0xAB, 0xA1, 0x8E, 0xD1, 0x11,
+                /* 0008 */  0x00, 0xA0, 0xC9, 0x06, 0x29, 0x10, 0x00, 0x00,
+                /* 0010 */  0x42, 0x42, 0x01, 0x02, 0x6B, 0x0F, 0xBC, 0xAB,
+                /* 0018 */  0xA1, 0x8E, 0xD1, 0x11, 0x00, 0xA0, 0xC9, 0x06,
+                /* 0020 */  0x29, 0x10, 0x00, 0x00, 0xD0, 0x00, 0x01, 0x08,
+                /* 0028 */  0x6C, 0x0F, 0xBC, 0xAB, 0xA1, 0x8E, 0xD1, 0x11,
+                /* 0030 */  0x00, 0xA0, 0xC9, 0x06, 0x29, 0x10, 0x00, 0x00,
+                /* 0038 */  0xD1, 0x00, 0x01, 0x08                         
             })
             Name (EVNT, Zero)
             Name (EVID, Zero)
@@ -16172,7 +16117,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Add (Local1, 0xFF700100, Local0)
                     Name (RBUF, Buffer (0x04)
                     {
-                         0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00                         
                     })
                     If (^^PCI0.LPCB.EC.ECOK)
                     {
@@ -17202,7 +17147,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         Name (WBUF, Buffer (0x04)
                         {
-                             0x00, 0x00, 0x00, 0x00
+                             0x00, 0x00, 0x00, 0x00                         
                         })
                         CreateByteField (WBUF, Zero, ARGB)
                         CreateWordField (WBUF, Zero, ARGW)

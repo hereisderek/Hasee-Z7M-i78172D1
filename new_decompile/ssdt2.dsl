@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20140214-64 [Mar 29 2014]
+ * AML Disassembler version 20140926-64 [Oct 16 2014]
  * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of ssdt2.dat, Sun Feb 15 07:13:03 2015
+ * Disassembly of ssdt2.dat, Sun Feb 15 17:36:58 2015
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -19,11 +19,11 @@
 DefinitionBlock ("ssdt2.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
 {
 
-    External (_PR_.CPPC, IntObj)
-    External (_PR_.CPU0, DeviceObj)
-    External (CFGD)
-    External (PDC0)
-    External (TCNT, IntObj)
+    External (_PR_.CFGD, FieldUnitObj)
+    External (_PR_.CPPC, FieldUnitObj)
+    External (_PR_.CPU0, ProcessorObj)
+    External (PDC0, IntObj)
+    External (TCNT, FieldUnitObj)
 
     Scope (\_PR.CPU0)
     {

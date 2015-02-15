@@ -84,7 +84,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
     Scope (\_SB.PCI0.PEG0.PEGP)
     {
-        OperationRegion (PCI2, SystemMemory, EBAS (0x0500), Field (PCI2, DWordAcc, Lock, Preserve)
+        OperationRegion (PCI2, SystemMemory, EBAS (0x0500), 0x04)  Field (PCI2, DWordAcc, Lock, Preserve)
             {
                 Offset (0x04), 
                 CMDR,   32, 
@@ -92,13 +92,13 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                 Offset (0x488), 
                     ,   25, 
                 NHDM,   1
-            })
+            }
         Name (VGAB, Buffer (0xF8)
         {
              0x00
         })
         Name (GPRF, Zero)
-        OperationRegion (NVHM, SystemMemory, NVHA (0x00020400), Field (NVHM, DWordAcc, NoLock, Preserve)
+        OperationRegion (NVHM, SystemMemory, NVHA (0x00020400), 0x04) Field (NVHM, DWordAcc, NoLock, Preserve)
             {
                 NVSG,   128, 
                 NVSZ,   32, 
@@ -111,7 +111,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                 RBF4,   262144, 
                 MXML,   32, 
                 MXM3,   1600
-            })
+            }
         Name (OPCE, 0x02)
         Name (OPTF, One)
         Name (DGPS, Zero)
