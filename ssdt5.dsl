@@ -199,8 +199,8 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 Return (GPRW)
-                0x09
-                0x04
+//                0x09
+//                0x04
             }
 
             Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
@@ -248,12 +248,12 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, Buffer (0x10)
+                    Store (ToInteger (Arg0), T_0)
+                    If (LEqual (T_0, Buffer (0x10)
                             {
                                 /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
                                 /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
@@ -261,8 +261,8 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Store (ToInteger (Arg2), T_1)
+                            If (LEqual (T_1, Zero))
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -286,7 +286,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (T_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -310,7 +310,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x06))
+                                    If (LEqual (T_1, 0x06))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -352,8 +352,8 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                 Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                 {
                     Return (GPRW)
-                    0x09
-                    0x04
+//                    0x09
+//                    0x04
                 }
             }
         }
@@ -620,7 +620,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                 If (LEqual (S0ID, One))
                 {
                     ADBG ("GFX0 DEP")
-                    Return (Package (0x01)
+                    Return (Package (One)
                     {
                         \_SB.PEPD
                     })
@@ -628,7 +628,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                 Else
                 {
                     ADBG ("GFX0 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
 
@@ -1941,6 +1941,17 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                 {
                     Return (CRS2)
                 }
+            }
+            Method (_DSM, 4, NotSerialized)
+            {
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "device-id", Buffer() { 0x12, 0x04, 0x00, 0x00 },
+                    "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
+                    "hda-gfx", Buffer() { "onboard-1" },
+                    "model", Buffer() { "Intel HD 4600" },
+                })
             }
         }
     }
