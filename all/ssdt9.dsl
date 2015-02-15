@@ -67,7 +67,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
             Return (SPSD)
         }
 
-        Name (HPSD, Package (One)
+        Name (HPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -78,7 +78,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
                 0x80
             }
         })
-        Name (SPSD, Package (One)
+        Name (SPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -126,7 +126,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
             Return (SPSD)
         }
 
-        Name (HPSD, Package (One)
+        Name (HPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -137,7 +137,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
                 0x80
             }
         })
-        Name (SPSD, Package (One)
+        Name (SPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -185,7 +185,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
             Return (SPSD)
         }
 
-        Name (HPSD, Package (One)
+        Name (HPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -196,7 +196,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
                 0x80
             }
         })
-        Name (SPSD, Package (One)
+        Name (SPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -244,7 +244,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
             Return (SPSD)
         }
 
-        Name (HPSD, Package (One)
+        Name (HPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -255,7 +255,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
                 0x80
             }
         })
-        Name (SPSD, Package (One)
+        Name (SPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -303,7 +303,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
             Return (SPSD)
         }
 
-        Name (HPSD, Package (One)
+        Name (HPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -314,7 +314,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
                 0x80
             }
         })
-        Name (SPSD, Package (One)
+        Name (SPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -362,7 +362,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
             Return (SPSD)
         }
 
-        Name (HPSD, Package (One)
+        Name (HPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -373,7 +373,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
                 0x80
             }
         })
-        Name (SPSD, Package (One)
+        Name (SPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -421,7 +421,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
             Return (SPSD)
         }
 
-        Name (HPSD, Package (One)
+        Name (HPSD, Package (0x01)
         {
             Package (0x05)
             {
@@ -432,7 +432,7 @@ DefinitionBlock ("ssdt9.aml", "SSDT", 1, "PmRef", "ApIst", 0x00003000)
                 0x80
             }
         })
-        Name (SPSD, Package (One)
+        Name (SPSD, Package (0x01)
         {
             Package (0x05)
             {

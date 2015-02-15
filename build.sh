@@ -27,11 +27,15 @@ function _findIasl()
     fi
 }
 
+#clear
+rm *.hex *.aml
+rm build/*.hex build/*.aml
+
 for filename in `ls *.dsl`  
 do  
         #filename="${filename##*/}"
         echo " compiling $filename  "
-        iasl -ta $filename 
+        iasl -ta $filename | grep Error
         mv ${filename%.*}.aml ./build/
         mv ${filename%.*}.hex ./build/
 
