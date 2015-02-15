@@ -26,3 +26,15 @@ function _findIasl()
         iasl=/usr/local/bin/iasl
     fi
 }
+
+for filename in `ls *.dsl`  
+do  
+        #filename="${filename##*/}"
+        echo " compiling $filename  "
+        iasl -ta $filename 
+        mv ${filename%.*}.aml ./build/
+        mv ${filename%.*}.hex ./build/
+
+        echo "${filename%.*}.aml"
+        # Everything what you want
+done
