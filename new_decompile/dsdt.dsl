@@ -13747,6 +13747,7 @@ P8XH (One, 0xAB)
 
                 Return (Zero)
             }
+            Name (_PRW, Package() { 0x18, 0x03 })
         }
 
         Device (BAT0)
