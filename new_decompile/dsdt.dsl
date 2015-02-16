@@ -5183,6 +5183,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     })
                 }
             }
+            Device (IMEI)
+            {
+                Name (_ADR, 0x00160000)
+            }
         }
     }
 
@@ -11879,7 +11883,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         }
     }
 
-    Mutex (MUTX, 0x00)
+    Mutex(MUTX, 0)
     OperationRegion (DEB0, SystemIO, 0x80, One)
     Field (DEB0, ByteAcc, NoLock, Preserve)
     {
@@ -12332,111 +12336,9 @@ P8XH (One, 0xAB)
 
     Method (PNOT, 0, Serialized)
     {
-        If (CondRefOf (\_SB.PCCD.PENB))
-        {
-            Notify (\_SB.PCCD, 0x82)
-        }
-        Else
-        {
-            If (LGreater (TCNT, One))
-            {
-                If (And (PDC0, 0x08))
-                {
-                    Notify (\_PR.CPU0, 0x80)
-                }
+        
+        // nothing
 
-                If (And (PDC1, 0x08))
-                {
-                    Notify (\_PR.CPU1, 0x80)
-                }
-
-                If (And (PDC2, 0x08))
-                {
-                    Notify (\_PR.CPU2, 0x80)
-                }
-
-                If (And (PDC3, 0x08))
-                {
-                    Notify (\_PR.CPU3, 0x80)
-                }
-
-                If (And (PDC4, 0x08))
-                {
-                    Notify (\_PR.CPU4, 0x80)
-                }
-
-                If (And (PDC5, 0x08))
-                {
-                    Notify (\_PR.CPU5, 0x80)
-                }
-
-                If (And (PDC6, 0x08))
-                {
-                    Notify (\_PR.CPU6, 0x80)
-                }
-
-                If (And (PDC7, 0x08))
-                {
-                    Notify (\_PR.CPU7, 0x80)
-                }
-            }
-            Else
-            {
-                Notify (\_PR.CPU0, 0x80)
-            }
-        }
-
-        If (LGreater (TCNT, One))
-        {
-            If (LAnd (And (PDC0, 0x08), And (PDC0, 0x10)))
-            {
-                Notify (\_PR.CPU0, 0x81)
-            }
-
-            If (LAnd (And (PDC1, 0x08), And (PDC1, 0x10)))
-            {
-                Notify (\_PR.CPU1, 0x81)
-            }
-
-            If (LAnd (And (PDC2, 0x08), And (PDC2, 0x10)))
-            {
-                Notify (\_PR.CPU2, 0x81)
-            }
-
-            If (LAnd (And (PDC3, 0x08), And (PDC3, 0x10)))
-            {
-                Notify (\_PR.CPU3, 0x81)
-            }
-
-            If (LAnd (And (PDC4, 0x08), And (PDC4, 0x10)))
-            {
-                Notify (\_PR.CPU4, 0x81)
-            }
-
-            If (LAnd (And (PDC5, 0x08), And (PDC5, 0x10)))
-            {
-                Notify (\_PR.CPU5, 0x81)
-            }
-
-            If (LAnd (And (PDC6, 0x08), And (PDC6, 0x10)))
-            {
-                Notify (\_PR.CPU6, 0x81)
-            }
-
-            If (LAnd (And (PDC7, 0x08), And (PDC7, 0x10)))
-            {
-                Notify (\_PR.CPU7, 0x81)
-            }
-        }
-        Else
-        {
-            Notify (\_PR.CPU0, 0x81)
-        }
-
-        If (LEqual (DPTF, One))
-        {
-            Notify (\_SB.IETM, 0x86)
-        }
     }
 
     OperationRegion (MBAR, SystemMemory, Add (ShiftLeft (\_SB.PCI0.MHBR, 0x0F), 0x5000), 0x1000)
@@ -12562,7 +12464,7 @@ P8XH (One, 0xAB)
                     Store (0x07D3, OSYS)
                 }
 
-                If (_OSI ("Windows 2006"))
+                If(LOr(_OSI("Darwin"),_OSI("Windows 2006")))
                 {
                     Store (0x07D6, OSYS)
                 }
