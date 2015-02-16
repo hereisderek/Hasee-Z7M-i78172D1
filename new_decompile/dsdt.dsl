@@ -13883,11 +13883,7 @@ P8XH (One, 0xAB)
                         And (^^PCI0.LPCB.EC.BPR0, 0xFFFF, Local1)
                     }
 
-                    And (Local1, 0x8000, Local7)
-                    If (LEqual (Local7, 0x8000))
-                    {
-                        Store (0xFFFFFFFF, Local1)
-                    }
+                    
 
                     And (^^PCI0.LPCB.EC.BRC0, 0xFFFF, Local2)
                     And (^^PCI0.LPCB.EC.BPV0, 0xFFFF, Local3)
