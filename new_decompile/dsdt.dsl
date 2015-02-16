@@ -37,7 +37,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
      * because the disassembler had to guess at the number of arguments
      * required for each:
      */
-    External (_SB_.PCI0.GFX0.PDDS, MethodObj)    // Warning: Unresolved method, guessing 1 arguments
+    External (_SB_.PCI0.IGPU.PDDS, MethodObj)    // Warning: Unresolved method, guessing 1 arguments
     External (_SB_.PCI0.PEG1.HPME, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
     External (_SB_.PCI0.PEG2.HPME, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
     External (_SB_.PCI0.RP05.PEGP.EPON, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
@@ -67,12 +67,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     External (_SB_.PCCD.PENB, UnknownObj)
 //    External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
     External (_SB_.PCI0.B0D3.BARA, IntObj)
-//    External (_SB_.PCI0.GFX0, UnknownObj)
-//    External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
-//    External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.LCD0, UnknownObj)
-    External (_SB_.PCI0.GFX0.SKIP, UnknownObj)
+//    External (_SB_.PCI0.IGPU, UnknownObj)
+//    External (_SB_.PCI0.IGPU.CLID, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.GSCI, MethodObj)    // 0 Arguments
+//    External (_SB_.PCI0.IGPU.GSSE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.LCD0, UnknownObj)
+    External (_SB_.PCI0.IGPU.SKIP, UnknownObj)
     External (_SB_.PCI0.PEG0, UnknownObj)
     External (_SB_.PCI0.PEG0.HPME, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.PEG0.PEGP, UnknownObj)
@@ -10155,14 +10155,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Store (Zero, SLPE)
             If (LEqual (And (OEMF, 0x0400), Zero))
             {
-                Store (LIDS, ^^GFX0.CLID)
+                Store (LIDS, ^^IGPU.CLID)
             }
 
             If (And (OEMF, 0x2000))
             {
                 If (LEqual (And (OEMF, 0x0400), Zero))
                 {
-                    Store (One, ^^GFX0.SKIP)
+                    Store (One, ^^IGPU.SKIP)
                 }
             }
 
@@ -10913,7 +10913,7 @@ P8XH (One, 0xAB)
                 \_SB.PCI0.RP05.PEGP.EPON ()
             }
 
-            Store (One, \_SB.PCI0.GFX0.CLID)
+            Store (One, \_SB.PCI0.IGPU.CLID)
             Notify (\_SB.PWRB, 0x02)
         }
 
@@ -11399,7 +11399,7 @@ P8XH (One, 0xAB)
                 0x02, 
                 Package (0x01)
                 {
-                    "\\_SB.PCI0.GFX0"
+                    "\\_SB.PCI0.IGPU"
                 }, 
 
                 Package (0x01)
@@ -11411,7 +11411,7 @@ P8XH (One, 0xAB)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     0xFFFFFFFF
                 }, 
 
@@ -11521,7 +11521,7 @@ P8XH (One, 0xAB)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     One, 
                     Package (0x02)
                     {
@@ -11936,7 +11936,7 @@ P8XH (One, 0xAB)
                                         One, 
                                         Package (0x01)
                                         {
-                                            "\\_SB.PCI0.GFX0"
+                                            "\\_SB.PCI0.IGPU"
                                         }
                                     })
                                 }
@@ -12516,9 +12516,9 @@ P8XH (One, 0xAB)
 
         Method (_L06, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
+            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
             {
-                \_SB.PCI0.GFX0.GSCI ()
+                \_SB.PCI0.IGPU.GSCI ()
             }
         }
 
@@ -12535,7 +12535,7 @@ P8XH (One, 0xAB)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Store (LIDS, \_SB.PCI0.GFX0.CLID)
+                        Store (LIDS, \_SB.PCI0.IGPU.CLID)
                     }
 
                     Notify (\_SB.LID0, 0x80)
@@ -14350,7 +14350,7 @@ P8XH (One, 0xAB)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        If (^^PCI0.GFX0.PDDS (0x0300))
+                        If (^^PCI0.IGPU.PDDS (0x0300))
                         {
                             Store (One, Local0)
                         }
@@ -15953,7 +15953,7 @@ P8XH (One, 0xAB)
                     {
                         If (LEqual (And (OEMF, 0x0400), Zero))
                         {
-                            Store (One, ^^^GFX0.SKIP)
+                            Store (One, ^^^IGPU.SKIP)
                         }
                     }
 
@@ -16241,7 +16241,7 @@ P8XH (One, 0xAB)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Notify (GFX0, 0x80)
+                        Notify (IGPU, 0x80)
                     }
                     Else
                     {
@@ -16269,10 +16269,10 @@ P8XH (One, 0xAB)
                         {
                             If (And (OEMF, 0x2000))
                             {
-                                Store (Zero, ^^^GFX0.SKIP)
+                                Store (Zero, ^^^IGPU.SKIP)
                             }
 
-                            Notify (^^^GFX0.LCD0, 0x87)
+                            Notify (^^^IGPU.LCD0, 0x87)
                         }
                         Else
                         {
@@ -16281,7 +16281,7 @@ P8XH (One, 0xAB)
                     }
                     Else
                     {
-                        Notify (^^^GFX0.LCD0, 0x87)
+                        Notify (^^^IGPU.LCD0, 0x87)
                     }
                 }
                 Else
@@ -16305,10 +16305,10 @@ P8XH (One, 0xAB)
                         {
                             If (And (OEMF, 0x2000))
                             {
-                                Store (Zero, ^^^GFX0.SKIP)
+                                Store (Zero, ^^^IGPU.SKIP)
                             }
 
-                            Notify (^^^GFX0.LCD0, 0x86)
+                            Notify (^^^IGPU.LCD0, 0x86)
                         }
                         Else
                         {
@@ -16317,7 +16317,7 @@ P8XH (One, 0xAB)
                     }
                     Else
                     {
-                        Notify (^^^GFX0.LCD0, 0x86)
+                        Notify (^^^IGPU.LCD0, 0x86)
                     }
                 }
                 Else
@@ -16386,7 +16386,7 @@ P8XH (One, 0xAB)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Store (One, ^^^GFX0.SKIP)
+                        Store (One, ^^^IGPU.SKIP)
                     }
                 }
 
@@ -16452,7 +16452,7 @@ P8XH (One, 0xAB)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Notify (^^^GFX0.LCD0, 0x88)
+                        Notify (^^^IGPU.LCD0, 0x88)
                     }
                     Else
                     {
@@ -16511,7 +16511,7 @@ P8XH (One, 0xAB)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Notify (^^^GFX0.LCD0, 0x88)
+                        Notify (^^^IGPU.LCD0, 0x88)
                     }
                     Else
                     {
@@ -17519,15 +17519,15 @@ P8XH (One, 0xAB)
             }
         }
 
-        Device (GFX0)
+        Device (IGPU)
         {
             Name (_ADR, 0x00020000)  // _ADR: Address
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
-                ADBG ("GFX0 DEP Call")
+                ADBG ("IGPU DEP Call")
                 If (LEqual (S0ID, One))
                 {
-                    ADBG ("GFX0 DEP")
+                    ADBG ("IGPU DEP")
                     Return (Package (One)
                     {
                         \_SB.PEPD
@@ -17535,7 +17535,7 @@ P8XH (One, 0xAB)
                 }
                 Else
                 {
-                    ADBG ("GFX0 DEP NULL")
+                    ADBG ("IGPU DEP NULL")
                     Return (Package (Zero) {})
                 }
             }
@@ -17806,11 +17806,11 @@ P8XH (One, 0xAB)
                 {
                     If (LEqual (Arg0, Zero))
                     {
-                        \_SB.PCI0.GFX0.AINT (One, One)
+                        \_SB.PCI0.IGPU.AINT (One, One)
                     }
                     Else
                     {
-                        \_SB.PCI0.GFX0.AINT (One, Arg0)
+                        \_SB.PCI0.IGPU.AINT (One, Arg0)
                     }
 
                     Store (Arg0, BRTL)
@@ -18612,7 +18612,7 @@ P8XH (One, 0xAB)
                     }
                     Else
                     {
-                        Notify (\_SB.PCI0.GFX0, Arg1)
+                        Notify (\_SB.PCI0.IGPU, Arg1)
                     }
                 }
 
@@ -18622,7 +18622,7 @@ P8XH (One, 0xAB)
                 }
                 Else
                 {
-                    Notify (\_SB.PCI0.GFX0, 0x80)
+                    Notify (\_SB.PCI0.IGPU, 0x80)
                 }
 
                 Return (Zero)

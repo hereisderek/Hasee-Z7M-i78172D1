@@ -19,7 +19,7 @@
 DefinitionBlock ("ssdt6.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 {
 
-    External (_SB_.PCI0.GFX0._DOD, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU._DOD, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.LPCB.EC__.DGPU, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC__.ECOK, IntObj)
     External (_SB_.PCI0.LPCB.EC__.GPUT, FieldUnitObj)
@@ -805,7 +805,7 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (_DOD, 0, NotSerialized)  // _DOD: Display Output Devices
         {
-            Return (\_SB.PCI0.GFX0._DOD ())
+            Return (\_SB.PCI0.IGPU._DOD ())
         }
 
         Method (GFBE, 0, NotSerialized)

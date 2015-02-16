@@ -26,8 +26,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (_PR_.CPU0._TSS, IntObj)
     External (_SB_.OSCO, IntObj)
     External (_SB_.PCI0, DeviceObj)
-    External (_SB_.PCI0.GFX0, DeviceObj)
-    External (_SB_.PCI0.GFX0._DSM, IntObj)
+    External (_SB_.PCI0.IGPU, DeviceObj)
+    External (_SB_.PCI0.IGPU._DSM, IntObj)
     External (_SB_.PCI0.LPCB.EC__.GPUT, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC__.TMP_, FieldUnitObj)
     External (_SB_.PCI0.PEG0, DeviceObj)
@@ -346,7 +346,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             CreateByteField (Arg0, 0x03, GUID)
-            Return (\_SB.PCI0.GFX0.HDSM (Arg0, Arg1, Arg2, Arg3))
+            Return (\_SB.PCI0.IGPU.HDSM (Arg0, Arg1, Arg2, Arg3))
         }
 
         Name (CTXT, Zero)
@@ -376,7 +376,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         }
     }
 
-    Scope (\_SB.PCI0.GFX0)
+    Scope (\_SB.PCI0.IGPU)
     {
         OperationRegion (NVIG, SystemMemory, NVGA, 0x0400)
         Field (NVIG, DWordAcc, NoLock, Preserve)
@@ -503,7 +503,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     {
                         And (Local0, 0x0F, Local0)
                         Store (Local0, GPSS)
-                        Notify (\_SB.PCI0.GFX0, 0xD9)
+                        Notify (\_SB.PCI0.IGPU, 0xD9)
                         Notify (\_SB.PCI0.WMI1, 0xD9)
                     }
                     Else
@@ -1458,9 +1458,9 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                         CreateDWordField (Arg2, 0x10, REVI)
                         CreateDWordField (Arg2, 0x14, SFNC)
                         CreateField (Arg2, 0xE0, 0x20, XRG0)
-                        If (CondRefOf (\_SB.PCI0.GFX0._DSM))
+                        If (CondRefOf (\_SB.PCI0.IGPU._DSM))
                         {
-                            Return (\_SB.PCI0.GFX0._DSM)
+                            Return (\_SB.PCI0.IGPU._DSM)
 //                            MUID
 //                            REVI
 //                            SFNC
