@@ -3415,7 +3415,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                 Device (LAN0)
                 {
-                    Name (_ADR, Zero)
+                    //MARK
+//                    Name (_ADR, Zero)
+                    Name (_ADR, One)
+                    
                     Method (_DSM, 4, NotSerialized)
                     {
                         Store (Package (0x04) {
@@ -3424,6 +3427,44 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         }, Local0)
                         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                         Return (Local0)
+                    }
+                }
+                Device (RLAN)
+                {
+                    Name (_ADR, 0x02)  // _ADR: Address
+                    Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
+                    {
+                        0x09, 
+                        0x04
+                    })
+                    OperationRegion (PCFG, PCI_Config, Zero, 0xFF)
+                    Field (PCFG, ByteAcc, NoLock, Preserve)
+                    {
+                        DVID,   32, 
+                        Offset (0x2C), 
+                        SSID,   32
+                    }
+//                    MARK
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        Store (Package (0x04) {
+                            "built-in", Buffer (One) {0x01},
+                            "location", Buffer (0x02) {"1"}
+                        }, Local0)
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
+                    }
+
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    {
+                        If (LNotEqual (DVID, 0xFFFFFFFF))
+                        {
+                            Return (0x0A)
+                        }
+                        Else
+                        {
+                            Return (Zero)
+                        }
                     }
                 }
 
@@ -12593,37 +12634,7 @@ P8XH (One, 0xAB)
         }
     }
 
-    Scope (_SB.PCI0.RP05)
-    {
-        Device (RLAN)
-        {
-            Name (_ADR, 0x02)  // _ADR: Address
-            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
-            {
-                0x09, 
-                0x04
-            })
-            OperationRegion (PCFG, PCI_Config, Zero, 0xFF)
-            Field (PCFG, ByteAcc, NoLock, Preserve)
-            {
-                DVID,   32, 
-                Offset (0x2C), 
-                SSID,   32
-            }
-
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If (LNotEqual (DVID, 0xFFFFFFFF))
-                {
-                    Return (0x0A)
-                }
-                Else
-                {
-                    Return (Zero)
-                }
-            }
-        }
-    }
+    
 
     Device (_SB.TPM)
     {

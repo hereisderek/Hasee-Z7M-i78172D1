@@ -3,13 +3,13 @@
 ; ASL Optimizing Compiler version 20140926-64 [Oct 16 2014]
 ; Copyright (c) 2000 - 2014 Intel Corporation
 ; 
-; Compilation of "ssdt6.dsl" - Mon Feb 16 18:47:16 2015
+; Compilation of "ssdt6.dsl" - Mon Feb 16 18:59:37 2015
 ; 
 ; Assembly code source output
 ; AML code block contains 0x113B bytes
 ;
   db  053h,053h,044h,054h,03Bh,011h,000h,000h   ; 00000000    "SSDT;..."
-  db  001h,06Bh,048h,041h,053h,045h,045h,020h   ; 00000008    ".kHASEE "
+  db  001h,04Bh,048h,041h,053h,045h,045h,020h   ; 00000008    ".KHASEE "
   db  050h,041h,052h,041h,044h,049h,053h,045h   ; 00000010    "PARADISE"
   db  000h,010h,000h,000h,049h,04Eh,054h,04Ch   ; 00000018    "....INTL"
   db  026h,009h,014h,020h,010h,049h,021h,05Ch   ; 00000020    "&.. .I!\"
@@ -487,7 +487,7 @@
   db  0FFh,0FFh,0A4h,00Ah,00Fh,0A4h,00Ah,00Fh   ; 00000EE0    "........"
   db  014h,01Ah,05Fh,044h,04Fh,044h,000h,0A4h   ; 00000EE8    ".._DOD.."
   db  05Ch,02Fh,004h,05Fh,053h,042h,05Fh,050h   ; 00000EF0    "\/._SB_P"
-  db  043h,049h,030h,047h,046h,058h,030h,05Fh   ; 00000EF8    "CI0GFX0_"
+  db  043h,049h,030h,049h,047h,050h,055h,05Fh   ; 00000EF8    "CI0IGPU_"
   db  044h,04Fh,044h,014h,00Dh,047h,046h,042h   ; 00000F00    "DOD..GFB"
   db  045h,000h,0A4h,099h,047h,050h,032h,034h   ; 00000F08    "E...GP24"
   db  000h,014h,00Eh,053h,047h,050h,045h,001h   ; 00000F10    "...SGPE."

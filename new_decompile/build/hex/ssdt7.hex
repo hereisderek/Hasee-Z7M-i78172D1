@@ -3,13 +3,13 @@
 ; ASL Optimizing Compiler version 20140926-64 [Oct 16 2014]
 ; Copyright (c) 2000 - 2014 Intel Corporation
 ; 
-; Compilation of "ssdt7.dsl" - Mon Feb 16 18:47:16 2015
+; Compilation of "ssdt7.dsl" - Mon Feb 16 18:59:37 2015
 ; 
 ; Assembly code source output
 ; AML code block contains 0x1C50 bytes
 ;
   db  053h,053h,044h,054h,050h,01Ch,000h,000h   ; 00000000    "SSDTP..."
-  db  001h,05Dh,048h,041h,053h,045h,045h,020h   ; 00000008    ".]HASEE "
+  db  001h,0BDh,048h,041h,053h,045h,045h,020h   ; 00000008    "..HASEE "
   db  050h,041h,052h,041h,044h,049h,053h,045h   ; 00000010    "PARADISE"
   db  000h,010h,000h,000h,049h,04Eh,054h,04Ch   ; 00000018    "....INTL"
   db  026h,009h,014h,020h,010h,02Eh,05Ch,02Eh   ; 00000020    "&.. ..\."
@@ -135,8 +135,8 @@
   db  000h,000h,080h,014h,026h,05Fh,044h,053h   ; 000003E0    "....&_DS"
   db  04Dh,00Ch,08Ch,068h,00Ah,003h,047h,055h   ; 000003E8    "M..h..GU"
   db  049h,044h,0A4h,05Ch,02Fh,004h,05Fh,053h   ; 000003F0    "ID.\/._S"
-  db  042h,05Fh,050h,043h,049h,030h,047h,046h   ; 000003F8    "B_PCI0GF"
-  db  058h,030h,048h,044h,053h,04Dh,068h,069h   ; 00000400    "X0HDSMhi"
+  db  042h,05Fh,050h,043h,049h,030h,049h,047h   ; 000003F8    "B_PCI0IG"
+  db  050h,055h,048h,044h,053h,04Dh,068h,069h   ; 00000400    "PUHDSMhi"
   db  06Ah,06Bh,008h,043h,054h,058h,054h,000h   ; 00000408    "jk.CTXT."
   db  014h,036h,05Fh,04Fh,04Eh,05Fh,008h,050h   ; 00000410    ".6_ON_.P"
   db  038h,058h,048h,000h,00Ah,078h,053h,047h   ; 00000418    "8XH..xSG"
@@ -151,8 +151,8 @@
   db  041h,052h,056h,047h,041h,042h,070h,001h   ; 00000460    "ARVGABp."
   db  043h,054h,058h,054h,053h,047h,04Fh,046h   ; 00000468    "CTXTSGOF"
   db  010h,043h,06Bh,05Ch,02Fh,003h,05Fh,053h   ; 00000470    ".Ck\/._S"
-  db  042h,05Fh,050h,043h,049h,030h,047h,046h   ; 00000478    "B_PCI0GF"
-  db  058h,030h,05Bh,080h,04Eh,056h,049h,047h   ; 00000480    "X0[.NVIG"
+  db  042h,05Fh,050h,043h,049h,030h,049h,047h   ; 00000478    "B_PCI0IG"
+  db  050h,055h,05Bh,080h,04Eh,056h,049h,047h   ; 00000480    "PU[.NVIG"
   db  000h,04Eh,056h,047h,041h,00Bh,000h,004h   ; 00000488    ".NVGA..."
   db  05Bh,081h,042h,006h,04Eh,056h,049h,047h   ; 00000490    "[.B.NVIG"
   db  003h,04Eh,049h,053h,047h,040h,008h,04Eh   ; 00000498    ".NISG@.N"
@@ -219,8 +219,8 @@
   db  060h,0A0h,035h,07Bh,060h,00Ah,010h,000h   ; 00000680    "`.5{`..."
   db  07Bh,060h,00Ah,00Fh,060h,070h,060h,047h   ; 00000688    "{`..`p`G"
   db  050h,053h,053h,086h,05Ch,02Fh,003h,05Fh   ; 00000690    "PSS.\/._"
-  db  053h,042h,05Fh,050h,043h,049h,030h,047h   ; 00000698    "SB_PCI0G"
-  db  046h,058h,030h,00Ah,0D9h,086h,05Ch,02Fh   ; 000006A0    "FX0...\/"
+  db  053h,042h,05Fh,050h,043h,049h,030h,049h   ; 00000698    "SB_PCI0I"
+  db  047h,050h,055h,00Ah,0D9h,086h,05Ch,02Fh   ; 000006A0    "GPU...\/"
   db  003h,05Fh,053h,042h,05Fh,050h,043h,049h   ; 000006A8    "._SB_PCI"
   db  030h,057h,04Dh,049h,031h,00Ah,0D9h,0A1h   ; 000006B0    "0WMI1..."
   db  01Fh,07Bh,060h,00Ah,00Fh,060h,0A0h,018h   ; 000006B8    ".{`..`.."
@@ -910,8 +910,8 @@
   db  013h,06Ah,00Ah,0E0h,00Ah,020h,058h,052h   ; 00001C18    ".j... XR"
   db  047h,030h,0A0h,02Bh,05Bh,012h,05Ch,02Fh   ; 00001C20    "G0.+[.\/"
   db  004h,05Fh,053h,042h,05Fh,050h,043h,049h   ; 00001C28    "._SB_PCI"
-  db  030h,047h,046h,058h,030h,05Fh,044h,053h   ; 00001C30    "0GFX0_DS"
+  db  030h,049h,047h,050h,055h,05Fh,044h,053h   ; 00001C30    "0IGPU_DS"
   db  04Dh,000h,0A4h,05Ch,02Fh,004h,05Fh,053h   ; 00001C38    "M..\/._S"
-  db  042h,05Fh,050h,043h,049h,030h,047h,046h   ; 00001C40    "B_PCI0GF"
-  db  058h,030h,05Fh,044h,053h,04Dh,0A4h,000h   ; 00001C48    "X0_DSM.."
+  db  042h,05Fh,050h,043h,049h,030h,049h,047h   ; 00001C40    "B_PCI0IG"
+  db  050h,055h,05Fh,044h,053h,04Dh,0A4h,000h   ; 00001C48    "PU_DSM.."
 
