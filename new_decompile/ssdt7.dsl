@@ -1461,10 +1461,10 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                         If (CondRefOf (\_SB.PCI0.GFX0._DSM))
                         {
                             Return (\_SB.PCI0.GFX0._DSM)
-                            MUID
-                            REVI
-                            SFNC
-                            XRG0
+//                            MUID
+//                            REVI
+//                            SFNC
+//                            XRG0
                         }
                     }
                 }
