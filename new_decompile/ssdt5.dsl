@@ -17,7 +17,7 @@
  *     Compiler Version 0x20091112 (537465106)
  */
 //DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
-//DefinitionBlock ("ssdt_pr.aml", "SSDT", 1, "APPLE ", "CpuPm", 0x00009100)
+
 /*
  * Intel ACPI Component Architecture
  * AML Disassembler version 20140210-00 [Feb 10 2014]
@@ -35,7 +35,7 @@
  *     Compiler Version 0x20140210 (538182160)
  */
 
-DefinitionBlock ("ssdt.aml", "SSDT", 1, "APPLE ", "CpuPm", 0x00015600)
+DefinitionBlock ("ssdt5.aml", "SSDT", 1, "APPLE ", "CpuPm", 0x00015600)
 {
     External (\_PR_.CPU0, DeviceObj)
     External (\_PR_.CPU1, DeviceObj)

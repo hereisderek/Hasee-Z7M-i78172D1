@@ -2999,19 +2999,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     })
                 }
 
-                Device (PXSX)
-                {
-                    Name (_ADR, Zero)  // _ADR: Address
-                    Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-                    {
-                        Return (GPRW (0x09, 0x04))
-                    }
-
-                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
-                    {
-                        Return (HPCE)
-                    }
-                }
+                
                 
 
                 Method (HPME, 0, Serialized)
@@ -3038,7 +3026,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                         }
 
-                        Notify (PXSX, 0x02)
+                        Notify (LAN0, 0x02)
                     }
                 }
 
