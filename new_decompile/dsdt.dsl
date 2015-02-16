@@ -5209,6 +5209,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         }
                     }
                 }
+                Method (_DSM, 4, NotSerialized)
+                {
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "compatible", "pci8086,9c43",
+                    })
+                }
             }
         }
     }
