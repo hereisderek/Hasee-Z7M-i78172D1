@@ -1,25 +1,5 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20140926-64 [Oct 16 2014]
- * Copyright (c) 2000 - 2014 Intel Corporation
- * 
- * Disassembly of ssdt5.dat, Sun Feb 15 17:36:58 2015
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x00001C47 (7239)
- *     Revision         0x01
- *     Checksum         0x2E
- *     OEM ID           "HASEE "
- *     OEM Table ID     "PARADISE"
- *     OEM Revision     0x00003000 (12288)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20091112 (537465106)
- */
-//DefinitionBlock ("ssdt5.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
-//DefinitionBlock ("ssdt_pr.aml", "SSDT", 1, "APPLE ", "CpuPm", 0x00009100)
-/*
- * Intel ACPI Component Architecture
  * AML Disassembler version 20140210-00 [Feb 10 2014]
  * Copyright (c) 2000 - 2014 Intel Corporation
  * 
