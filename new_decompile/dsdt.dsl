@@ -4563,20 +4563,15 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Name (_HID, EisaId ("PNP0103"))  // _HID: Hardware ID
                     Name (_UID, Zero)  // _UID: Unique ID
                     Name (BUF0, ResourceTemplate()
-{
-    IRQNoFlags() { 0, 8, 11, 15 }
-
-                        Memory32Fixed (ReadWrite,
-                            0xFED00000,         // Address Base
-                            0x00000400,         // Address Length
-                            _Y0F)
-                    })
-
-                    
-
-                    
-                    Name (_STA, 0x0F)
-                    Method (_CRS, 0, NotSerialized)
+                {
+                    IRQNoFlags() { 0, 8, 11, 15 }
+                    Memory32Fixed (ReadWrite,
+                    0xFED00000,         // Address Base
+                    0x00000400,         // Address Length
+                    _Y0F)
+                })
+                Name (_STA, 0x0F)
+                Method (_CRS, 0, NotSerialized)
                     {
                         Return (BUF0)
                     }
@@ -10899,7 +10894,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     Method (_WAK, 1, Serialized)  // _WAK: Wake
     {
         If (LOr(LLess(Arg0,1),LGreater(Arg0,5))) { Store(3,Arg0) }
-P8XH (One, 0xAB)
+        P8XH (One, 0xAB)
         WAK (Arg0)
         ADBG ("_WAK")
         If (LGreaterEqual (OSYS, 0x07D6))
@@ -16192,61 +16187,80 @@ P8XH (One, 0xAB)
 
             Method (_Q0A, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q0A enter")
                 Store (0x0A, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (OEM4, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q0A exit")
+
             }
 
             Method (_Q0B, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q0B enter")
                 Store (0x0B, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (OEM4, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q0B exit")
+
             }
 
             Method (_Q0C, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q0C enter")
                 Store (0x0C, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (0xFB, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q0C exit")
+
             }
 
             Method (_Q0D, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q0D enter")
                 Store (0x0D, P80H)
+                \rmdt.p1("EC _Q0D exit")
+
             }
 
             Method (_Q0E, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q0E enter")
                 Store (0x0E, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (0xFA, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q0E exit")
+
             }
 
             Method (_Q0F, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q0F enter")
                 Store (0x0F, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (0xFA, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q0F exit")
+
             }
 
             Method (_Q10, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q10 enter")
                 Store (0x10, P80H)
                 If (LEqual (OSYS, 0x03E8))
                 {
@@ -16267,10 +16281,18 @@ P8XH (One, 0xAB)
                         Notify (WMI, 0xD0)
                     }
                 }
-            }
+                \rmdt.p1("EC _Q10 exit")
 
+            }
+//            MARK brightness down
             Method (_Q11, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q11 enter")
+//                MARK Brightness Down
+                Notify(\_SB.PCI0.LPCB.PS2K, 0x0205)
+                Notify(\_SB.PCI0.LPCB.PS2K, 0x0285)
+                
+                
                 Store (0x11, P80H)
                 If (And (WINF, One))
                 {
@@ -16303,10 +16325,16 @@ P8XH (One, 0xAB)
                         Notify (WMI, 0xD0)
                     }
                 }
-            }
+                \rmdt.p1("EC _Q11 exit")
 
+            }
+//            MARK brightness up
             Method (_Q12, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q12 enter")
+//                Brightness Up
+                Notify(\_SB.PCI0.LPCB.PS2K, 0x0206)
+                Notify(\_SB.PCI0.LPCB.PS2K, 0x0286)
                 Store (0x12, P80H)
                 If (And (WINF, One))
                 {
@@ -16339,10 +16367,13 @@ P8XH (One, 0xAB)
                         Notify (WMI, 0xD0)
                     }
                 }
+                \rmdt.p1("EC _Q12 exit")
+
             }
 
             Method (_Q13, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q13 enter")
                 Store (0x13, P80H)
                 If (LEqual (OSYS, 0x03E8)) {}
                 If (^^^^WMI.HKDR)
@@ -16350,10 +16381,13 @@ P8XH (One, 0xAB)
                     Store (OEM4, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q13 exit")
+
             }
 
             Method (_Q14, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q14 enter")
                 Store (0x14, P80H)
                 If (LEqual (OSYS, 0x03E8)) {}
                 If (^^^^WMI.HKDR)
@@ -16369,10 +16403,13 @@ P8XH (One, 0xAB)
                         Notify (WMI, 0xD0)
                     }
                 }
+                \rmdt.p1("EC _Q14 exit")
+
             }
 
             Method (_Q15, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q15 enter")
                 Store (0x15, P80H)
                 If (^^^^LID0.LIDF)
                 {
@@ -16386,10 +16423,13 @@ P8XH (One, 0xAB)
                 {
                     Notify (SLPB, 0x80)
                 }
+                \rmdt.p1("EC _Q15 exit")
+
             }
 
             Method (_Q16, 0, Serialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q16 enter")
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x16, P80H)
                 Store (ADP, ^^^^AC.ACFG)
@@ -16447,16 +16487,22 @@ P8XH (One, 0xAB)
                 Store (Zero, TBFG)
                 Store (Zero, ECTB)
                 ^^^^AC.ADJP (Zero)
+                \rmdt.p1("EC _Q16 exit")
+
             }
 
             Method (_Q17, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q17 enter")
                 Store (0x17, P80H)
                 Notify (^^^^BAT0, 0x81)
+                \rmdt.p1("EC _Q17 exit")
+
             }
 
             Method (_Q19, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q19 enter")
                 Store (0x19, P80H)
                 Notify (^^^^BAT0, 0x81)
                 If (LEqual (ECBL, Zero))
@@ -16476,10 +16522,13 @@ P8XH (One, 0xAB)
                     Store (0xB7, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q19 exit")
+
             }
 
             Method (_Q1B, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q1B enter")
                 Store (0x1B, P80H)
                 If (^^^^LID0.LIDF)
                 {
@@ -16500,23 +16549,32 @@ P8XH (One, 0xAB)
                 {
                     Notify (LID0, 0x80)
                 }
+                \rmdt.p1("EC _Q1B exit")
+
             }
 
             Method (_Q1C, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q1C enter")
                 Store (0x1C, P80H)
                 Notify (\_TZ.TZ0, 0x81)
                 Notify (\_TZ.TZ0, 0x80)
+                \rmdt.p1("EC _Q1C exit")
+
             }
 
             Method (_Q1D, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q1D enter")
                 Store (0x1D, P80H)
                 Notify (PWRB, 0x80)
+                \rmdt.p1("EC _Q1D exit")
+
             }
 
             Method (_Q1E, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q1E enter")
                 Store (0x1E, P80H)
                 If (LEqual (ECBL, Zero))
                 {
@@ -16535,15 +16593,21 @@ P8XH (One, 0xAB)
                     Store (0xB7, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q1E exit")
+
             }
 
             Method (_Q24, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q24 enter")
                 Store (0x24, P80H)
+                \rmdt.p1("EC _Q24 exit")
+
             }
 
             Method (_Q35, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q35 enter")
                 Store (0x35, P80H)
                 If (^^^^WMI.HKDR)
                 {
@@ -16561,15 +16625,21 @@ P8XH (One, 0xAB)
 
                 Notify (WMI, 0xD0)
                 ^^^^AC.ADJP (Zero)
+                \rmdt.p1("EC _Q35 exit")
+
             }
 
             Method (_Q36, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q36 enter")
                 Store (0x36, P80H)
+                \rmdt.p1("EC _Q36 exit")
+
             }
 
             Method (_Q37, 0, Serialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q37 enter")
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x37, P80H)
@@ -16637,53 +16707,71 @@ P8XH (One, 0xAB)
                 }
 
                 ^^^^AC.ADJP (Zero)
+                \rmdt.p1("EC _Q37 exit")
+
             }
 
             Method (_Q39, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q39 enter")
                 Store (0x39, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (OEM4, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q39 exit")
+
             }
 
             Method (_Q40, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q40 enter")
                 Store (0x40, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (0xFE, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
+                \rmdt.p1("EC _Q40 exit")
+
             }
 
             Method (_Q41, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q41 enter")
                 Store (0x41, P80H)
+                \rmdt.p1("EC _Q41 exit")
+
             }
 
             Method (_Q42, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q42 enter")
                 Store (0x42, P80H)
                 Store (Increment (PRC0), PRC0)
                 Store (One, TBFG)
                 Store (One, ECTB)
                 ^^^^AC.ADJP (Zero)
+                \rmdt.p1("EC _Q42 exit")
+
             }
 
             Method (_Q53, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q53 enter")
                 Store (0x53, P80H)
                 Store (Increment (PRC1), PRC1)
                 Store (Zero, TBFG)
                 Store (Zero, ECTB)
                 ^^^^AC.ADJP (Zero)
+                \rmdt.p1("EC _Q53 exit")
+
             }
 
             Method (_Q54, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q54 enter")
                 Store (0x54, P80H)
                 Store (0x08, CCST)
                 Store (Increment (PRIN), PRIN)
@@ -16691,10 +16779,13 @@ P8XH (One, 0xAB)
                 ^^^^AC.ADJP (Zero)
                 Store (Zero, TBFG)
                 Store (Zero, ECTB)
+                \rmdt.p1("EC _Q54 exit")
+
             }
 
             Method (_Q55, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q55 enter")
                 Store (0x55, P80H)
                 Store (Zero, CCST)
                 Store (Increment (PSTE), PSTE)
@@ -16702,15 +16793,21 @@ P8XH (One, 0xAB)
                 ^^^^AC.ADJP (Zero)
                 Store (Zero, TBFG)
                 Store (Zero, ECTB)
+                \rmdt.p1("EC _Q55 exit")
+
             }
 
             Method (_Q46, 0, NotSerialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q46 enter")
                 Store (0x46, P80H)
+                \rmdt.p1("EC _Q46 exit")
+
             }
 
             Method (_Q4A, 0, Serialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q4A enter")
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x4A, P80H)
                 Store (OEM4, Local0)
@@ -16739,10 +16836,13 @@ P8XH (One, 0xAB)
 
                     Break
                 }
+                \rmdt.p1("EC _Q4A exit")
+
             }
 
             Method (_Q50, 0, Serialized)  // _Qxx: EC Query
             {
+                \rmdt.p1("EC _Q50 enter")
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x50, P80H)
                 Store (OEM4, Local0)
@@ -16996,6 +17096,8 @@ P8XH (One, 0xAB)
 
                     Break
                 }
+                \rmdt.p1("EC _Q50 exit")
+
             }
         }
     }
@@ -19010,6 +19112,113 @@ P8XH (One, 0xAB)
                     2531, 2612, 2694, 2777,
                 })
             }
+        }
+    }
+    Device (RMDT)
+    {
+        Name (_HID, "RMD0000")
+        Name (RING, Package(256) { })
+        Mutex (RTMX, 0)
+        Name (HEAD, 0)
+        Name (TAIL, 0)
+        // PUSH: Use to push a trace item into RING for ACPIDebug.kext
+        Method (PUSH, 1, NotSerialized)
+        {
+            Acquire(RTMX, 0xFFFF)
+            // push new item at HEAD
+            Add(HEAD, 1, Local0)
+            If (LGreaterEqual(Local0, SizeOf(RING))) { Store(0, Local0) }
+            if (LNotEqual(Local0, TAIL))
+            {
+                Store(Arg0, Index(RING, HEAD))
+                Store(Local0, HEAD)
+            }
+            Release(RTMX)
+            Notify(RMDT, 0x80)
+        }
+        // FTCH: Used by ACPIDebug.kext to fetch an item from RING
+        Method (FTCH, 0, NotSerialized)
+        {
+            Acquire(RTMX, 0xFFFF)
+            // pull item from TAIL and return it
+            Store(0, Local0)
+            if (LNotEqual(HEAD, TAIL))
+            {
+                Store(DerefOf(Index(RING, TAIL)), Local0)
+                Increment(TAIL)
+                If (LGreaterEqual(TAIL, SizeOf(RING))) { Store(0, TAIL) }
+            }
+            Release(RTMX)
+            Return(Local0)
+        }
+        // COUN: Used by ACPIDebug.kext to determine number of items in RING
+        Method (COUN, 0, NotSerialized)
+        {
+            Acquire(RTMX, 0xFFFF)
+            // return count of items in RING
+            Subtract(HEAD, TAIL, Local0)
+            if (LLess(Local0, 0)) { Add(Local0, SizeOf(RING), Local0) }
+            Release(RTMX)
+            Return(Local0)
+        }
+        // Helper functions for multiple params at one time
+        Method (P1, 1, NotSerialized) { PUSH(Arg0) }
+        Method (P2, 2, Serialized)
+        {
+            Name (TEMP, Package(2) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            PUSH(TEMP)
+        }
+        Method (P3, 3, Serialized)
+        {
+            Name (TEMP, Package(3) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            PUSH(TEMP)
+        }
+        Method (P4, 4, Serialized)
+        {
+            Name (TEMP, Package(4) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            Store(Arg3, Index(TEMP, 3))
+            PUSH(TEMP)
+        }
+        Method (P5, 5, Serialized)
+        {
+            Name (TEMP, Package(5) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            Store(Arg3, Index(TEMP, 3))
+            Store(Arg4, Index(TEMP, 4))
+            PUSH(TEMP)
+        }
+        Method (P6, 6, Serialized)
+        {
+            Name (TEMP, Package(6) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            Store(Arg3, Index(TEMP, 3))
+            Store(Arg4, Index(TEMP, 4))
+            Store(Arg5, Index(TEMP, 5))
+            PUSH(TEMP)
+        }
+        Method (P7, 7, Serialized)
+        {
+            Name (TEMP, Package(7) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            Store(Arg3, Index(TEMP, 3))
+            Store(Arg4, Index(TEMP, 4))
+            Store(Arg5, Index(TEMP, 5))
+            Store(Arg6, Index(TEMP, 6))
+            PUSH(TEMP)
         }
     }
 }
