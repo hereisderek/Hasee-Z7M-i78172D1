@@ -5368,6 +5368,18 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 }
                 Return (Local0)
             }
+            Device (MEI)
+            {
+                Name (_ADR, 0x00160000)
+                Method (_DSM, 4, NotSerialized)
+                {
+                    Store (Package (0x02) {
+                        "layout-id", Buffer(0x04) {0xba,0x8c,0x00,0x00},
+                    }, Local0)
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
+                }
+            }
         }
     }
 
