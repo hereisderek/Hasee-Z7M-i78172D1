@@ -6214,9 +6214,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     "device_type", Buffer (0x0E) {"USB Controller"},
                     "AAPL,current-available", 0x0834,
                     "AAPL,current-extra", 0x0898,
-                    "AAPL,current-in-sleep", 0x0640,
-                    "AAPL,current-extra-in-sleep", 0x0834,
-                    "AAPL,max-port-current-in-sleep", 0x0834,
+//                    "AAPL,current-in-sleep", 0x0640,    // left blank
+//                    "AAPL,current-extra-in-sleep", 0x0834,    // left blank
+//                    "AAPL,max-port-current-in-sleep", 0x0834,    // left blank
                     "AAPL,device-internal", 0x02,
                     Buffer (One) {0x00}
                 }, Local0)
@@ -6513,9 +6513,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     "device_type", Buffer (0x0E) {"USB Controller"},
                     "AAPL,current-available", 0x0834,
                     "AAPL,current-extra", 0x0898,
-                    "AAPL,current-in-sleep", 0x0640,
-                    "AAPL,current-extra-in-sleep", 0x0834,
-                    "AAPL,max-port-current-in-sleep", 0x0834,
+//                    "AAPL,current-in-sleep", 0x0640,    // left blank
+//                    "AAPL,current-extra-in-sleep", 0x0834,    // left blank
+//                    "AAPL,max-port-current-in-sleep", 0x0834,    // left blank
                     "AAPL,device-internal", 0x02,
                     Buffer (One) {0x00}
                 }, Local0)
