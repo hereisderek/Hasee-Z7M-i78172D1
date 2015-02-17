@@ -39,3 +39,4 @@ http://clover-wiki.zetam.org/What-is-what
 useful patch repo:
 http://raw.github.com/Yuki-Judai/dxxs-DSDT-Patch/master
 http://raw.github.com/RehabMan/Laptop-DSDT-Patch/master
+https://raw.githubusercontent.com/toleda/audio_hdmi_hd4000/master/

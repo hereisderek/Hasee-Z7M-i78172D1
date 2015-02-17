@@ -2563,17 +2563,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -2587,7 +2587,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x04))
+                                    If (LEqual (T_1, 0x04))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -2600,7 +2600,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x06))
+                                        If (LEqual (T_1, 0x06))
                                         {
                                             If (LEqual (Arg1, 0x02))
                                             {
@@ -2751,17 +2751,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -2775,7 +2775,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x04))
+                                    If (LEqual (T_1, 0x04))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -2788,7 +2788,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x06))
+                                        If (LEqual (T_1, 0x06))
                                         {
                                             If (LEqual (Arg1, 0x02))
                                             {
@@ -2939,17 +2939,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -2963,7 +2963,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x04))
+                                    If (LEqual (T_1, 0x04))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -2976,7 +2976,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x06))
+                                        If (LEqual (T_1, 0x06))
                                         {
                                             If (LEqual (Arg1, 0x02))
                                             {
@@ -3150,17 +3150,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -3174,7 +3174,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x04))
+                                    If (LEqual (T_1, 0x04))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -3187,7 +3187,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x06))
+                                        If (LEqual (T_1, 0x06))
                                         {
                                             If (LEqual (Arg1, 0x02))
                                             {
@@ -3338,17 +3338,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -3362,7 +3362,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x04))
+                                    If (LEqual (T_1, 0x04))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -3375,7 +3375,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x06))
+                                        If (LEqual (T_1, 0x06))
                                         {
                                             If (LEqual (Arg1, 0x02))
                                             {
@@ -3770,17 +3770,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -3794,7 +3794,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x04))
+                                    If (LEqual (T_1, 0x04))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -3807,7 +3807,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x06))
+                                        If (LEqual (T_1, 0x06))
                                         {
                                             If (LEqual (Arg1, 0x02))
                                             {
@@ -3958,17 +3958,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -3982,7 +3982,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x04))
+                                    If (LEqual (T_1, 0x04))
                                     {
                                         If (LEqual (Arg1, 0x02))
                                         {
@@ -3995,7 +3995,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x06))
+                                        If (LEqual (T_1, 0x06))
                                         {
                                             If (LEqual (Arg1, 0x02))
                                             {
@@ -6811,60 +6811,60 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                 Method (CNTR, 1, Serialized)
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, One))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, One))
                         {
                             CreateDWordField (BUF1, \_SB.PCI0.SIRC._Y14._BAS, BAR1)  // _BAS: Base Address
                             Return (BAR1)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (T_0, 0x02))
                             {
                                 CreateDWordField (BUF2, \_SB.PCI0.SIRC._Y15._BAS, BAR2)  // _BAS: Base Address
                                 Return (BAR2)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x03))
+                                If (LEqual (T_0, 0x03))
                                 {
                                     CreateDWordField (BUF3, \_SB.PCI0.SIRC._Y16._BAS, BAR3)  // _BAS: Base Address
                                     Return (BAR3)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x04))
+                                    If (LEqual (T_0, 0x04))
                                     {
                                         CreateDWordField (BUF4, \_SB.PCI0.SIRC._Y17._BAS, BAR4)  // _BAS: Base Address
                                         Return (BAR4)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x05))
+                                        If (LEqual (T_0, 0x05))
                                         {
                                             CreateDWordField (BUF5, \_SB.PCI0.SIRC._Y18._BAS, BAR5)  // _BAS: Base Address
                                             Return (BAR5)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x06))
+                                            If (LEqual (T_0, 0x06))
                                             {
                                                 CreateDWordField (BUF6, \_SB.PCI0.SIRC._Y19._BAS, BAR6)  // _BAS: Base Address
                                                 Return (BAR6)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x07))
+                                                If (LEqual (T_0, 0x07))
                                                 {
                                                     CreateDWordField (BUF7, \_SB.PCI0.SIRC._Y1A._BAS, BAR7)  // _BAS: Base Address
                                                     Return (BAR7)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08))
+                                                    If (LEqual (T_0, 0x08))
                                                     {
                                                         CreateDWordField (BUF8, \_SB.PCI0.SIRC._Y1B._BAS, BAR8)  // _BAS: Base Address
                                                         Return (BAR8)
@@ -9549,11 +9549,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Name (EOD, One)
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (CODS), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (CODS), T_0)
+                    If (LEqual (T_0, Zero))
                     {
                         Store (^^I2C0.ACD0.MCLK, MCLK)
                         Store (^^I2C0.ACD0.SCLK, SCLK)
@@ -9561,7 +9561,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (T_0, One))
                         {
                             Store (^^I2C0.ACD1.MCLK, MCLK)
                             Store (^^I2C0.ACD1.SCLK, SCLK)
@@ -9569,7 +9569,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (T_0, 0x02))
                             {
                                 Store (^^I2C0.ACD2.MCLK, MCLK)
                                 Store (^^I2C0.ACD2.SCLK, SCLK)
@@ -11958,7 +11958,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, ToUUID ("b8febfe0-baf8-454b-aecd-49fb91137b21")))
                 {
                     If (LEqual (Arg2, Zero))
@@ -11981,8 +11981,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             While (One)
                             {
-                                Store (PEPY, _T_0)
-                                If (LEqual (_T_0, One))
+                                Store (PEPY, T_0)
+                                If (LEqual (T_0, One))
                                 {
                                     Return (Package (0x02)
                                     {
@@ -11995,7 +11995,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02))
+                                    If (LEqual (T_0, 0x02))
                                     {
                                         Return (Package (0x02)
                                         {
@@ -12008,7 +12008,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x03))
+                                        If (LEqual (T_0, 0x03))
                                         {
                                             Return (DEVS)
                                         }
@@ -12799,11 +12799,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (STRT, 3, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg1), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (Arg1), T_0)
+                    If (LEqual (T_0, Zero))
                     {
                         Return (Buffer (One)
                         {
@@ -12812,7 +12812,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (T_0, One))
                         {
                             If (LEqual (Or (And (HSTS, 0x02), And (HSTS, One
                                 )), 0x03))
@@ -12837,11 +12837,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (CRYF, 3, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg1), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (Arg1), T_0)
+                    If (LEqual (T_0, Zero))
                     {
                         Return (Buffer (One)
                         {
@@ -12850,7 +12850,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (T_0, One))
                         {
                             Name (TPMV, Package (0x02)
                             {
@@ -12876,11 +12876,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (PPIR, 3, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg1), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (Arg1), T_0)
+                    If (LEqual (T_0, Zero))
                     {
                         Return (Buffer (0x02)
                         {
@@ -12889,13 +12889,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (T_0, One))
                         {
                             Return ("1.2")
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (T_0, 0x02))
                             {
                                 ToInteger (DerefOf (Index (Arg2, Zero)), TMF2)
                                 Store (0x12, TMF1)
@@ -12922,7 +12922,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x03))
+                                If (LEqual (T_0, 0x03))
                                 {
                                     Name (PPI1, Package (0x02)
                                     {
@@ -12941,13 +12941,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x04))
+                                    If (LEqual (T_0, 0x04))
                                     {
                                         Return (TRST)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x05))
+                                        If (LEqual (T_0, 0x05))
                                         {
                                             Name (PPI2, Package (0x03)
                                             {
@@ -13002,13 +13002,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x06))
+                                            If (LEqual (T_0, 0x06))
                                             {
                                                 Return (0x03)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x07))
+                                                If (LEqual (T_0, 0x07))
                                                 {
                                                     ToInteger (DerefOf (Index (Arg2, Zero)), TMF2)
                                                     Store (0x12, TMF1)
@@ -13035,7 +13035,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08))
+                                                    If (LEqual (T_0, 0x08))
                                                     {
                                                         ToInteger (DerefOf (Index (Arg2, Zero)), TMF2)
                                                         Store (0x43, TMF1)
@@ -13063,11 +13063,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (MORI, 3, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (Arg1), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (Arg1), T_0)
+                    If (LEqual (T_0, Zero))
                     {
                         Return (Buffer (One)
                         {
@@ -13076,7 +13076,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (T_0, One))
                         {
                             Store (0x22, TMF1)
                             Store (TMF1, DAT)
@@ -13156,14 +13156,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("3dddfaa6-361b-4eb4-a424-8d10089d1653") /* Physical Presence Interface */))
             {
                 While (One)
                 {
-                    Store (ToInteger (Arg2), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (Arg2), T_0)
+                    If (LEqual (T_0, Zero))
                     {
                         Return (Buffer (0x02)
                         {
@@ -13172,13 +13172,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (T_0, One))
                         {
                             Return ("1.2")
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (T_0, 0x02))
                             {
                                 ToInteger (DerefOf (Index (Arg3, Zero)), TMF2)
                                 Store (0x12, TMF1)
@@ -13205,7 +13205,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x03))
+                                If (LEqual (T_0, 0x03))
                                 {
                                     Name (PPI1, Package (0x02)
                                     {
@@ -13224,13 +13224,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x04))
+                                    If (LEqual (T_0, 0x04))
                                     {
                                         Return (TRST)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x05))
+                                        If (LEqual (T_0, 0x05))
                                         {
                                             Name (PPI2, Package (0x03)
                                             {
@@ -13285,13 +13285,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x06))
+                                            If (LEqual (T_0, 0x06))
                                             {
                                                 Return (0x03)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x07))
+                                                If (LEqual (T_0, 0x07))
                                                 {
                                                     ToInteger (DerefOf (Index (Arg3, Zero)), TMF2)
                                                     Store (0x12, TMF1)
@@ -13318,7 +13318,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08))
+                                                    If (LEqual (T_0, 0x08))
                                                     {
                                                         ToInteger (DerefOf (Index (Arg3, Zero)), TMF2)
                                                         Store (0x43, TMF1)
@@ -13349,8 +13349,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     While (One)
                     {
-                        Store (ToInteger (Arg2), _T_1)
-                        If (LEqual (_T_1, Zero))
+                        Store (ToInteger (Arg2), T_1)
+                        If (LEqual (T_1, Zero))
                         {
                             Return (Buffer (One)
                             {
@@ -13359,7 +13359,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, One))
+                            If (LEqual (T_1, One))
                             {
                                 Store (0x22, TMF1)
                                 Store (TMF1, DAT)
@@ -13502,9 +13502,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (ADJP, 1, Serialized)
             {
-                Name (_T_2, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_2, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (IGNR)
                 {
                     Return (Zero)
@@ -13532,20 +13532,20 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             While (One)
                             {
-                                Store (And (OEMF, 0x06), _T_0)
-                                If (LEqual (_T_0, Zero))
+                                Store (And (OEMF, 0x06), T_0)
+                                If (LEqual (T_0, Zero))
                                 {
                                     Store (Zero, Local7)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02))
+                                    If (LEqual (T_0, 0x02))
                                     {
                                         Store (One, Local7)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x04))
+                                        If (LEqual (T_0, 0x04))
                                         {
                                             If (ACFG)
                                             {
@@ -13593,14 +13593,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Store (Local2, Local6)
                     While (One)
                     {
-                        Store (ToInteger (Local7), _T_1)
-                        If (LEqual (_T_1, Zero))
+                        Store (ToInteger (Local7), T_1)
+                        If (LEqual (T_1, Zero))
                         {
                             Store (Zero, Local0)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, One))
+                            If (LEqual (T_1, One))
                             {
                                 If (LGreater (Local2, 0x02))
                                 {
@@ -13645,14 +13645,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x02))
+                                If (LEqual (T_1, 0x02))
                                 {
                                     Decrement (Local2)
                                     Store (Local2, Local0)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x03))
+                                    If (LEqual (T_1, 0x03))
                                     {
                                         Store (One, Local0)
                                         If (LEqual (ACFG, Zero))
@@ -13679,7 +13679,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x04))
+                                        If (LEqual (T_1, 0x04))
                                         {
                                             Store (One, Local0)
                                         }
@@ -13776,20 +13776,20 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     While (One)
                     {
-                        Store (ToInteger (Local7), _T_2)
-                        If (LEqual (_T_2, Zero))
+                        Store (ToInteger (Local7), T_2)
+                        If (LEqual (T_2, Zero))
                         {
                             Store (0x03, Local0)
                         }
                         Else
                         {
-                            If (LEqual (_T_2, One))
+                            If (LEqual (T_2, One))
                             {
                                 Store (0x02, Local0)
                             }
                             Else
                             {
-                                If (LEqual (_T_2, 0x02))
+                                If (LEqual (T_2, 0x02))
                                 {
                                     Store (0x02, Local0)
                                 }
@@ -14003,12 +14003,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (WMBB, 3, Serialized)
             {
-                Name (_T_5, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_4, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_3, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_2, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_5, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_4, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_3, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_2, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 P8XH (Zero, Arg1)
                 Name (ARGS, Zero)
                 If (SizeOf (Arg2))
@@ -14289,8 +14289,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         While (One)
                         {
-                            Store (ToInteger (ARGS), _T_0)
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (ARGS), T_0)
+                            If (LEqual (T_0, Zero))
                             {
                                 Store (Zero, ^^PCI0.LPCB.EC.FDAT)
                                 Store (Zero, ^^PCI0.LPCB.EC.FBUF)
@@ -14298,7 +14298,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, One))
+                                If (LEqual (T_0, One))
                                 {
                                     Store (Zero, ^^PCI0.LPCB.EC.FDAT)
                                     Store (One, ^^PCI0.LPCB.EC.FBUF)
@@ -14306,7 +14306,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02))
+                                    If (LEqual (T_0, 0x02))
                                     {
                                         Store (Zero, ^^PCI0.LPCB.EC.FDAT)
                                         Store (0x02, ^^PCI0.LPCB.EC.FBUF)
@@ -14672,8 +14672,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         OperationRegion (RH2M, SystemMemory, Local0, Local2)
                         While (One)
                         {
-                            Store (ToInteger (Local2), _T_1)
-                            If (LEqual (_T_1, One))
+                            Store (ToInteger (Local2), T_1)
+                            If (LEqual (T_1, One))
                             {
                                 Field (RH2M, ByteAcc, Lock, Preserve)
                                 {
@@ -14684,7 +14684,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x02))
+                                If (LEqual (T_1, 0x02))
                                 {
                                     Field (RH2M, ByteAcc, Lock, Preserve)
                                     {
@@ -14695,7 +14695,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x04))
+                                    If (LEqual (T_1, 0x04))
                                     {
                                         Field (RH2M, ByteAcc, Lock, Preserve)
                                         {
@@ -15015,8 +15015,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     While (One)
                     {
-                        Store (ToInteger (ARGS), _T_2)
-                        If (LEqual (_T_2, Zero))
+                        Store (ToInteger (ARGS), T_2)
+                        If (LEqual (T_2, Zero))
                         {
                             Store (0x4F, P80H)
                             If (^^PCI0.LPCB.EC.ECOK)
@@ -15028,7 +15028,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         }
                         Else
                         {
-                            If (LEqual (_T_2, One))
+                            If (LEqual (T_2, One))
                             {
                                 Store (0x5F, P80H)
                                 If (^^PCI0.LPCB.EC.ECOK)
@@ -15040,7 +15040,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                             Else
                             {
-                                If (LEqual (_T_2, 0x02))
+                                If (LEqual (T_2, 0x02))
                                 {
                                     Store (0x6F, P80H)
                                     If (^^PCI0.LPCB.EC.ECOK)
@@ -15094,21 +15094,21 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     While (One)
                     {
-                        Store (ToInteger (ARGS), _T_3)
-                        If (LEqual (_T_3, Zero))
+                        Store (ToInteger (ARGS), T_3)
+                        If (LEqual (T_3, Zero))
                         {
                             Store (One, ^^LID0.WMIF)
                             Notify (LID0, 0x80)
                         }
                         Else
                         {
-                            If (LEqual (_T_3, One))
+                            If (LEqual (T_3, One))
                             {
                                 Notify (SLPB, 0x80)
                             }
                             Else
                             {
-                                If (LEqual (_T_3, 0x02))
+                                If (LEqual (T_3, 0x02))
                                 {
                                     Notify (PWRB, 0x80)
                                 }
@@ -15704,8 +15704,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         OperationRegion (WH2M, SystemMemory, Local0, Local2)
                         While (One)
                         {
-                            Store (ToInteger (Local2), _T_4)
-                            If (LEqual (_T_4, One))
+                            Store (ToInteger (Local2), T_4)
+                            If (LEqual (T_4, One))
                             {
                                 Field (WH2M, ByteAcc, Lock, Preserve)
                                 {
@@ -15716,7 +15716,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                             Else
                             {
-                                If (LEqual (_T_4, 0x02))
+                                If (LEqual (T_4, 0x02))
                                 {
                                     Field (WH2M, ByteAcc, Lock, Preserve)
                                     {
@@ -15727,7 +15727,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_4, 0x04))
+                                    If (LEqual (T_4, 0x04))
                                     {
                                         Field (WH2M, ByteAcc, Lock, Preserve)
                                         {
@@ -15783,8 +15783,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Store (And (ARGS, 0x00FFFFFF), Local2)
                     While (One)
                     {
-                        Store (ToInteger (Local1), _T_5)
-                        If (LEqual (_T_5, One))
+                        Store (ToInteger (Local1), T_5)
+                        If (LEqual (T_5, One))
                         {
                             If (^^PCI0.LPCB.EC.ECOK)
                             {
@@ -15808,7 +15808,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         }
                         Else
                         {
-                            If (LEqual (_T_5, 0x05))
+                            If (LEqual (T_5, 0x05))
                             {
                                 If (^^PCI0.LPCB.EC.ECOK)
                                 {
@@ -15828,7 +15828,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                             Else
                             {
-                                If (LEqual (_T_5, 0x07))
+                                If (LEqual (T_5, 0x07))
                                 {
                                     If (^^PCI0.LPCB.EC.ECOK)
                                     {
@@ -16448,7 +16448,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_Q16, 0, Serialized)  // _Qxx: EC Query
             {
                 \rmdt.p1("EC _Q16 enter")
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x16, P80H)
                 Store (ADP, ^^^^AC.ACFG)
                 If (And (OEMF, 0x2000))
@@ -16478,20 +16478,20 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     While (One)
                     {
-                        Store (And (OEMF, 0x06), _T_0)
-                        If (LEqual (_T_0, Zero))
+                        Store (And (OEMF, 0x06), T_0)
+                        If (LEqual (T_0, Zero))
                         {
                             Store (Zero, BBST)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (T_0, 0x02))
                             {
                                 Store (Zero, BBST)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     Store (0x51, BBST)
                                 }
@@ -16658,30 +16658,30 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_Q37, 0, Serialized)  // _Qxx: EC Query
             {
                 \rmdt.p1("EC _Q37 enter")
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x37, P80H)
                 If (And (OEM3, 0x2000))
                 {
                     Store (One, B15C)
                     While (One)
                     {
-                        Store (And (OEMF, 0x06), _T_0)
-                        If (LEqual (_T_0, Zero))
+                        Store (And (OEMF, 0x06), T_0)
+                        If (LEqual (T_0, Zero))
                         {
                             Store (Zero, BBST)
                             Notify (^^^PEG0.PEGP, 0xD1)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (T_0, 0x02))
                             {
                                 Store (Zero, BBST)
                                 Notify (^^^PEG0.PEGP, 0xD1)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     Store (0x55, BBST)
                                     Notify (^^^PEG0.PEGP, 0xD5)
@@ -16697,22 +16697,22 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Store (Zero, B15C)
                     While (One)
                     {
-                        Store (And (OEMF, 0x06), _T_1)
-                        If (LEqual (_T_1, Zero))
+                        Store (And (OEMF, 0x06), T_1)
+                        If (LEqual (T_1, Zero))
                         {
                             Store (Zero, BBST)
                             Notify (^^^PEG0.PEGP, 0xD1)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, 0x02))
+                            If (LEqual (T_1, 0x02))
                             {
                                 Store (Zero, BBST)
                                 Notify (^^^PEG0.PEGP, 0xD1)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x04))
+                                If (LEqual (T_1, 0x04))
                                 {
                                     Store (0x51, BBST)
                                     Notify (^^^PEG0.PEGP, 0xD1)
@@ -16826,13 +16826,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_Q4A, 0, Serialized)  // _Qxx: EC Query
             {
                 \rmdt.p1("EC _Q4A enter")
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x4A, P80H)
                 Store (OEM4, Local0)
                 While (One)
                 {
-                    Store (ToInteger (Local0), _T_0)
-                    If (LEqual (_T_0, 0xCC))
+                    Store (ToInteger (Local0), T_0)
+                    If (LEqual (T_0, 0xCC))
                     {
                         If (^^^^WMI.HKDR)
                         {
@@ -16842,7 +16842,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0xCB))
+                        If (LEqual (T_0, 0xCB))
                         {
                             If (^^^^WMI.HKDR)
                             {
@@ -16861,13 +16861,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_Q50, 0, Serialized)  // _Qxx: EC Query
             {
                 \rmdt.p1("EC _Q50 enter")
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x50, P80H)
                 Store (OEM4, Local0)
                 While (One)
                 {
-                    Store (ToInteger (Local0), _T_0)
-                    If (LEqual (_T_0, 0x7B))
+                    Store (ToInteger (Local0), T_0)
+                    If (LEqual (T_0, 0x7B))
                     {
                         If (^^^^WMI.HKDR)
                         {
@@ -16877,7 +16877,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x80))
+                        If (LEqual (T_0, 0x80))
                         {
                             If (^^^^WMI.HKDR)
                             {
@@ -16887,7 +16887,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x81))
+                            If (LEqual (T_0, 0x81))
                             {
                                 If (^^^^WMI.HKDR)
                                 {
@@ -16897,7 +16897,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x82))
+                                If (LEqual (T_0, 0x82))
                                 {
                                     If (^^^^WMI.HKDR)
                                     {
@@ -16907,7 +16907,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x89))
+                                    If (LEqual (T_0, 0x89))
                                     {
                                         If (LEqual (VLBR, One))
                                         {
@@ -16920,7 +16920,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x8A))
+                                        If (LEqual (T_0, 0x8A))
                                         {
                                             If (^^^^WMI.HKDR)
                                             {
@@ -16930,7 +16930,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x9E))
+                                            If (LEqual (T_0, 0x9E))
                                             {
                                                 If (^^^^WMI.HKDR)
                                                 {
@@ -16940,7 +16940,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x9F))
+                                                If (LEqual (T_0, 0x9F))
                                                 {
                                                     If (^^^^WMI.HKDR)
                                                     {
@@ -16950,7 +16950,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0xA0))
+                                                    If (LEqual (T_0, 0xA0))
                                                     {
                                                         If (^^^^WMI.HKDR)
                                                         {
@@ -16960,7 +16960,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0xA8))
+                                                        If (LEqual (T_0, 0xA8))
                                                         {
                                                             If (^^^^WMI.HKDR)
                                                             {
@@ -16970,7 +16970,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                         }
                                                         Else
                                                         {
-                                                            If (LEqual (_T_0, 0xA9))
+                                                            If (LEqual (T_0, 0xA9))
                                                             {
                                                                 If (^^^^WMI.HKDR)
                                                                 {
@@ -16980,7 +16980,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                             }
                                                             Else
                                                             {
-                                                                If (LEqual (_T_0, 0xAB))
+                                                                If (LEqual (T_0, 0xAB))
                                                                 {
                                                                     If (^^^^WMI.HKDR)
                                                                     {
@@ -16990,7 +16990,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                 }
                                                                 Else
                                                                 {
-                                                                    If (LEqual (_T_0, 0xAE))
+                                                                    If (LEqual (T_0, 0xAE))
                                                                     {
                                                                         If (^^^^WMI.HKDR)
                                                                         {
@@ -17000,7 +17000,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                     }
                                                                     Else
                                                                     {
-                                                                        If (LEqual (_T_0, 0xAF))
+                                                                        If (LEqual (T_0, 0xAF))
                                                                         {
                                                                             If (^^^^WMI.HKDR)
                                                                             {
@@ -17010,7 +17010,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                         }
                                                                         Else
                                                                         {
-                                                                            If (LEqual (_T_0, 0xC7))
+                                                                            If (LEqual (T_0, 0xC7))
                                                                             {
                                                                                 If (^^^^WMI.HKDR)
                                                                                 {
@@ -17020,7 +17020,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                             }
                                                                             Else
                                                                             {
-                                                                                If (LEqual (_T_0, 0xC8))
+                                                                                If (LEqual (T_0, 0xC8))
                                                                                 {
                                                                                     If (^^^^WMI.HKDR)
                                                                                     {
@@ -17030,7 +17030,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                                 }
                                                                                 Else
                                                                                 {
-                                                                                    If (LEqual (_T_0, 0xC9))
+                                                                                    If (LEqual (T_0, 0xC9))
                                                                                     {
                                                                                         If (^^^^WMI.HKDR)
                                                                                         {
@@ -17040,7 +17040,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                                     }
                                                                                     Else
                                                                                     {
-                                                                                        If (LEqual (_T_0, 0xCA))
+                                                                                        If (LEqual (T_0, 0xCA))
                                                                                         {
                                                                                             If (^^^^WMI.HKDR)
                                                                                             {
@@ -17050,7 +17050,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                                         }
                                                                                         Else
                                                                                         {
-                                                                                            If (LEqual (_T_0, 0xCF))
+                                                                                            If (LEqual (T_0, 0xCF))
                                                                                             {
                                                                                                 If (^^^^WMI.HKDR)
                                                                                                 {
@@ -17060,7 +17060,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                                             }
                                                                                             Else
                                                                                             {
-                                                                                                If (LEqual (_T_0, 0xD0))
+                                                                                                If (LEqual (T_0, 0xD0))
                                                                                                 {
                                                                                                     If (^^^^WMI.HKDR)
                                                                                                     {
@@ -17070,7 +17070,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                                                 }
                                                                                                 Else
                                                                                                 {
-                                                                                                    If (LEqual (_T_0, 0xF2))
+                                                                                                    If (LEqual (T_0, 0xF2))
                                                                                                     {
                                                                                                         P8XH (Zero, 0xF2)
                                                                                                         If (^^^^WMI.HKDR)
@@ -17081,7 +17081,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                                                                                     }
                                                                                                     Else
                                                                                                     {
-                                                                                                        If (LEqual (_T_0, 0xF3))
+                                                                                                        If (LEqual (T_0, 0xF3))
                                                                                                         {
                                                                                                             P8XH (Zero, 0xF3)
                                                                                                             If (^^^^WMI.HKDR)
