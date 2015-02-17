@@ -13429,6 +13429,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Name (WMIF, Zero)
             Method (_LID, 0, NotSerialized)  // _LID: Lid Status
             {
+                \rmdt.p2("_SB.LID0 DSDT  _LID line 13431 enter, WMIF:", WMIF)
                 If (WMIF)
                 {
                     Store (Zero, WMIF)
@@ -19007,6 +19008,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 Name (_UID, 15)
                 Name (_STA, 0x0B)
                 */
+                
                 //define hardware register access for brightness
                 // lower nibble of BAR1 is status bits and not part of the address
                 OperationRegion (BRIT, SystemMemory, And(^BAR1, Not(0xF)), 0xe1184)
