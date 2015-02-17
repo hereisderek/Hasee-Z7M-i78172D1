@@ -18999,11 +18999,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Device (PNLF)
             {
                 // normal PNLF declares (note some of this probably not necessary)
+                // MARK: disabled
+                /*
                 Name (_ADR, Zero)
                 Name (_HID, EisaId ("APP0002"))
                 Name (_CID, "backlight")
                 Name (_UID, 15)
                 Name (_STA, 0x0B)
+                */
                 //define hardware register access for brightness
                 // lower nibble of BAR1 is status bits and not part of the address
                 OperationRegion (BRIT, SystemMemory, And(^BAR1, Not(0xF)), 0xe1184)
