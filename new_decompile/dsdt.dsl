@@ -4949,6 +4949,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                 }
 
+//                MARK for internal keyboard
                 Device (PS2K)
                 {
                     Name (_HID, "MSFT0001")  // _HID: Hardware ID
@@ -4990,6 +4991,20 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         Return (0x0F)
+                    }
+//                    MARK Add fn key
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        Store (Package (0x02)
+                            {
+                                "AAPL,has-embedded-fn-keys", 
+                                Buffer (0x04)
+                                {
+                                    0x01, 0x00, 0x00, 0x00
+                                }
+                            }, Local0)
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
                     }
                 }
 
@@ -5805,6 +5820,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         Name (OBFF, Zero)
         Name (LMSL, Zero)
         Name (LNSL, Zero)
+//        MARK, might causing instant wake after sleep
         Device (GLAN)
         {
             Name (_ADR, 0x00190000)  // _ADR: Address
@@ -5814,6 +5830,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             }
         }
 
+//        MARK for USB
         Device (EHC1)
         {
             Name (_ADR, 0x001D0000)  // _ADR: Address

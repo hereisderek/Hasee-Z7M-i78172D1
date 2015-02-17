@@ -3,6 +3,11 @@
 
 Common Patches
 
+SSDT Content:
+Graphic: 6, 7
+CPU PR: 5
+USB: 
+
 Generally, a DSDT patch should only be applied after finding a need for that specific fix. But there are several patches that are commonly needed and that have only a small chance of causing a problem. They are in my laptop repo and are listed here:
 "Fix _WAK Arg0 v2"
 "HPET Fix"
