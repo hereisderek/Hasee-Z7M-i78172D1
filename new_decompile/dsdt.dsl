@@ -13793,7 +13793,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             }
             Name (_PRW, Package() { 0x18, 0x03 })
         }
-
+//        MARK for battery
         Device (BAT0)
         {
             Name (_HID, EisaId ("PNP0C0A"))  // _HID: Hardware ID

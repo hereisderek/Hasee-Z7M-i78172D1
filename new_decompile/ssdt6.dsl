@@ -36,6 +36,18 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (SGGP, FieldUnitObj)
     External (SGMD, FieldUnitObj)
     External (XBAS, FieldUnitObj)
+//    DEBUG:
+    External (RMDT, DeviceObj)
+    External (RMDT.PUSH, MethodObj)
+    External (RMDT.P1, MethodObj)
+    External (RMDT.P2, MethodObj)
+    External (RMDT.P3, MethodObj)
+    External (RMDT.P4, MethodObj)
+    External (RMDT.P5, MethodObj)
+    External (RMDT.P6, MethodObj)
+    External (RMDT.P7, MethodObj)
+//    PINI
+    External (\_SB.PCI0.PEG0.PINI, MethodObj)
 
     Scope (\_SB.PCI0.PEG0)
     {
@@ -419,7 +431,9 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
+            \rmdt.p1("_SB.PCI0.PEGP SSDT6 _INI enter")
             Store (Zero, \_SB.PCI0.PEG0.PEGP._ADR)
+            \_SB.PCI0.PEG0.PINI()
         }
 
         Method (GMXB, 0, NotSerialized)
@@ -675,6 +689,7 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (SGON, 0, Serialized)
         {
+            \rmdt.p1("_SB.PCI0.PEGP SSDT6 SGON enter")
             Store (0x8C, P80H)
             If (LEqual (CCHK (One), Zero))
             {
@@ -724,6 +739,7 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (SGOF, 0, Serialized)
         {
+            \rmdt.p1("_SB.PCI0.PEGP SSDT6 SGOF enter")
             Store (0x8E, P80H)
             If (LEqual (CCHK (Zero), Zero))
             {
@@ -748,6 +764,58 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
             {
                 Sleep (One)
             }
+
+            If (\_SB.PCI0.LPCB.EC.ECOK)
+            {
+                Store (Zero, \_SB.PCI0.LPCB.EC.GPUT)
+            }
+
+            If (LGreaterEqual (PCSL, 0x04))
+            {
+                If (LEqual (SC7A, One))
+                {
+                    C7OK (One)
+                }
+            }
+
+            Sleep (0x64)
+            Store (Zero, GP50)
+            Stall (0x64)
+            Store (One, GP54)
+            Store (One, GP74)
+            Sleep (0x012C)
+            Store (0x8F, P80H)
+            Return (Zero)
+        }
+//        MARK: my foce off
+        Method (FCOF, 0, Serialized)
+        {
+            \rmdt.p1("_SB.PCI0.PEGP SSDT6 FCOF enter")
+            Store (0x8E, P80H)
+            If (LEqual (CCHK (Zero), Zero))
+            {
+                Return (Zero)
+            }
+
+            Store (Zero, ONOF)
+            Store (LCTL, ELCT)
+            Store (SVID, HVID)
+            Store (SDID, HDID)
+            Store (EMLW, DMLW)
+            If (LGreaterEqual (PCSL, 0x04))
+            {
+                If (LEqual (SC7A, One))
+                {
+                    SPP0 ()
+                }
+            }
+
+            Store (One, LNKD)
+//            While (LNotEqual (LNKS, Zero))
+//            {
+//                Sleep (One)
+//            }
+            Store (Zero, LNKS)
 
             If (\_SB.PCI0.LPCB.EC.ECOK)
             {
@@ -920,6 +988,7 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (CCHK, 1, NotSerialized)
         {
+            \rmdt.p3("_SB.PCI0.PEGP SSDT6 CCHK enter, CCHK: ", Arg0, ONOF)
             If (LEqual (PVID, IVID))
             {
                 Return (Zero)

@@ -40,6 +40,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (_SB_.PCI0.PEG0.PEGP.GFBE, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.PEG0.PEGP.RPP0, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGOF, MethodObj)    // 0 Arguments
+//    mark my force off
+    External (_SB_.PCI0.PEG0.PEGP.FCOF, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGON, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPE, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPI, MethodObj)    // 1 Arguments
@@ -57,6 +59,16 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (P8XH, MethodObj)    // 2 Arguments
     External (PNOT, MethodObj)    // 0 Arguments
     External (PSEL, FieldUnitObj)
+//    DEBUG:
+    External (RMDT, DeviceObj)
+    External (RMDT.PUSH, MethodObj)
+    External (RMDT.P1, MethodObj)
+    External (RMDT.P2, MethodObj)
+    External (RMDT.P3, MethodObj)
+    External (RMDT.P4, MethodObj)
+    External (RMDT.P5, MethodObj)
+    External (RMDT.P6, MethodObj)
+    External (RMDT.P7, MethodObj)
 
     Scope (\_SB.PCI0)
     {
@@ -118,6 +130,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
         {
+//            MARK
+            FOOF()
             If (LEqual (OPCE, 0x03))
             {
                 If (LEqual (DGPS, Zero))
@@ -299,13 +313,13 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (HDSM, 4, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("4004a400-917d-4cf2-b89c-79b62fd55665")))
             {
                 While (One)
                 {
-                    Store (ToInteger (Arg2), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (Arg2), T_0)
+                    If (LEqual (T_0, Zero))
                     {
                         Return (Buffer (0x04)
                         {
@@ -314,13 +328,13 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x18))
+                        If (LEqual (T_0, 0x18))
                         {
                             Return (Unicode ("0"))
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x10))
+                            If (LEqual (T_0, 0x10))
                             {
                                 Name (MXM3, Buffer (0x1D)
                                 {
@@ -345,6 +359,10 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
+//            MARK
+            \rmdt.p1("_SB.PCI0.PEGP SSDT7  _DSM enter")
+//            \_SB.PCI0.PEG0.PEGP._PS3 ()
+            
             CreateByteField (Arg0, 0x03, GUID)
             Return (\_SB.PCI0.IGPU.HDSM (Arg0, Arg1, Arg2, Arg3))
         }
@@ -352,6 +370,11 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Name (CTXT, Zero)
         Method (_ON, 0, Serialized)  // _ON_: Power On
         {
+            //MARK
+            \rmdt.p1("_SB.PCI0.PEGP SSDT7  _ON enter")
+            FOOF()
+//            Return(Zero)
+            
             P8XH (Zero, 0x78)
             SGON ()
             Store (Zero, CMDR)
@@ -365,6 +388,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (_OFF, 0, Serialized)  // _OFF: Power Off
         {
+            \rmdt.p1("_SB.PCI0.PEGP SSDT7  _OFF line 386 enter")
             P8XH (Zero, 0x76)
             If (LEqual (CTXT, Zero))
             {
@@ -373,6 +397,37 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
             }
 
             SGOF ()
+        }
+//        MARK: my foce off
+        Method (FOOF, 0, Serialized)  // _OFF: Power Off
+        {
+            \rmdt.p1("_SB.PCI0.PEGP SSDT7  MyForceOff FOOF enter")
+            P8XH (Zero, 0x76)
+            If (LEqual (CTXT, Zero))
+            {
+                Store (VGAR, VGAB)
+                Store (One, CTXT)
+            }
+
+//            SGOF ()
+            FCOF()
+        }
+        Method (PINI, 0, NotSerialized)
+        {
+            \rmdt.p1("_SB.PCI0.PEGP SSDT7  PINI enter")
+            \_SB.PCI0.PEG0.PEGP._DSM (Buffer (0x10)
+            {
+                /* 0000 */    0xF8, 0xD8, 0x86, 0xA4, 0xDA, 0x0B, 0x1B, 0x47, 
+                /* 0008 */    0xA7, 0x2B, 0x60, 0x42, 0xA6, 0xB5, 0xBE, 0xE0
+            }, 0x0100, 0x1A, Buffer (0x04)
+            {
+                0x01, 0x00, 0x00, 0x03
+            })
+        \_SB.PCI0.PEG0.PEGP._PS3 ()
+        }
+        Method (_WAK, 1, Serialized)  // _WAK: Wake
+        {
+            PINI()
         }
     }
 
@@ -746,8 +801,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Name (PSCP, Zero)
         Method (GPS, 4, Serialized)
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             Store ("------- GPS DSM --------", Debug)
             If (LNotEqual (Arg1, 0x0100))
             {
@@ -756,8 +811,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
             While (One)
             {
-                Store (ToInteger (Arg2), _T_0)
-                If (LEqual (_T_0, Zero))
+                Store (ToInteger (Arg2), T_0)
+                If (LEqual (T_0, Zero))
                 {
                     Name (FMSK, Buffer (0x08)
                     {
@@ -808,14 +863,14 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x13))
+                    If (LEqual (T_0, 0x13))
                     {
                         Store ("GPS fun 19", Debug)
                         Return (Arg3)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x20))
+                        If (LEqual (T_0, 0x20))
                         {
                             Store ("GPS fun 20", Debug)
                             Name (RET1, Zero)
@@ -843,13 +898,13 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x21))
+                            If (LEqual (T_0, 0x21))
                             {
                                 Return (\_PR.CPU0._PSS)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x22))
+                                If (LEqual (T_0, 0x22))
                                 {
                                     CreateByteField (Arg3, Zero, PCAP)
                                     Store (PCAP, \_PR.CPU0._PPC)
@@ -859,20 +914,20 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x23))
+                                    If (LEqual (T_0, 0x23))
                                     {
                                         Return (\_PR.CPU0._PPC)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x25))
+                                        If (LEqual (T_0, 0x25))
                                         {
                                             Store ("GPS fun 25", Debug)
                                             Return (\_PR.CPU0._TSS)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x26))
+                                            If (LEqual (T_0, 0x26))
                                             {
                                                 Store ("GPS fun 26", Debug)
                                                 CreateDWordField (Arg3, Zero, TCAP)
@@ -882,7 +937,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x2A))
+                                                If (LEqual (T_0, 0x2A))
                                                 {
                                                     Store ("GPS fun 2a", Debug)
                                                     CreateByteField (Arg3, Zero, PSH0)
@@ -896,8 +951,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                                                     CreateBitField (Arg3, 0x0E, SEN2)
                                                     While (One)
                                                     {
-                                                        Store (PSH0, _T_1)
-                                                        If (LEqual (_T_1, Zero))
+                                                        Store (PSH0, T_1)
+                                                        If (LEqual (T_1, Zero))
                                                         {
                                                             If (CPUT)
                                                             {
@@ -910,7 +965,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                                                         }
                                                         Else
                                                         {
-                                                            If (LEqual (_T_1, One))
+                                                            If (LEqual (T_1, One))
                                                             {
                                                                 Store (0x0300, RETN)
                                                                 Or (RETN, PSH0, RETN)
@@ -919,7 +974,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                                                             }
                                                             Else
                                                             {
-                                                                If (LEqual (_T_1, 0x02))
+                                                                If (LEqual (T_1, 0x02))
                                                                 {
                                                                     Store (0x0102, RETN)
                                                                     Store (Zero, VRV1)
@@ -1334,6 +1389,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (_OFF, 0, NotSerialized)  // _OFF: Power Off
         {
+            \rmdt.p1("_SB.PCI0.PEGP SSDT7  _OFF line 1368 enter")
             Store (0x7E, P80H)
             If (LEqual (\_SB.PCI0.PEG0.PEGP.TDGC, One))
             {
