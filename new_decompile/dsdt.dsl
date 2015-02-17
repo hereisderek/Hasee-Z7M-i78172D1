@@ -5828,6 +5828,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 //            {
 //                Return (GPRW (0x0D, 0x04))
 //            }
+            Name (_PRW, Package (0x02)
+            {
+                0x09,
+                0x04
+            })
         }
 
 //        MARK for USB
@@ -5845,6 +5850,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     ,   1, 
                 PWUC,   8
             }
+
 
             Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
             {
@@ -6176,22 +6182,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             {
                 Return (GPRW (0x0D, 0x03))
             }
-            Method (_DSM, 4, NotSerialized)
-            {
-                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
-                Return (Package()
-                {
-                    "AAPL,clock-id", Buffer() { 0x01 },
-                    "built-in", Buffer() { 0x00 },
-                    "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
-                    "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
-                    "AAPL,current-available", 2100,
-                    "AAPL,current-extra", 2200,
-                    "AAPL,current-extra-in-sleep", 1600,
-                    "AAPL,device-internal", 0x02,
-                    "AAPL,max-port-current-in-sleep", 2100,
-                })
-            }
+            
             Name (XHCN, One)
             Method (XHCA, 0, NotSerialized) { Store (1, ^^XHC1.PAHC) }
             Method (XHCB, 0, NotSerialized) { Store (1, ^^XHC1.PBHC) }
@@ -6201,6 +6192,27 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (EHCB, 0, NotSerialized) { Store (0, ^^XHC1.PBHC) }
             Method (EHCC, 0, NotSerialized) { Store (0, ^^XHC1.PCHC) }
             Method (EHCD, 0, NotSerialized) { Store (0, ^^XHC1.PDHC) }
+            Method (_DSM, 4, NotSerialized)
+            {
+                Store (Package () {
+                    "AAPL,clock-id", Buffer() { 0x01 },
+                    "AAPL,slot-name", "Built In",
+                    "name", "Intel EHCI Controller",
+                    "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB EHCI #1"},
+                    "device_type", Buffer (0x0E) {"USB Controller"},
+                    "AAPL,current-available", 0x0834,
+                    "AAPL,current-extra", 0x0898,
+                    "AAPL,current-in-sleep", 0x0640,
+                    "AAPL,current-extra-in-sleep", 0x0834,
+                    "AAPL,max-port-current-in-sleep", 0x0834,
+                    "AAPL,device-internal", 0x02,
+                    Buffer (One) {0x00}
+                }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
+            }
+            
+            
         }
 
         Device (EHC2)
@@ -6477,23 +6489,29 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             {
                 Return (GPRW (0x0D, 0x03))
             }
+            
+            Name (XHCN, One)
             Method (_DSM, 4, NotSerialized)
             {
-                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
-                Return (Package()
-                {
+                Store (Package () {
                     "AAPL,clock-id", Buffer() { 0x01 },
-                    "built-in", Buffer() { 0x00 },
-                    "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
-                    "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
-                    "AAPL,current-available", 2100,
-                    "AAPL,current-extra", 2200,
-                    "AAPL,current-extra-in-sleep", 1600,
+                    "AAPL,slot-name", "Built In",
+                    "name", "Intel EHCI Controller",
+                    "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB EHCI #1"},
+                    "device_type", Buffer (0x0E) {"USB Controller"},
+                    "AAPL,current-available", 0x0834,
+                    "AAPL,current-extra", 0x0898,
+                    "AAPL,current-in-sleep", 0x0640,
+                    "AAPL,current-extra-in-sleep", 0x0834,
+                    "AAPL,max-port-current-in-sleep", 0x0834,
                     "AAPL,device-internal", 0x02,
-                    "AAPL,max-port-current-in-sleep", 2100,
-                })
+                    Buffer (One) {0x00}
+                }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
             }
-            Name (XHCN, One)
+            
+            
         }
 
         Device (XHC1)
@@ -6595,22 +6613,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Name (MUXS, "EHCD")
                 }
             }
-            Method (_DSM, 4, NotSerialized)
-            {
-                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
-                Return (Package()
-                {
-                    "AAPL,clock-id", Buffer() { 0x02 },
-                    "built-in", Buffer() { 0x00 },
-                    "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
-                    "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
-                    "AAPL,current-available", 2100,
-                    "AAPL,current-extra", 2200,
-                    "AAPL,current-extra-in-sleep", 1600,
-                    "AAPL,device-internal", 0x02,
-                    "AAPL,max-port-current-in-sleep", 2100,
-                })
-            }
+            
             Method (_PRW, 0, NotSerialized) { Return (GPRW (0x0D, 0x04)) }
             // alternate for above
             //Method (_PRW, 0, NotSerialized) { Return (Package() { 0x0D, 0x04 }) }
@@ -6622,6 +6625,25 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (EHCB, 0, NotSerialized) { Store (Zero, PBHC) }
             Method (EHCC, 0, NotSerialized) { Store (Zero, PCHC) }
             Method (EHCD, 0, NotSerialized) { Store (Zero, PDHC) }
+            Method (_DSM, 4, NotSerialized)
+            {
+                Store (Package () {
+                    "AAPL,clock-id", Buffer() { 0x02 },
+                    "AAPL,slot-name", "Built In",
+                    "name", "Intel XHCI Controller",
+                    "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB xHCI"},
+                    "device_type", Buffer (0x0E) {"USB Controller"},
+                    "AAPL,current-available", 0x0834,
+                    "AAPL,current-extra", 0x0898,
+                    "AAPL,current-in-sleep", 0x0640,
+                    "AAPL,max-port-current-in-sleep", 0x0834,
+                    "AAPL,device-internal", 0x02,
+                    Buffer (One) {0x00}
+                }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
+            }
+            
 
         }
 
@@ -6646,6 +6668,20 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 Return (GPRW (0x0D, 0x04))
+            }
+            Method (_DSM, 4, NotSerialized)
+            {
+                Store (Package (0x0E) {
+                    "AAPL,slot-name", "Built In",
+                    "name", "Realtek Audio Controller",
+                    "model", Buffer () {"Realtek ALC892 Audio Controller"},
+                    "device_type", Buffer (0x10) {"Audio Controller"},
+                    "layout-id", Buffer (0x04) {0x01,0x00,0x00,0x00},
+                    "PinConfigurations", Buffer (Zero) {},
+                    "hda-gfx", Buffer (0x0A) {"onboard-1"}
+                }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
             }
         }
 
@@ -8193,6 +8229,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
@@ -8264,6 +8301,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
@@ -8316,6 +8354,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -8424,6 +8463,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -8530,6 +8570,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -8602,6 +8643,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -8674,6 +8716,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -8746,6 +8789,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -8824,6 +8868,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -8902,6 +8947,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -8980,6 +9026,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -9070,6 +9117,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -9208,6 +9256,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                              0x00                                           
                         })
                     }
+                    Return (Zero)
                 }
 
                 Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -10717,12 +10766,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
     Method (ADBG, 1, Serialized)
     {
+        
         If (CondRefOf (MDBG))
         {
             Return (MDBG)
         }
-
         Return (Zero)
+
     }
 
     OperationRegion (SPRT, SystemIO, 0xB2, 0x02)
@@ -11167,6 +11217,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         Store (Local1, PPL1)
         Store (One, PL1E)
         Store (One, CLP1)
+        Return (Zero)
     }
 
     Method (RPL1, 0, Serialized)
@@ -16306,7 +16357,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_Q11, 0, NotSerialized)  // _Qxx: EC Query
             {
                 \rmdt.p1("EC _Q11 enter")
-//                MARK Brightness Down
                 Notify(\_SB.PCI0.LPCB.PS2K, 0x0205)
                 Notify(\_SB.PCI0.LPCB.PS2K, 0x0285)
                 
@@ -16350,9 +16400,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_Q12, 0, NotSerialized)  // _Qxx: EC Query
             {
                 \rmdt.p1("EC _Q12 enter")
-//                Brightness Up
+                
                 Notify(\_SB.PCI0.LPCB.PS2K, 0x0206)
                 Notify(\_SB.PCI0.LPCB.PS2K, 0x0286)
+                
                 Store (0x12, P80H)
                 If (And (WINF, One))
                 {
@@ -19000,13 +19051,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Device (PNLF)
             {
                 // normal PNLF declares (note some of this probably not necessary)
-
                 Name (_ADR, Zero)
                 Name (_HID, EisaId ("APP0002"))
                 Name (_CID, "backlight")
                 Name (_UID, 15)
                 Name (_STA, 0x0B)
-                
                 //define hardware register access for brightness
                 // lower nibble of BAR1 is status bits and not part of the address
                 OperationRegion (BRIT, SystemMemory, And(^BAR1, Not(0xF)), 0xe1184)
@@ -19105,7 +19154,6 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 // Use XOPT=1 to disable smooth transitions
                 Name (XOPT, Zero)
                 // XRGL/XRGH: defines the valid range
-//                Name (XRGL, 25)
                 Name (XRGL, 0)
                 Name (XRGH, 2777)
                 // _BCL: returns list of valid brightness levels
@@ -19133,6 +19181,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     2531, 2612, 2694, 2777,
                 })
             }
+            
+            
         }
     }
     Device (RMDT)

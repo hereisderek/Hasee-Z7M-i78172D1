@@ -36,6 +36,9 @@ http://www.tonymacx86.com/yosemite-laptop-support/146870-guide-native-power-mana
 
 http://clover-wiki.zetam.org/What-is-what
 
+usb patch:
+http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=1525935
+
 useful patch repo:
 http://raw.github.com/Yuki-Judai/dxxs-DSDT-Patch/master
 http://raw.github.com/RehabMan/Laptop-DSDT-Patch/master

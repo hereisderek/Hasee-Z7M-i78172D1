@@ -1,0 +1,177 @@
+# Patches the Intel USB3 on Intel 8 Series chipsets to allow more power output
+#Fix EHC1
+into method label _DSM parent_label EHC1 remove_entry;
+into device label EHC1 insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+        Store (Package () {\n
+                "AAPL,clock-id", Buffer() { 0x01 },\n
+                "AAPL,slot-name", "Built In",\n
+                "name", "Intel EHCI Controller",\n
+                "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB EHCI #1"},\n
+                "device_type", Buffer (0x0E) {"USB Controller"},\n
+                "AAPL,current-available", 0x0834,\n
+                "AAPL,current-extra", 0x0898,\n
+                "AAPL,current-in-sleep", 0x0640,\n
+                "AAPL,current-extra-in-sleep", 0x0834,\n
+                "AAPL,max-port-current-in-sleep", 0x0834,\n
+                "AAPL,device-internal", 0x02,\n
+                Buffer (One) {0x00}\n
+        }, Local0)\n
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+        Return (Local0)\n
+}
+end;
+
+
+#Fix EHC2
+into method label _DSM parent_label EHC2 remove_entry;
+into device label EHC2 insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+        Store (Package () {\n
+                "AAPL,clock-id", Buffer() { 0x01 },\n
+                "AAPL,slot-name", "Built In",\n
+                "name", "Intel EHCI Controller",\n
+                "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB EHCI #1"},\n
+                "device_type", Buffer (0x0E) {"USB Controller"},\n
+                "AAPL,current-available", 0x0834,\n
+                "AAPL,current-extra", 0x0898,\n
+                "AAPL,current-in-sleep", 0x0640,\n
+                "AAPL,current-extra-in-sleep", 0x0834,\n
+                "AAPL,max-port-current-in-sleep", 0x0834,\n
+                "AAPL,device-internal", 0x02,\n
+                Buffer (One) {0x00}\n
+        }, Local0)\n
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+        Return (Local0)\n
+}
+end;
+
+#Fix XHC1
+into method label _DSM parent_label XHC1 remove_entry;
+into device label XHC1 insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+        Store (Package (0x13) {\n
+                "AAPL,clock-id", Buffer() { 0x02 },\n
+                "AAPL,slot-name", "Built In",\n
+                "name", "Intel XHCI Controller",\n
+                "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB xHCI"},\n
+                "device_type", Buffer (0x0E) {"USB Controller"},\n
+                "AAPL,current-available", 0x0834,\n
+                "AAPL,current-extra", 0x0898,\n
+                "AAPL,current-in-sleep", 0x0640,\n
+                "AAPL,max-port-current-in-sleep", 0x0834,\n
+                "AAPL,device-internal", 0x02,\n
+                Buffer (One) {0x00}\n
+        }, Local0)\n
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+        Return (Local0)\n
+}
+end;
+
+# Fix HDEF device for the Realtek ALC892 audio codec
+into method label _DSM parent_label HDEF remove_entry;
+into device label HDEF insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+        Store (Package (0x0E) {\n
+                "AAPL,slot-name", "Built In",\n
+                "name", "Realtek Audio Controller",\n
+                "model", Buffer () {"Realtek ALC892 Audio Controller"},\n
+                "device_type", Buffer (0x10) {"Audio Controller"},\n
+                "layout-id", Buffer (0x04) {0x01,0x00,0x00,0x00},\n
+                "PinConfigurations", Buffer (Zero) {},\n
+                "hda-gfx", Buffer (0x0A) {"onboard-1"}\n
+        }, Local0)\n
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+        Return (Local0)\n
+}
+end;
+
+into device label PCI0 code_regex (\s+Zero){2,} remove_matched;
+into method label ADBG replace_content begin
+If (CondRefOf (MDBG))\n
+{\n
+    Return (MDBG)\n
+}\n
+Return (Zero)\n
+end;
+into_all all code_regex If\s\(TCMF\)\s\{\} replace_matched begin 
+If (TCMF)\n
+{\n
+    Return (Zero)\n
+}\n
+end;
+into_all all code_regex _T_([0-6]) replaceall_matched begin T_%1 end;
+into_all all code_regex (Acquire\s\(MUT0,\s0x)....\) replace_matched begin %1FFFF) end;
+
+into method label _CRS parent_label PCI0 code_regex CreateDWordField\s\(BUF0,\s\\_SB.PCI0._Y1E._LEN,\sMSLN\) replace_matched begin CreateQWordField (BUF0, \\_SB.PCI0._Y1E._LEN, MSLN) end;
+
+into method label _CRS parent_label ACD0 code_regex CreateByteField\s\(IRB0,\s\\_SB.PCI0.I2C0.ACD0._CRS._Y3C._INT,\sVAL1\) replace_matched begin CreateDWordField (IRB0, \\_SB.PCI0.I2C0.ACD0._CRS._Y3C._INT, VAL1) end;
+
+into method label _CRS parent_label ACD0 code_regex CreateByteField\s\(IRB1,\s\\_SB.PCI0.I2C0.ACD0._CRS._Y3D._INT,\sVAL3\) replace_matched begin CreateDWordField (IRB1, \\_SB.PCI0.I2C0.ACD0._CRS._Y3D._INT, VAL3) end;
+
+into method label _CRS parent_label ACD1 code_regex CreateByteField\s\(RBUF,\s\\_SB.PCI0.I2C0.ACD1._CRS._Y3E._INT,\sVAL1\) replace_matched begin CreateDWordField (RBUF, \\_SB.PCI0.I2C0.ACD1._CRS._Y3E._INT, VAL1) end;
+
+into method label _CRS parent_label ACD2 code_regex CreateByteField\s\(RBUF,\s\\_SB.PCI0.I2C0.ACD2._CRS._Y3F._INT,\sVAL3\) replace_matched begin CreateDWordField (RBUF, \\_SB.PCI0.I2C0.ACD2._CRS._Y3F._INT, VAL3) end;
+
+into method label _CRS parent_label TPL0 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPL0._CRS._Y40._INT,\sVAL4\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPL0._CRS._Y40._INT, VAL4) end;
+
+into method label _CRS parent_label TPL1 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPL1._CRS._Y41._INT,\sVAL4\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPL1._CRS._Y41._INT, VAL4) end;
+
+into method label _CRS parent_label TPL2 code_regex CreateByteField\s\(IRBU,\s\\_SB.PCI0.I2C1.TPL2._CRS._Y42._INT,\sVAL4\) replace_matched begin CreateDWordField (IRBU, \\_SB.PCI0.I2C1.TPL2._CRS._Y42._INT, VAL4) end;
+
+into method label _CRS parent_label TPL3 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPL3._CRS._Y44._INT,\sVAL4\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPL3._CRS._Y44._INT, VAL4) end;
+
+into method label _CRS parent_label TPD0 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD0._CRS._Y45._INT,\sVAL3\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD0._CRS._Y45._INT, VAL3) end;
+
+into method label _CRS parent_label TPD0 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD0._CRS._Y45._INT,\sVAL4\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD0._CRS._Y45._INT, VAL4) end;
+
+into method label _CRS parent_label TPD1 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD1._CRS._Y46._INT,\sVAL3\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD1._CRS._Y46._INT, VAL3) end;
+
+into method label _CRS parent_label TPD1 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD1._CRS._Y46._INT,\sVAL4\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD1._CRS._Y46._INT, VAL4) end;
+
+into method label _CRS parent_label TPD2 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD2._CRS._Y47._INT,\sVAL3\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD2._CRS._Y47._INT, VAL3) end;
+
+into method label _CRS parent_label TPD2 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD2._CRS._Y47._INT,\sVAL4\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD2._CRS._Y47._INT, VAL4) end;
+
+into method label _CRS parent_label TPD3 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD3._CRS._Y48._INT,\sVAL3\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD3._CRS._Y48._INT, VAL3) end;
+
+into method label _CRS parent_label TPD3 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD3._CRS._Y48._INT,\sVAL4\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD3._CRS._Y48._INT, VAL4) end;
+
+into method label _CRS parent_label TPD7 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD7._CRS._Y49._INT,\sVAL3\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD7._CRS._Y49._INT, VAL3) end;
+
+into method label _CRS parent_label TPD7 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD7._CRS._Y49._INT,\sVAL7\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD7._CRS._Y49._INT, VAL7) end;
+
+into method label _CRS parent_label TPD8 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD8._CRS._Y4A._INT,\sVAL3\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD8._CRS._Y4A._INT, VAL3) end;
+
+into method label _CRS parent_label TPD8 code_regex CreateByteField\s\(SBFI,\s\\_SB.PCI0.I2C1.TPD8._CRS._Y4A._INT,\sVAL7\) replace_matched begin CreateDWordField (SBFI, \\_SB.PCI0.I2C1.TPD8._CRS._Y4A._INT, VAL7) end;
+
+into method label GPEH parent_label GLAN insert begin Return (Zero) end;
+into method label GPEH parent_label EHC1 insert begin Return (Zero) end;
+into method label GPEH parent_label EHC2 insert begin Return (Zero) end;
+into method label GPEH parent_label XHC insert begin Return (Zero) end;
+into method label _PS0 parent_label XHC insert begin Return (Zero) end;
+into method label _PS0 parent_label RHUB insert begin Return (Zero) end;
+into method label _DSM parent_label SHUB insert begin Return (Zero) end;
+into method label _DSM parent_label DFUD insert begin Return (Zero) end;
+into method label _DSM parent_label TPD4 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD9 insert begin Return (Zero) end;
+into method label _DSM parent_label TPL0 insert begin Return (Zero) end;
+into method label _DSM parent_label TPL1 insert begin Return (Zero) end;
+into method label _DSM parent_label TPL2 insert begin Return (Zero) end;
+into method label _DSM parent_label TPL3 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD0 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD1 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD2 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD3 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD7 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD8 insert begin Return (Zero) end;
+into method label GPEH parent_label HDEF insert begin Return (Zero) end;
+into method label RDCA parent_label SAT0 insert begin Return (Zero) end;
+into method label CNRS parent_label SAT0 insert begin Return (Zero) end;
+into method label _PS3 parent_label NVM0 insert begin Return (Zero) end;
+into method label _PS0 parent_label NVM0 insert begin Return (Zero) end;
+into method label SPL1 insert begin Return (Zero) end;
