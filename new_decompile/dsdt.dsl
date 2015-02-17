@@ -5824,10 +5824,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         Device (GLAN)
         {
             Name (_ADR, 0x00190000)  // _ADR: Address
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-            {
-                Return (GPRW (0x0D, 0x04))
-            }
+//            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+//            {
+//                Return (GPRW (0x0D, 0x04))
+//            }
         }
 
 //        MARK for USB
