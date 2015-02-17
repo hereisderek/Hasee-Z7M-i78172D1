@@ -1,0 +1,1143 @@
+0:100  0:100  MemLog inited, TSC freq: 2593989553
+0:100  0:000  
+0:100  0:000  Now is 17.2.2015,  2:1:39 (GMT+2047)
+0:100  0:000  Starting Clover rev 3156 on American Megatrends EFI
+0:100  0:000  SelfDevicePath=PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000) @BC362C18
+0:100  0:000  SelfDirPath = \EFI\BOOT
+0:100  0:000  Total Memory Slots Count = 4
+0:100  0:000  Type 17 Index = 0
+0:100  0:000  Ignoring insane frequency value 0MHz
+0:100  0:000  SmbiosTable.Type17->Speed = 0MHz
+0:100  0:000  SmbiosTable.Type17->Size = 0MB
+0:100  0:000  SmbiosTable.Type17->Bank/Device = BANK 0 ChannelA-DIMM0
+0:100  0:000  Type 17 Index = 1
+0:100  0:000  SmbiosTable.Type17->Speed = 1600MHz
+0:100  0:000  SmbiosTable.Type17->Size = 8192MB
+0:100  0:000  SmbiosTable.Type17->Bank/Device = BANK 1 ChannelA-DIMM1
+0:100  0:000  Type 17 Index = 2
+0:100  0:000  Ignoring insane frequency value 0MHz
+0:100  0:000  SmbiosTable.Type17->Speed = 0MHz
+0:100  0:000  SmbiosTable.Type17->Size = 0MB
+0:100  0:000  SmbiosTable.Type17->Bank/Device = BANK 2 ChannelB-DIMM0
+0:100  0:000  Type 17 Index = 3
+0:100  0:000  Ignoring insane frequency value 0MHz
+0:100  0:000  SmbiosTable.Type17->Speed = 0MHz
+0:100  0:000  SmbiosTable.Type17->Size = 0MB
+0:100  0:000  SmbiosTable.Type17->Bank/Device = BANK 3 ChannelB-DIMM1
+0:100  0:000  Boot status=0
+0:100  0:000  Clover revision: 3156  running on CP65S
+0:100  0:000  ... with board CP65S
+0:100  0:000  CPU Vendor = 756E6547 Model=306C3
+0:100  0:000  The CPU supported turbo
+0:100  0:000  BrandString = Intel(R) Core(TM) i7-4720HQ CPU @ 2.60GHz
+0:100  0:000  MSR 0xE2 before patch 1E008405
+0:100  0:000  MSR 0xE2 is locked, PM patches will be turned on
+0:100  0:000  MSR 0xE4              00021814
+0:100  0:000  MSR 0xCE              00080838_F3011A00
+0:100  0:000  non-usable FLEX_RATIO = 50000
+0:100  0:000  corrected FLEX_RATIO = 40000
+0:100  0:000  MSR 0x1B0             00000000
+0:100  0:000  FSBFrequency=100MHz DMIvalue=100000kHz
+0:100  0:000  Corrected FSBFrequency=100MHz
+0:100  0:000  Vendor/Model/Stepping: 0x756E6547/0x3C/0x3
+0:100  0:000  Family/ExtFamily: 0x6/0x0
+0:100  0:000  MaxDiv/MinDiv: 26.0/8
+0:100  0:000  Turbo: 34/34/35/36
+0:100  0:000  Features: 0xBFEBFBFF
+0:100  0:000  Threads: 8
+0:100  0:000  Cores: 4
+0:100  0:000  FSB: 100 MHz
+0:100  0:000  CPU: 2600 MHz
+0:100  0:000  TSC: 2600 MHz
+0:100  0:000  PIS: 400 MHz
+0:100  0:000  PCI (00|00:00.00) : 8086 0C04 class=060000
+0:100  0:000  PCI (00|00:01.00) : 8086 0C01 class=060400
+0:100  0:000  PCI (00|01:00.00) : 10DE 13D9 class=030200
+0:100  0:000  PCI (00|00:02.00) : 8086 0416 class=030000
+0:100  0:000  Found GFX model=Intel HD Graphics 4600
+0:100  0:000  PCI (00|00:03.00) : 8086 0C0C class=040300
+0:100  0:000  PCI (00|00:14.00) : 8086 8C31 class=0C0330
+0:100  0:000  PCI (00|00:16.00) : 8086 8C3A class=078000
+0:100  0:000  PCI (00|00:16.01) : FFFF FFFF class=FFFFFF
+0:100  0:000  PCI (00|00:1A.00) : 8086 8C2D class=0C0320
+0:100  0:000  PCI (00|00:1B.00) : 8086 8C20 class=040300
+0:100  0:000  PCI (00|00:1C.00) : 8086 8C10 class=060400
+0:100  0:000  PCI (00|00:1C.04) : 8086 8C18 class=060400
+0:100  0:000  PCI (00|03:00.00) : 10EC 5287 class=FF0000
+0:100  0:000  PCI (00|03:00.01) : 10EC 8168 class=020000
+0:100  0:000  LAN 0, Vendor=10EC, MMIO=D000
+0:100  0:000  PCI (00|00:1C.05) : 8086 8C1A class=060400
+0:100  0:000  PCI (00|04:00.00) : 10EC B723 class=028000
+0:100  0:000  PCI (00|00:1D.00) : 8086 8C26 class=0C0320
+0:100  0:000  PCI (00|00:1F.00) : 8086 8C4B class=060100
+0:101  0:000  PCI (00|00:1F.02) : 8086 8C03 class=010601
+0:101  0:000  PCI (00|00:1F.03) : 8086 8C22 class=0C0500
+0:101  0:000  PCI (00|00:1F.06) : FFFF FFFF class=FFFFFF
+0:101  0:000  Clover load options size = 4 bytes
+0:101  0:000  Found Plist String = , parse XML in LoadOptions
+0:101  0:000  Xml in load options is bad
+0:108  0:007  Using OEM config.plist at path: EFI\CLOVER\config.plist
+0:109  0:000  EFI\CLOVER\config.plist loaded: Success
+0:111  0:002  Found theme directory: BOOTCAMP
+0:114  0:003  Loading early settings
+0:114  0:000  timeout set to 5
+0:114  0:000  Custom boot CUSTOM_BOOT_DISABLED (0x0)
+0:114  0:000  ForceKextsToLoad: 1 requested
+0:114  0:000  ForceKextsToLoad 0: System\Library\Extensions\IONetworkingFamily.kext
+0:114  0:000  KextsToPatch: 21 requested
+0:114  0:000  KextToPatch 0: disabled:AppleIntelFrameBufferAzul (Enable internal display after sleep for 0x0a2e000a, 0x0a26000a) Kext bin patch, data len: 16
+0:114  0:000  KextToPatch 1: SingleLink_LW1 (SingleLink LW1) Kext bin patch, data len: 56
+0:114  0:000  KextToPatch 2: SingleLink_2 (SingleLink Patch 2) Kext bin patch, data len: 4
+0:114  0:000  KextToPatch 3: disabled:IOGraphicsFamily (Boot graphics glitch, 10.10.0/10.10.1 (1 of 2)) Kext bin patch, data len: 5
+0:114  0:000  KextToPatch 4: disabled:AppleHDAController (HDMI-audio, unsupported HDAU 0c0c, 1 of 2 (range check)) Kext bin patch, data len: 5
+0:114  0:000  KextToPatch 5: AppleIntelFramebufferAzul (0x0a260006 9MB cursor bytes patch) Kext bin patch, data len: 20
+0:114  0:000  KextToPatch 6: intelhdgraphicsFB (Power states 1- 0) Info.plist patch[ERROR] bin2hex 'PGtleT5Qb3dlclN0YXRlczwva2V5Pgo8aW50ZWdlcj4xPC9pbnRlZ2VyPg==' syntax error
+0:114  0:000  [ERROR] bin2hex 'PGtleT5Qb3dlclN0YXRlczwva2V5Pgo8aW50ZWdlcj4wPC9pbnRlZ2VyPg==' syntax error
+0:114  0:000   - invalid Find/Replace data - skipping!
+0:114  0:000  KextToPatch 7: GeneralPatch (General patch) Kext bin patch, data len: 10
+0:114  0:000  KextToPatch 8: disabled:IOGraphicsFamily (Boot graphics glitch, 10.10.0/10.10.1 (2 of 2)) Kext bin patch, data len: 5
+0:114  0:000  KextToPatch 9: LVDS_VGA-2 (LVDS_VGA-2) Kext bin patch, data len: 8
+0:114  0:000  KextToPatch 10: disabled:AppleIntelFramebufferAzul (0x0a260006 9MB cursor bytes patch) Kext bin patch, data len: 20
+0:114  0:000  KextToPatch 11: SingleLink_1 (SingleLink Patch 1) Kext bin patch, data len: 10
+0:114  0:000  KextToPatch 12: YosemitePatch (Yosemite Patch) Kext bin patch, data len: 16
+0:114  0:000  KextToPatch 13: LVDS_VGA-1 (LVDS+VGA Patch 1) Kext bin patch, data len: 8
+0:114  0:000  KextToPatch 14: disabled:AppleIntelFramebufferAzul (HDMI-audio, port 0204, 0x0a260005 0x0a260006) Kext bin patch, data len: 12
+0:114  0:000  KextToPatch 15: disabled:AppleHDAController (HDMI-audio, unsuppored HDAU 0c0c, 2 of 2 (0c0a to 0c0c)) Kext bin patch, data len: 5
+0:114  0:000  KextToPatch 16: disabled:AppleIntelFramebufferAzul (HDMI-audio, port 0204, 0x0a2e0008, 0x0a16000c, 0x0a2e000d, 0x0a26000d) Kext bin patch, data len: 12
+0:114  0:000  KextToPatch 17: disabled:IOGraphicsFamily (Boot graphics glitch, 10.10.2) Kext bin patch, data len: 5
+0:114  0:000  KextToPatch 18: disabled:AppleIntelFramebufferAzul (HDMI-audio, port 0105, 0x0a2e0008, 0x0a16000c, 0x0a2e000d, 0x0a26000d) Kext bin patch, data len: 12
+0:114  0:000  KextToPatch 19: disabled:IOAHCIBlockStorage (Enable TRIM for SSD) Kext bin patch, data len: 11
+0:114  0:000  KextToPatch 20: disabled:AppleIntelFramebufferAzul (HDMI-audio, port 0105, 0x0a260005 0x0a260006, 0x0d220003, 0x0a2e000a, 0x0a26000a) Kext bin patch, data len: 12
+0:114  0:000  Default theme: bootcamp
+0:114  0:000  Hiding entries with string VolumeUUID_NOT_SHOWN
+0:114  0:000  Hiding entries with string EntryPath_NOT_SHOWN
+0:114  0:000  Hiding entries with string VolumeName_NOT_SHOWN
+0:114  0:000  Custom entry boot CUSTOM_BOOT_APPLE (0x0)
+0:114  0:000  Copying global patch settings
+0:114  0:000  Custom entry boot CUSTOM_BOOT_APPLE (0x0)
+0:114  0:000  Copying global patch settings
+0:114  0:000  LoadDrivers() start
+0:120  0:005  Loading FSInject-64.efi  status=Success
+0:123  0:002  Loading HFSPlus.efi  status=Success
+0:127  0:003   - driver needs connecting
+0:127  0:000  Loading NTFS.EFI  status=Success
+0:137  0:010   - driver needs connecting
+0:137  0:000  Loading OsxFatBinaryDrv-64.efi  status=Success
+0:139  0:001  Loading PartitionDxe-64.efi  status=Success
+0:142  0:003   - driver needs connecting
+0:142  0:000  Loading DataHubDxe-64.efi  status=Success
+0:151  0:009  Loading OsxAptioFix2Drv-64.efi  status=Success
+0:154  0:003  3 drivers needs connecting ...
+0:154  0:000  PlatformDriverOverrideProtocol->GetDriver overriden
+0:154  0:000  Partition driver loaded: 
+0:154  0:000  HFS+ driver loaded 
+0:154  0:000  Searching for invalid DiskIo BY_DRIVER connects: not found, all ok
+0:345  0:190  LoadDrivers() end
+0:345  0:000  Dump SMC keys from NVRAM:
+0:348  0:002  SetMaxResolution: found best mode 1: 1920x1080
+0:348  0:000   - already set
+0:348  0:000  Console modes reported: 4, available modes:
+0:348  0:000    Mode 1: 80x25 (current mode)
+0:348  0:000    Mode 2: 80x50
+0:348  0:000    Mode 3: 100x31
+0:348  0:000    Mode 4: 240x56
+0:348  0:000  reinit: self device path=PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)
+0:349  0:001  MAC address of LAN #0= 80:FA:5B:13:8B:38:
+0:349  0:000  ScanSPD() start
+0:349  0:000  SMBus CmdReg: 0x3
+0:349  0:000  Scanning SMBus [8086:8C22], mmio: 0xF7A19004, ioport: 0xF040, hostc: 0x11
+0:349  0:000  Slots to scan [8]...
+0:370  0:020  SPD[1]: Type 11 @0x51 
+0:378  0:008  Not using XMP because it is not present
+0:378  0:000  DDR speed 1600MHz 
+0:378  0:000  Slot: 1 Type 24 8192MB 1600MHz Vendor=Samsung PartNo=M471B1G73QH0-YK0 SerialNo=0906010104080108 
+0:415  0:036  ScanSPD() end
+0:415  0:000  Get Acpi Tables List from RSDT:
+0:415  0:000   Found table: FACP  PARADISE len=132
+0:415  0:000   Found table: APIC  PARADISE len=146
+0:415  0:000   Found table: FPDT  A M I len=68
+0:415  0:000   Found table: FIDT  A M I len=156
+0:415  0:000   Found table: ASF!   HCG len=165
+0:415  0:000   Found table: SLIC  PARADISE len=374
+0:415  0:000   Found table: SSDT  PARADISE len=3986
+0:415  0:000   Found table: SSDT  PARADISE len=1337
+0:415  0:000   Found table: SSDT  PARADISE len=2776
+0:415  0:000   Found table: MCFG  PARADISE len=60
+0:415  0:000   Found table: HPET  PARADISE len=56
+0:415  0:000   Found table: SSDT  PARADISE len=789
+0:415  0:000   Found table: SSDT  PARADISE len=7239
+0:415  0:000   Found table: SSDT  PARADISE len=4411
+0:415  0:000   Found table: DMAR  PARADISE len=184
+0:415  0:000   Found table: SSDT  PARADISE len=7264
+0:415  0:000   Found table: BGRT  PARADISE len=56
+0:415  0:000  Calibrated TSC frequency =2593989553 =2593MHz
+0:415  0:000  Loading main settings
+0:415  0:000  Injected EFIString of length 96
+0:415  0:000  USB FixOwnership: true
+0:415  0:000  Dropping 6 tables
+0:415  0:000  Drop table 0 signature="SSDT" (54445353) table-id="Cpu0Cst" (0074734330757043)
+0:415  0:000  set table: 54445353,   74734330757043 to drop:
+0:415  0:000  Drop table 1 signature="SSDT" (54445353) table-id="CpuPm" (0000006D50757043)
+0:415  0:000  set table: 54445353,       6D50757043 to drop:
+0:415  0:000  Drop table 2 signature="SSDT" (54445353) table-id="Cpu0Ist" (0074734930757043)
+0:415  0:000  set table: 54445353,   74734930757043 to drop:
+0:415  0:000  Drop table 3 signature="SSDT" (54445353) table-id="ApCst" (0000007473437041)
+0:415  0:000  set table: 54445353,       7473437041 to drop:
+0:415  0:000  Drop table 4 signature="SSDT" (54445353) table-id="ApIst" (0000007473497041)
+0:415  0:000  set table: 54445353,       7473497041 to drop:
+0:415  0:000  Drop table 5 signature="DMAR" (52414D44)
+0:415  0:000  set table: 52414D44,                0 to drop:  true
+0:415  0:000  
+0:415  0:000  Config set Fixes will override FixMask mask!
+0:415  0:000     final mask=968EF955
+0:415  0:000  Config set MinMultiplier=0
+0:415  0:000  Config set PluginType=1
+0:415  0:000  Config set ResetAddr=0x0
+0:415  0:000  Config calc ResetVal=0x0
+0:415  0:000  Config set ResetVal=0x0
+0:415  0:000  Config set ChassisType=0x8
+0:415  0:000  found 16 volumes with blockIO
+0:415  0:000   0. Volume:
+0:415  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)
+0:428  0:012    Result of bootcode detection: bootable unknown (legacy)
+0:428  0:000    USB volume
+0:428  0:000    USB volume
+0:428  0:000   1. Volume:
+0:428  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(1,MBR,0x0312B4E8,0x800,0xC800800)
+0:428  0:000    Result of bootcode detection: bootable Windows (vista,win)
+0:428  0:000    USB volume
+0:428  0:000    USB volume
+0:428  0:000   2. Volume:
+0:428  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)
+0:429  0:000    USB volume
+0:429  0:000    USB volume
+0:429  0:000   3. Volume:
+0:429  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(3,MBR,0x0312B4E8,0x16801800,0xA000800)
+0:430  0:000    Result of bootcode detection: bootable unknown (legacy)
+0:430  0:000    USB volume
+0:430  0:000    USB volume
+0:430  0:000   4. Volume:
+0:430  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(4,MBR,0x0312B4E8,0x20802000,0x19B83000)
+0:430  0:000    Result of bootcode detection: bootable unknown (legacy)
+0:430  0:000    USB volume
+0:430  0:000    USB volume
+0:430  0:000   5. Volume:
+0:431  0:000    PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)
+0:431  0:000    Result of bootcode detection: bootable unknown (legacy)
+0:431  0:000    USB volume
+0:431  0:000    USB volume
+0:431  0:000   6. Volume:
+0:431  0:000    PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)
+0:432  0:000    Result of bootcode detection: bootable Clover (clover)
+0:432  0:000    USB volume
+0:432  0:000    USB volume
+0:528  0:096    This is SelfVolume !!
+0:528  0:000   7. Volume:
+0:528  0:000    PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(2,GPT,75C6E04C-21E7-4522-912A-2BA09AC1B849,0x64028,0xE58FB0)
+0:529  0:000    USB volume
+0:529  0:000    USB volume
+0:529  0:000   8. Volume:
+0:529  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)
+0:539  0:009   9. Volume:
+0:539  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)
+0:545  0:006    Result of bootcode detection: bootable Windows (vista,win)
+0:561  0:016  10. Volume:
+0:561  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(2,GPT,5C99481B-72DE-45F3-AFE9-3B51965F8290,0x190000,0x40000)
+0:562  0:000    Result of bootcode detection: bootable unknown (legacy)
+0:562  0:000  11. Volume:
+0:562  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(3,GPT,F6172D29-D0E4-4926-B7DC-D111933DB8AF,0x1D0000,0xA000800)
+0:569  0:007    Result of bootcode detection: bootable Windows (vista,win)
+0:579  0:009  12. Volume:
+0:579  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(4,GPT,5F7A9ADC-96C4-44E4-BEDC-B47406401B7C,0x141D1000,0xC800800)
+0:588  0:008    Result of bootcode detection: bootable Windows (vista,win)
+0:601  0:013  13. Volume:
+0:601  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(5,GPT,074BC64F-1D08-4099-936B-7F0AB6FB2D86,0x209D1800,0x43800800)
+0:615  0:014    Result of bootcode detection: bootable Windows (vista,win)
+0:628  0:013  14. Volume:
+0:628  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(6,GPT,97895B71-B5B9-4A19-ABF6-DC82372416DC,0x641D2000,0x6400800)
+0:647  0:019    Result of bootcode detection: bootable Windows (vista,win)
+0:658  0:011  15. Volume:
+0:658  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(7,GPT,4BC2831B-7184-45F8-A9D5-ED6A7F449757,0x6A5D2800,0xA134000)
+0:672  0:014    Result of bootcode detection: bootable Windows (vista,win)
+0:683  0:010  Using theme 'bootcamp' (EFI\CLOVER\themes\bootcamp)
+0:683  0:000  Choosing theme bootcamp
+0:683  0:000  Custom entries start
+0:683  0:000  Custom entry 0 Path:"\System\Library\CoreServices\boot.efi" Type:1 Flags:0x2 matching Volume:"mac"
+0:683  0:000      Checking volume "boot" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(1,MBR,0x0312B4E8,0x800,0xC800800)) ... skipped because media is ignored
+0:683  0:000      Checking volume "Mac" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)) ... skipped because media is ignored
+0:683  0:000      Checking volume "8GEFI" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)) ... skipped because media is ignored
+0:683  0:000      Checking volume "Yosemite Install(14A389)" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(2,GPT,75C6E04C-21E7-4522-912A-2BA09AC1B849,0x64028,0xE58FB0)) ... skipped because media is ignored
+0:683  0:000      Checking volume "EFI" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)) ... skipped
+0:683  0:000      Checking volume "win" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(3,GPT,F6172D29-D0E4-4926-B7DC-D111933DB8AF,0x1D0000,0xA000800)) ... skipped
+0:683  0:000      Checking volume "software" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(4,GPT,5F7A9ADC-96C4-44E4-BEDC-B47406401B7C,0x141D1000,0xC800800)) ... skipped
+0:683  0:000      Checking volume "data" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(5,GPT,074BC64F-1D08-4099-936B-7F0AB6FB2D86,0x209D1800,0x43800800)) ... skipped
+0:683  0:000      Checking volume "personal" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(6,GPT,97895B71-B5B9-4A19-ABF6-DC82372416DC,0x641D2000,0x6400800)) ... skipped
+0:683  0:000      Checking volume "backup" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(7,GPT,4BC2831B-7184-45F8-A9D5-ED6A7F449757,0x6A5D2800,0xA134000)) ... skipped
+0:683  0:000  Custom entry 1 Title:"new" Path:"\System\Library\CoreServices\boot.efi" Type:1 Flags:0x2 matching Volume:"mac"
+0:683  0:000      Checking volume "boot" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(1,MBR,0x0312B4E8,0x800,0xC800800)) ... skipped
+0:683  0:000      Checking volume "Mac" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)) ... skipped
+0:683  0:000      Checking volume "8GEFI" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)) ... skipped
+0:683  0:000      Checking volume "Yosemite Install(14A389)" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(2,GPT,75C6E04C-21E7-4522-912A-2BA09AC1B849,0x64028,0xE58FB0)) ... skipped
+0:683  0:000      Checking volume "EFI" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)) ... skipped
+0:683  0:000      Checking volume "win" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(3,GPT,F6172D29-D0E4-4926-B7DC-D111933DB8AF,0x1D0000,0xA000800)) ... skipped
+0:683  0:000      Checking volume "software" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(4,GPT,5F7A9ADC-96C4-44E4-BEDC-B47406401B7C,0x141D1000,0xC800800)) ... skipped
+0:683  0:000      Checking volume "data" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(5,GPT,074BC64F-1D08-4099-936B-7F0AB6FB2D86,0x209D1800,0x43800800)) ... skipped
+0:683  0:000      Checking volume "personal" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(6,GPT,97895B71-B5B9-4A19-ABF6-DC82372416DC,0x641D2000,0x6400800)) ... skipped
+0:683  0:000      Checking volume "backup" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(7,GPT,4BC2831B-7184-45F8-A9D5-ED6A7F449757,0x6A5D2800,0xA134000)) ... skipped
+0:683  0:000  Custom entries finish
+0:683  0:000  Scanning loaders...
+0:683  0:000   0: 'Whole Disc Boot' no file system
+0:683  0:000   1: 'boot'
+0:712  0:029   2: 'Mac'
+0:801  0:088      AddLoaderEntry for Volume Name=Mac
+0:829  0:028      Check if volume Is Hibernated:
+0:829  0:000      Check sleep image 'by signature':
+0:869  0:039      read prefs \Library\Preferences\SystemConfiguration\com.apple.PowerManagement.plist status=Success
+0:869  0:000      SleepImage name from pref: ImageVolume = 'Mac', ImageName = '\private\var\vm\sleepimage'
+0:882  0:012      Reading first 512 bytes of sleepimage ...
+0:892  0:010   OurBlockIoRead: Lba=DBF7C00, Offset=1B7EF80000 (BlockSize=512)
+0:892  0:000   sig lion: 7A7A7A7A
+0:892  0:000   sig snow: 0
+0:892  0:000   no valid sleep image offset was found
+0:892  0:000      Reading completed -> Success
+0:892  0:000       sleepimage offset could not be acquired
+0:892  0:000       hibernated: no - sign
+0:915  0:022   3: 'Legacy HD3' no file system
+0:915  0:000   4: 'Legacy HD4' no file system
+0:915  0:000   5: 'Whole Disc Boot' no file system
+0:915  0:000   6: '8GEFI'
+0:923  0:008      AddLoaderEntry for Volume Name=8GEFI
+2:034  1:111   7: 'Yosemite Install(14A389)'
+2:037  0:002      AddLoaderEntry for Volume Name=Yosemite Install(14A389)
+2:041  0:004      Check if volume Is Hibernated:
+2:041  0:000      Check sleep image 'by signature':
+2:046  0:004      read prefs \Library\Preferences\SystemConfiguration\com.apple.PowerManagement.plist status=Not Found
+2:046  0:000      using default sleep image name = \private\var\vm\sleepimage
+2:052  0:005      sleepimage not found -> Not Found
+2:052  0:000       hibernated: no - sign
+2:072  0:020   8: 'Whole Disc Boot' no file system
+2:072  0:000   9: 'EFI'
+2:073  0:000      AddLoaderEntry for Volume Name=EFI
+2:095  0:022  10: 'Legacy HD2' no file system
+2:095  0:000  11: 'win'
+2:114  0:018  12: 'software'
+2:133  0:018  13: 'data'
+2:151  0:018  14: 'personal'
+2:170  0:018  15: 'backup'
+2:189  0:018  Custom legacy start
+2:189  0:000  Custom legacy end
+2:189  0:000  Scanning legacy ...
+2:189  0:000   0: 'Whole Disc Boot' (legacy) not legacy
+2:189  0:000   1: 'boot' (vista,win) add legacy
+2:190  0:001   added 'Boot Windows from boot' OSType=2 Icon=vista,win
+2:190  0:000   2: 'Mac' (legacy) not legacy
+2:190  0:000   3: 'Legacy HD3' (legacy) not legacy
+2:190  0:000   4: 'Legacy HD4' (legacy) not legacy
+2:190  0:000   5: 'Whole Disc Boot' (legacy) not legacy
+2:190  0:000   6: '8GEFI' (clover) add legacy
+2:192  0:001   added 'Boot Clover from 8GEFI' OSType=3 Icon=clover
+2:192  0:000   7: 'Yosemite Install(14A389)' (legacy) not legacy
+2:192  0:000   8: 'Whole Disc Boot' (legacy) not legacy
+2:192  0:000   9: 'EFI' (vista,win) add legacy
+2:193  0:001   added 'Boot Windows from EFI' OSType=2 Icon=vista,win
+2:193  0:000  10: 'Legacy HD2' (legacy) not legacy
+2:193  0:000  11: 'win' (vista,win) add legacy
+2:195  0:001   added 'Boot Windows from win' OSType=2 Icon=vista,win
+2:195  0:000  12: 'software' (vista,win) add legacy
+2:196  0:001   added 'Boot Windows from software' OSType=2 Icon=vista,win
+2:196  0:000  13: 'data' (vista,win) add legacy
+2:197  0:001   added 'Boot Windows from data' OSType=2 Icon=vista,win
+2:197  0:000  14: 'personal' (vista,win) add legacy
+2:199  0:001   added 'Boot Windows from personal' OSType=2 Icon=vista,win
+2:199  0:000  15: 'backup' (vista,win) add legacy
+2:200  0:001   added 'Boot Windows from backup' OSType=2 Icon=vista,win
+2:200  0:000  Custom tool start
+2:200  0:000  Custom tool end
+2:203  0:002  found tool \EFI\CLOVER\tools\Shell64U.efi
+2:203  0:000  Checking EFI partition Volume 6 for Clover
+2:203  0:000   Found Clover
+2:207  0:003  Checking EFI partition Volume 9 for Clover
+2:212  0:004  GetEfiBootDeviceFromNvram: efi-boot-device-data not found
+2:212  0:000  EfiBootVolume not found
+2:212  0:000  Default boot entry not found
+2:212  0:000  DefaultIndex=-1 and MainMenu.EntryCount=18
+2:212  0:000  Use anime=logo_3D frames=50
+2:448  0:235  GUI ready
+20:782  18:334  
+Boot options:
+-------------
+20:782  0:000  BootOrder: 5: Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:782  0:000   0) Boot0080: Mac OS X, Attr: 0x1
+20:782  0:000      PciRoot(0x0)\Pci(0x14,0x0)\USB(0x0,0x0)\USB(0x5,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)
+20:782  0:000      Size: 100 (Attr:4 + FPl:2 + Desc:18 + FP:76 + Opt:0 = 100 -> OK)
+20:782  0:000   1) Boot0006: UEFI: (FAT) hp v210w 1100, Attr: 0x1
+20:782  0:000      PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)
+20:782  0:000      Size: 196 (Attr:4 + FPl:2 + Desc:52 + FP:134 + Opt:4 = 196 -> OK)
+20:782  0:000   2) Boot0002: Windows Boot Manager, Attr: 0x1
+20:782  0:000      HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)\EFI\MICROSOFT\BOOT\BOOTMGFW.EFI
+20:782  0:000      Size: 300 (Attr:4 + FPl:2 + Desc:42 + FP:116 + Opt:136 = 300 -> OK)
+20:782  0:000   3) Boot0000: Windows Boot Manager, Attr: 0x9
+20:782  0:000      VenHw(99E275E7-75A0-4B37-A2E6-C5385E6C00CB)
+20:782  0:000      Size: 324 (Attr:4 + FPl:2 + Desc:42 + FP:140 + Opt:136 = 324 -> OK)
+20:782  0:000   4) Boot0005: Windows Boot Manager, Attr: 0x9
+20:782  0:000      VenHw(99E275E7-75A0-4B37-A2E6-C5385E6C00CB)
+20:782  0:000      Size: 188 (Attr:4 + FPl:2 + Desc:42 + FP:140 + Opt:0 = 188 -> OK)
+20:782  0:000  -------------
+20:782  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start boot.efi at Mac, 0
+20:782  0:000  AddBootOption: Clover start boot.efi at Mac
+20:782  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:782  0:000   BootIndex: 0
+20:782  0:000   Found BootNum: 0001
+20:793  0:010   Boot0001 saved
+20:793  0:000  AddToBootOrder: Boot0001 at index 0
+20:793  0:000  BootOrder: 5: Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:794  0:001  SetVariable: BootOrder = Success
+20:794  0:000   6: Boot0001, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:794  0:000  AddBootOptionForFile: done.
+20:794  0:000  Entry 0 assigned option BBB60001
+20:794  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start bootmgfw.efi at 8GEFI, 1
+20:794  0:000  AddBootOption: Clover start bootmgfw.efi at 8GEFI
+20:794  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:794  0:000   BootIndex: 1
+20:795  0:000   Found BootNum: 0003
+20:806  0:011   Boot0003 saved
+20:806  0:000  AddToBootOrder: Boot0003 at index 1
+20:806  0:000  BootOrder: 6: Boot0001, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:808  0:001  SetVariable: BootOrder = Success
+20:808  0:000   7: Boot0001, Boot0003, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:808  0:000  AddBootOptionForFile: done.
+20:808  0:000  Entry 1 assigned option BBB60003
+20:808  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start boot.efi at Yosemite Install(14A389), 2
+20:808  0:000  AddBootOption: Clover start boot.efi at Yosemite Install(14A389)
+20:808  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:808  0:000   BootIndex: 2
+20:808  0:000   Found BootNum: 0004
+20:816  0:007   Boot0004 saved
+20:816  0:000  AddToBootOrder: Boot0004 at index 2
+20:816  0:000  BootOrder: 7: Boot0001, Boot0003, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:818  0:001  SetVariable: BootOrder = Success
+20:818  0:000   8: Boot0001, Boot0003, Boot0004, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:818  0:000  AddBootOptionForFile: done.
+20:818  0:000  Entry 2 assigned option BBB60004
+20:818  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start bootmgfw.efi at EFI, 3
+20:818  0:000  AddBootOption: Clover start bootmgfw.efi at EFI
+20:818  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:818  0:000   BootIndex: 3
+20:818  0:000   Found BootNum: 0007
+20:824  0:006   Boot0007 saved
+20:824  0:000  AddToBootOrder: Boot0007 at index 3
+20:824  0:000  BootOrder: 8: Boot0001, Boot0003, Boot0004, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:826  0:001  SetVariable: BootOrder = Success
+20:826  0:000   9: Boot0001, Boot0003, Boot0004, Boot0007, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:826  0:000  AddBootOptionForFile: done.
+20:826  0:000  Entry 3 assigned option BBB60007
+20:826  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start legacy at boot, 4
+20:826  0:000  AddBootOption: Clover start legacy at boot
+20:826  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:826  0:000   BootIndex: 4
+20:826  0:000   Found BootNum: 0008
+20:836  0:009   Boot0008 saved
+20:836  0:000  AddToBootOrder: Boot0008 at index 4
+20:836  0:000  BootOrder: 9: Boot0001, Boot0003, Boot0004, Boot0007, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:838  0:002  SetVariable: BootOrder = Success
+20:838  0:000   10: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:838  0:000  AddBootOptionForFile: done.
+20:838  0:000  Entry 4 assigned option BBB60008
+20:838  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start legacy at 8GEFI, 5
+20:838  0:000  AddBootOption: Clover start legacy at 8GEFI
+20:838  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:838  0:000   BootIndex: 5
+20:838  0:000   Found BootNum: 0009
+20:847  0:009   Boot0009 saved
+20:847  0:000  AddToBootOrder: Boot0009 at index 5
+20:847  0:000  BootOrder: 10: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:850  0:002  SetVariable: BootOrder = Success
+20:850  0:000   11: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:850  0:000  AddBootOptionForFile: done.
+20:850  0:000  Entry 5 assigned option BBB60009
+20:850  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start legacy at EFI, 6
+20:850  0:000  AddBootOption: Clover start legacy at EFI
+20:850  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:850  0:000   BootIndex: 6
+20:850  0:000   Found BootNum: 000A
+20:855  0:005   Boot000A saved
+20:855  0:000  AddToBootOrder: Boot000A at index 6
+20:855  0:000  BootOrder: 11: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:858  0:002  SetVariable: BootOrder = Success
+20:858  0:000   12: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:858  0:000  AddBootOptionForFile: done.
+20:858  0:000  Entry 6 assigned option BBB6000A
+20:858  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start legacy at win, 7
+20:858  0:000  AddBootOption: Clover start legacy at win
+20:858  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:858  0:000   BootIndex: 7
+20:858  0:000   Found BootNum: 000B
+20:867  0:009   Boot000B saved
+20:867  0:000  AddToBootOrder: Boot000B at index 7
+20:867  0:000  BootOrder: 12: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:869  0:001  SetVariable: BootOrder = Success
+20:869  0:000   13: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:869  0:000  AddBootOptionForFile: done.
+20:869  0:000  Entry 7 assigned option BBB6000B
+20:869  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start legacy at software, 8
+20:869  0:000  AddBootOption: Clover start legacy at software
+20:869  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:869  0:000   BootIndex: 8
+20:869  0:000   Found BootNum: 000C
+20:879  0:010   Boot000C saved
+20:880  0:000  AddToBootOrder: Boot000C at index 8
+20:880  0:000  BootOrder: 13: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:882  0:002  SetVariable: BootOrder = Success
+20:882  0:000   14: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot000C, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:882  0:000  AddBootOptionForFile: done.
+20:882  0:000  Entry 8 assigned option BBB6000C
+20:882  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start legacy at data, 9
+20:882  0:000  AddBootOption: Clover start legacy at data
+20:882  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:882  0:000   BootIndex: 9
+20:882  0:000   Found BootNum: 000D
+20:892  0:009   Boot000D saved
+20:892  0:000  AddToBootOrder: Boot000D at index 9
+20:892  0:000  BootOrder: 14: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot000C, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:894  0:002  SetVariable: BootOrder = Success
+20:894  0:000   15: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot000C, Boot000D, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:894  0:000  AddBootOptionForFile: done.
+20:894  0:000  Entry 9 assigned option BBB6000D
+20:894  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start legacy at personal, 10
+20:894  0:000  AddBootOption: Clover start legacy at personal
+20:894  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:894  0:000   BootIndex: 10
+20:894  0:000   Found BootNum: 000E
+20:904  0:009   Boot000E saved
+20:904  0:000  AddToBootOrder: Boot000E at index 10
+20:904  0:000  BootOrder: 15: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot000C, Boot000D, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:907  0:002  SetVariable: BootOrder = Success
+20:907  0:000   16: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot000C, Boot000D, Boot000E, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:907  0:000  AddBootOptionForFile: done.
+20:907  0:000  Entry 10 assigned option BBB6000E
+20:907  0:000  
+AddBootOptionForFile: BC362C18, \EFI\CLOVER\CLOVERX64.EFI, ShortDevPath
+ Clover start legacy at backup, 11
+20:907  0:000  AddBootOption: Clover start legacy at backup
+20:907  0:000   FilePath: HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:907  0:000   BootIndex: 11
+20:907  0:000   Found BootNum: 000F
+20:917  0:009   Boot000F saved
+20:917  0:000  AddToBootOrder: Boot000F at index 11
+20:917  0:000  BootOrder: 16: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot000C, Boot000D, Boot000E, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:920  0:002  SetVariable: BootOrder = Success
+20:920  0:000   17: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot000C, Boot000D, Boot000E, Boot000F, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:920  0:000  AddBootOptionForFile: done.
+20:920  0:000  Entry 11 assigned option BBB6000F
+20:920  0:000  
+Boot options:
+-------------
+20:920  0:000  BootOrder: 17: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot000C, Boot000D, Boot000E, Boot000F, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+20:920  0:000   0) Boot0001: Clover start boot.efi at Mac, Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 198 (Attr:4 + FPl:2 + Desc:58 + FP:102 + Opt:32 = 198 -> OK)
+20:920  0:000   1) Boot0003: Clover start bootmgfw.efi at 8GEFI, Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 222 (Attr:4 + FPl:2 + Desc:70 + FP:102 + Opt:44 = 222 -> OK)
+20:920  0:000   2) Boot0004: Clover start boot.efi at Yosemite Install(14A389), Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 282 (Attr:4 + FPl:2 + Desc:100 + FP:102 + Opt:74 = 282 -> OK)
+20:920  0:000   3) Boot0007: Clover start bootmgfw.efi at EFI, Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 214 (Attr:4 + FPl:2 + Desc:66 + FP:102 + Opt:40 = 214 -> OK)
+20:920  0:000   4) Boot0008: Clover start legacy at boot, Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 180 (Attr:4 + FPl:2 + Desc:56 + FP:102 + Opt:16 = 180 -> OK)
+20:920  0:000   5) Boot0009: Clover start legacy at 8GEFI, Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 184 (Attr:4 + FPl:2 + Desc:58 + FP:102 + Opt:18 = 184 -> OK)
+20:920  0:000   6) Boot000A: Clover start legacy at EFI, Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 176 (Attr:4 + FPl:2 + Desc:54 + FP:102 + Opt:14 = 176 -> OK)
+20:920  0:000   7) Boot000B: Clover start legacy at win, Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 176 (Attr:4 + FPl:2 + Desc:54 + FP:102 + Opt:14 = 176 -> OK)
+20:920  0:000   8) Boot000C: Clover start legacy at software, Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 196 (Attr:4 + FPl:2 + Desc:64 + FP:102 + Opt:24 = 196 -> OK)
+20:920  0:000   9) Boot000D: Clover start legacy at data, Attr: 0x1
+20:920  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:920  0:000      Size: 180 (Attr:4 + FPl:2 + Desc:56 + FP:102 + Opt:16 = 180 -> OK)
+20:921  0:000  10) Boot000E: Clover start legacy at personal, Attr: 0x1
+20:921  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:921  0:000      Size: 196 (Attr:4 + FPl:2 + Desc:64 + FP:102 + Opt:24 = 196 -> OK)
+20:921  0:000  11) Boot000F: Clover start legacy at backup, Attr: 0x1
+20:921  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+20:921  0:000      Size: 188 (Attr:4 + FPl:2 + Desc:60 + FP:102 + Opt:20 = 188 -> OK)
+20:921  0:000  12) Boot0080: Mac OS X, Attr: 0x1
+20:921  0:000      PciRoot(0x0)\Pci(0x14,0x0)\USB(0x0,0x0)\USB(0x5,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)
+20:921  0:000      Size: 100 (Attr:4 + FPl:2 + Desc:18 + FP:76 + Opt:0 = 100 -> OK)
+20:921  0:000  13) Boot0006: UEFI: (FAT) hp v210w 1100, Attr: 0x1
+20:921  0:000      PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)
+20:921  0:000      Size: 196 (Attr:4 + FPl:2 + Desc:52 + FP:134 + Opt:4 = 196 -> OK)
+20:921  0:000  14) Boot0002: Windows Boot Manager, Attr: 0x1
+20:921  0:000      HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)\EFI\MICROSOFT\BOOT\BOOTMGFW.EFI
+20:921  0:000      Size: 300 (Attr:4 + FPl:2 + Desc:42 + FP:116 + Opt:136 = 300 -> OK)
+20:921  0:000  15) Boot0000: Windows Boot Manager, Attr: 0x9
+20:921  0:000      VenHw(99E275E7-75A0-4B37-A2E6-C5385E6C00CB)
+20:921  0:000      Size: 324 (Attr:4 + FPl:2 + Desc:42 + FP:140 + Opt:136 = 324 -> OK)
+20:921  0:000  16) Boot0005: Windows Boot Manager, Attr: 0x9
+20:921  0:000      VenHw(99E275E7-75A0-4B37-A2E6-C5385E6C00CB)
+20:921  0:000      Size: 188 (Attr:4 + FPl:2 + Desc:42 + FP:140 + Opt:0 = 188 -> OK)
+20:921  0:000  -------------
+20:921  0:000  ReinitSelfLib after theme change
+20:921  0:000  reinit: self device path=PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)
+20:922  0:000  found 16 volumes with blockIO
+20:922  0:000   0. Volume:
+20:922  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)
+20:935  0:013    Result of bootcode detection: bootable unknown (legacy)
+20:935  0:000    USB volume
+20:935  0:000    USB volume
+20:935  0:000   1. Volume:
+20:935  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(1,MBR,0x0312B4E8,0x800,0xC800800)
+20:942  0:006    Result of bootcode detection: bootable Windows (vista,win)
+20:942  0:000    USB volume
+20:942  0:000    USB volume
+20:942  0:000   2. Volume:
+20:942  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)
+20:955  0:012    USB volume
+20:955  0:000    USB volume
+20:955  0:000   3. Volume:
+20:955  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(3,MBR,0x0312B4E8,0x16801800,0xA000800)
+20:969  0:014    Result of bootcode detection: bootable unknown (legacy)
+20:969  0:000    USB volume
+20:969  0:000    USB volume
+20:969  0:000   4. Volume:
+20:969  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(4,MBR,0x0312B4E8,0x20802000,0x19B83000)
+20:986  0:016    Result of bootcode detection: bootable unknown (legacy)
+20:986  0:000    USB volume
+20:986  0:000    USB volume
+20:986  0:000   5. Volume:
+20:986  0:000    PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)
+20:987  0:000    Result of bootcode detection: bootable unknown (legacy)
+20:987  0:000    USB volume
+20:987  0:000    USB volume
+20:987  0:000   6. Volume:
+20:987  0:000    PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)
+20:988  0:000    Result of bootcode detection: bootable Clover (clover)
+20:988  0:000    USB volume
+20:988  0:000    USB volume
+20:988  0:000    This is SelfVolume !!
+20:988  0:000   7. Volume:
+20:988  0:000    PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(2,GPT,75C6E04C-21E7-4522-912A-2BA09AC1B849,0x64028,0xE58FB0)
+20:989  0:000    USB volume
+20:989  0:000    USB volume
+20:989  0:000   8. Volume:
+20:989  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)
+20:990  0:000   9. Volume:
+20:990  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)
+20:990  0:000    Result of bootcode detection: bootable Windows (vista,win)
+20:990  0:000  10. Volume:
+20:990  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(2,GPT,5C99481B-72DE-45F3-AFE9-3B51965F8290,0x190000,0x40000)
+20:991  0:000    Result of bootcode detection: bootable unknown (legacy)
+20:991  0:000  11. Volume:
+20:991  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(3,GPT,F6172D29-D0E4-4926-B7DC-D111933DB8AF,0x1D0000,0xA000800)
+20:991  0:000    Result of bootcode detection: bootable Windows (vista,win)
+20:991  0:000  12. Volume:
+20:991  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(4,GPT,5F7A9ADC-96C4-44E4-BEDC-B47406401B7C,0x141D1000,0xC800800)
+20:992  0:000    Result of bootcode detection: bootable Windows (vista,win)
+20:992  0:000  13. Volume:
+20:992  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(5,GPT,074BC64F-1D08-4099-936B-7F0AB6FB2D86,0x209D1800,0x43800800)
+20:993  0:000    Result of bootcode detection: bootable Windows (vista,win)
+20:993  0:000  14. Volume:
+20:993  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(6,GPT,97895B71-B5B9-4A19-ABF6-DC82372416DC,0x641D2000,0x6400800)
+20:993  0:000    Result of bootcode detection: bootable Windows (vista,win)
+20:993  0:000  15. Volume:
+20:993  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(7,GPT,4BC2831B-7184-45F8-A9D5-ED6A7F449757,0x6A5D2800,0xA134000)
+20:994  0:000    Result of bootcode detection: bootable Windows (vista,win)
+20:994  0:000  Choosing theme bootcamp
+20:994  0:000  Custom entries start
+20:994  0:000  Custom entry 0 Path:"\System\Library\CoreServices\boot.efi" Type:1 Flags:0x2 matching Volume:"mac"
+20:994  0:000      Checking volume "boot" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(1,MBR,0x0312B4E8,0x800,0xC800800)) ... skipped because media is ignored
+20:994  0:000      Checking volume "Mac" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)) ... skipped because media is ignored
+20:994  0:000      Checking volume "8GEFI" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)) ... skipped because media is ignored
+20:994  0:000      Checking volume "Yosemite Install(14A389)" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(2,GPT,75C6E04C-21E7-4522-912A-2BA09AC1B849,0x64028,0xE58FB0)) ... skipped because media is ignored
+20:994  0:000      Checking volume "EFI" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)) ... skipped
+20:994  0:000      Checking volume "win" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(3,GPT,F6172D29-D0E4-4926-B7DC-D111933DB8AF,0x1D0000,0xA000800)) ... skipped
+20:994  0:000      Checking volume "software" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(4,GPT,5F7A9ADC-96C4-44E4-BEDC-B47406401B7C,0x141D1000,0xC800800)) ... skipped
+20:994  0:000      Checking volume "data" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(5,GPT,074BC64F-1D08-4099-936B-7F0AB6FB2D86,0x209D1800,0x43800800)) ... skipped
+20:994  0:000      Checking volume "personal" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(6,GPT,97895B71-B5B9-4A19-ABF6-DC82372416DC,0x641D2000,0x6400800)) ... skipped
+20:994  0:000      Checking volume "backup" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(7,GPT,4BC2831B-7184-45F8-A9D5-ED6A7F449757,0x6A5D2800,0xA134000)) ... skipped
+20:994  0:000  Custom entry 1 Title:"new" Path:"\System\Library\CoreServices\boot.efi" Type:1 Flags:0x2 matching Volume:"mac"
+20:994  0:000      Checking volume "boot" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(1,MBR,0x0312B4E8,0x800,0xC800800)) ... skipped
+20:994  0:000      Checking volume "Mac" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)) ... skipped
+20:994  0:000      Checking volume "8GEFI" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)) ... skipped
+20:994  0:000      Checking volume "Yosemite Install(14A389)" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(2,GPT,75C6E04C-21E7-4522-912A-2BA09AC1B849,0x64028,0xE58FB0)) ... skipped
+20:994  0:000      Checking volume "EFI" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)) ... skipped
+20:994  0:000      Checking volume "win" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(3,GPT,F6172D29-D0E4-4926-B7DC-D111933DB8AF,0x1D0000,0xA000800)) ... skipped
+20:994  0:000      Checking volume "software" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(4,GPT,5F7A9ADC-96C4-44E4-BEDC-B47406401B7C,0x141D1000,0xC800800)) ... skipped
+20:994  0:000      Checking volume "data" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(5,GPT,074BC64F-1D08-4099-936B-7F0AB6FB2D86,0x209D1800,0x43800800)) ... skipped
+20:994  0:000      Checking volume "personal" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(6,GPT,97895B71-B5B9-4A19-ABF6-DC82372416DC,0x641D2000,0x6400800)) ... skipped
+20:994  0:000      Checking volume "backup" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(7,GPT,4BC2831B-7184-45F8-A9D5-ED6A7F449757,0x6A5D2800,0xA134000)) ... skipped
+20:994  0:000  Custom entries finish
+20:994  0:000  Scanning loaders...
+20:994  0:000   0: 'Whole Disc Boot' no file system
+20:994  0:000   1: 'boot'
+21:012  0:018   2: 'Mac'
+21:012  0:000      AddLoaderEntry for Volume Name=Mac
+21:012  0:000      Check if volume Is Hibernated:
+21:012  0:000      Check sleep image 'by signature':
+21:013  0:000      read prefs \Library\Preferences\SystemConfiguration\com.apple.PowerManagement.plist status=Success
+21:013  0:000      SleepImage name from pref: ImageVolume = 'Mac', ImageName = '\private\var\vm\sleepimage'
+21:013  0:000      Reading first 512 bytes of sleepimage ...
+21:013  0:000      Reading completed -> Success
+21:013  0:000       sleepimage offset could not be acquired
+21:013  0:000       hibernated: no - sign
+21:033  0:020   3: 'Legacy HD3' no file system
+21:033  0:000   4: 'Legacy HD4' no file system
+21:033  0:000   5: 'Whole Disc Boot' no file system
+21:033  0:000   6: '8GEFI'
+21:033  0:000      AddLoaderEntry for Volume Name=8GEFI
+22:140  1:107   7: 'Yosemite Install(14A389)'
+22:140  0:000      AddLoaderEntry for Volume Name=Yosemite Install(14A389)
+22:140  0:000      Check if volume Is Hibernated:
+22:140  0:000      Check sleep image 'by signature':
+22:140  0:000      read prefs \Library\Preferences\SystemConfiguration\com.apple.PowerManagement.plist status=Not Found
+22:140  0:000      using default sleep image name = \private\var\vm\sleepimage
+22:140  0:000      sleepimage not found -> Not Found
+22:140  0:000       hibernated: no - sign
+22:161  0:020   8: 'Whole Disc Boot' no file system
+22:161  0:000   9: 'EFI'
+22:161  0:000      AddLoaderEntry for Volume Name=EFI
+22:181  0:019  10: 'Legacy HD2' no file system
+22:181  0:000  11: 'win'
+22:199  0:018  12: 'software'
+22:218  0:018  13: 'data'
+22:236  0:018  14: 'personal'
+22:255  0:018  15: 'backup'
+22:273  0:018  Custom legacy start
+22:273  0:000  Custom legacy end
+22:273  0:000  Scanning legacy ...
+22:273  0:000   0: 'Whole Disc Boot' (legacy) not legacy
+22:273  0:000   1: 'boot' (vista,win) add legacy
+22:275  0:001   added 'Boot Windows from boot' OSType=2 Icon=vista,win
+22:275  0:000   2: 'Mac' (legacy) not legacy
+22:275  0:000   3: 'Legacy HD3' (legacy) not legacy
+22:275  0:000   4: 'Legacy HD4' (legacy) not legacy
+22:275  0:000   5: 'Whole Disc Boot' (legacy) not legacy
+22:275  0:000   6: '8GEFI' (clover) add legacy
+22:276  0:001   added 'Boot Clover from 8GEFI' OSType=3 Icon=clover
+22:276  0:000   7: 'Yosemite Install(14A389)' (legacy) not legacy
+22:276  0:000   8: 'Whole Disc Boot' (legacy) not legacy
+22:276  0:000   9: 'EFI' (vista,win) add legacy
+22:278  0:001   added 'Boot Windows from EFI' OSType=2 Icon=vista,win
+22:278  0:000  10: 'Legacy HD2' (legacy) not legacy
+22:278  0:000  11: 'win' (vista,win) add legacy
+22:279  0:001   added 'Boot Windows from win' OSType=2 Icon=vista,win
+22:279  0:000  12: 'software' (vista,win) add legacy
+22:281  0:001   added 'Boot Windows from software' OSType=2 Icon=vista,win
+22:281  0:000  13: 'data' (vista,win) add legacy
+22:282  0:001   added 'Boot Windows from data' OSType=2 Icon=vista,win
+22:282  0:000  14: 'personal' (vista,win) add legacy
+22:283  0:001   added 'Boot Windows from personal' OSType=2 Icon=vista,win
+22:283  0:000  15: 'backup' (vista,win) add legacy
+22:285  0:001   added 'Boot Windows from backup' OSType=2 Icon=vista,win
+22:285  0:000  Custom tool start
+22:285  0:000  Custom tool end
+22:285  0:000  found tool \EFI\CLOVER\tools\Shell64U.efi
+22:285  0:000  Checking EFI partition Volume 6 for Clover
+22:285  0:000   Found Clover
+22:285  0:000  Checking EFI partition Volume 9 for Clover
+22:285  0:000  GetEfiBootDeviceFromNvram: efi-boot-device-data not found
+22:285  0:000  EfiBootVolume not found
+22:285  0:000  Default boot entry not found
+22:285  0:000  DefaultIndex=-1 and MainMenu.EntryCount=18
+22:285  0:000  Use anime=logo_3D frames=50
+27:383  5:098  
+Boot options:
+-------------
+27:383  0:000  BootOrder: 17: Boot0001, Boot0003, Boot0004, Boot0007, Boot0008, Boot0009, Boot000A, Boot000B, Boot000C, Boot000D, Boot000E, Boot000F, Boot0080, Boot0006, Boot0002, Boot0000, Boot0005
+27:383  0:000   0) Boot0001: Clover start boot.efi at Mac, Attr: 0x1
+27:383  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:383  0:000      Size: 198 (Attr:4 + FPl:2 + Desc:58 + FP:102 + Opt:32 = 198 -> OK)
+27:383  0:000   1) Boot0003: Clover start bootmgfw.efi at 8GEFI, Attr: 0x1
+27:383  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:383  0:000      Size: 222 (Attr:4 + FPl:2 + Desc:70 + FP:102 + Opt:44 = 222 -> OK)
+27:383  0:000   2) Boot0004: Clover start boot.efi at Yosemite Install(14A389), Attr: 0x1
+27:383  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:383  0:000      Size: 282 (Attr:4 + FPl:2 + Desc:100 + FP:102 + Opt:74 = 282 -> OK)
+27:383  0:000   3) Boot0007: Clover start bootmgfw.efi at EFI, Attr: 0x1
+27:384  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:384  0:000      Size: 214 (Attr:4 + FPl:2 + Desc:66 + FP:102 + Opt:40 = 214 -> OK)
+27:384  0:000   4) Boot0008: Clover start legacy at boot, Attr: 0x1
+27:384  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:384  0:000      Size: 180 (Attr:4 + FPl:2 + Desc:56 + FP:102 + Opt:16 = 180 -> OK)
+27:384  0:000   5) Boot0009: Clover start legacy at 8GEFI, Attr: 0x1
+27:384  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:384  0:000      Size: 184 (Attr:4 + FPl:2 + Desc:58 + FP:102 + Opt:18 = 184 -> OK)
+27:384  0:000   6) Boot000A: Clover start legacy at EFI, Attr: 0x1
+27:384  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:384  0:000      Size: 176 (Attr:4 + FPl:2 + Desc:54 + FP:102 + Opt:14 = 176 -> OK)
+27:384  0:000   7) Boot000B: Clover start legacy at win, Attr: 0x1
+27:384  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:384  0:000      Size: 176 (Attr:4 + FPl:2 + Desc:54 + FP:102 + Opt:14 = 176 -> OK)
+27:384  0:000   8) Boot000C: Clover start legacy at software, Attr: 0x1
+27:384  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:384  0:000      Size: 196 (Attr:4 + FPl:2 + Desc:64 + FP:102 + Opt:24 = 196 -> OK)
+27:384  0:000   9) Boot000D: Clover start legacy at data, Attr: 0x1
+27:384  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:384  0:000      Size: 180 (Attr:4 + FPl:2 + Desc:56 + FP:102 + Opt:16 = 180 -> OK)
+27:384  0:000  10) Boot000E: Clover start legacy at personal, Attr: 0x1
+27:384  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:384  0:000      Size: 196 (Attr:4 + FPl:2 + Desc:64 + FP:102 + Opt:24 = 196 -> OK)
+27:384  0:000  11) Boot000F: Clover start legacy at backup, Attr: 0x1
+27:384  0:000      HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)\EFI\CLOVER\CLOVERX64.EFI
+27:384  0:000      Size: 188 (Attr:4 + FPl:2 + Desc:60 + FP:102 + Opt:20 = 188 -> OK)
+27:384  0:000  12) Boot0080: Mac OS X, Attr: 0x1
+27:384  0:000      PciRoot(0x0)\Pci(0x14,0x0)\USB(0x0,0x0)\USB(0x5,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)
+27:384  0:000      Size: 100 (Attr:4 + FPl:2 + Desc:18 + FP:76 + Opt:0 = 100 -> OK)
+27:384  0:000  13) Boot0006: UEFI: (FAT) hp v210w 1100, Attr: 0x1
+27:384  0:000      PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)
+27:384  0:000      Size: 196 (Attr:4 + FPl:2 + Desc:52 + FP:134 + Opt:4 = 196 -> OK)
+27:384  0:000  14) Boot0002: Windows Boot Manager, Attr: 0x1
+27:384  0:000      HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)\EFI\MICROSOFT\BOOT\BOOTMGFW.EFI
+27:384  0:000      Size: 300 (Attr:4 + FPl:2 + Desc:42 + FP:116 + Opt:136 = 300 -> OK)
+27:384  0:000  15) Boot0000: Windows Boot Manager, Attr: 0x9
+27:384  0:000      VenHw(99E275E7-75A0-4B37-A2E6-C5385E6C00CB)
+27:384  0:000      Size: 324 (Attr:4 + FPl:2 + Desc:42 + FP:140 + Opt:136 = 324 -> OK)
+27:384  0:000  16) Boot0005: Windows Boot Manager, Attr: 0x9
+27:384  0:000      VenHw(99E275E7-75A0-4B37-A2E6-C5385E6C00CB)
+27:384  0:000      Size: 188 (Attr:4 + FPl:2 + Desc:42 + FP:140 + Opt:0 = 188 -> OK)
+27:384  0:000  
+Boot options not in BootOrder list:
+28:976  1:591   not found
+28:976  0:000  -------------
+28:976  0:000  ReinitSelfLib after theme change
+28:976  0:000  reinit: self device path=PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)
+28:977  0:000  found 16 volumes with blockIO
+28:977  0:000   0. Volume:
+28:977  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)
+28:978  0:000    Result of bootcode detection: bootable unknown (legacy)
+28:978  0:000    USB volume
+28:978  0:000    USB volume
+28:978  0:000   1. Volume:
+28:978  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(1,MBR,0x0312B4E8,0x800,0xC800800)
+28:978  0:000    Result of bootcode detection: bootable Windows (vista,win)
+28:978  0:000    USB volume
+28:978  0:000    USB volume
+28:978  0:000   2. Volume:
+28:978  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)
+28:979  0:000    USB volume
+28:979  0:000    USB volume
+28:979  0:000   3. Volume:
+28:979  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(3,MBR,0x0312B4E8,0x16801800,0xA000800)
+28:980  0:000    Result of bootcode detection: bootable unknown (legacy)
+28:980  0:000    USB volume
+28:980  0:000    USB volume
+28:980  0:000   4. Volume:
+28:980  0:000    PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(4,MBR,0x0312B4E8,0x20802000,0x19B83000)
+28:981  0:000    Result of bootcode detection: bootable unknown (legacy)
+28:981  0:000    USB volume
+28:981  0:000    USB volume
+28:981  0:000   5. Volume:
+28:981  0:000    PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)
+28:981  0:000    Result of bootcode detection: bootable unknown (legacy)
+28:981  0:000    USB volume
+28:981  0:000    USB volume
+28:981  0:000   6. Volume:
+28:981  0:000    PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)
+28:982  0:000    Result of bootcode detection: bootable Clover (clover)
+28:982  0:000    USB volume
+28:982  0:000    USB volume
+28:983  0:000    This is SelfVolume !!
+28:983  0:000   7. Volume:
+28:983  0:000    PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(2,GPT,75C6E04C-21E7-4522-912A-2BA09AC1B849,0x64028,0xE58FB0)
+28:984  0:000    USB volume
+28:984  0:000    USB volume
+28:984  0:000   8. Volume:
+28:984  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)
+28:984  0:000   9. Volume:
+28:984  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)
+28:985  0:000    Result of bootcode detection: bootable Windows (vista,win)
+28:985  0:000  10. Volume:
+28:985  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(2,GPT,5C99481B-72DE-45F3-AFE9-3B51965F8290,0x190000,0x40000)
+28:985  0:000    Result of bootcode detection: bootable unknown (legacy)
+28:985  0:000  11. Volume:
+28:985  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(3,GPT,F6172D29-D0E4-4926-B7DC-D111933DB8AF,0x1D0000,0xA000800)
+28:986  0:000    Result of bootcode detection: bootable Windows (vista,win)
+28:986  0:000  12. Volume:
+28:986  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(4,GPT,5F7A9ADC-96C4-44E4-BEDC-B47406401B7C,0x141D1000,0xC800800)
+28:987  0:000    Result of bootcode detection: bootable Windows (vista,win)
+28:987  0:000  13. Volume:
+28:987  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(5,GPT,074BC64F-1D08-4099-936B-7F0AB6FB2D86,0x209D1800,0x43800800)
+28:987  0:000    Result of bootcode detection: bootable Windows (vista,win)
+28:987  0:000  14. Volume:
+28:987  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(6,GPT,97895B71-B5B9-4A19-ABF6-DC82372416DC,0x641D2000,0x6400800)
+28:988  0:000    Result of bootcode detection: bootable Windows (vista,win)
+28:988  0:000  15. Volume:
+28:988  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(7,GPT,4BC2831B-7184-45F8-A9D5-ED6A7F449757,0x6A5D2800,0xA134000)
+28:988  0:000    Result of bootcode detection: bootable Windows (vista,win)
+28:988  0:000  Choosing theme bootcamp
+28:988  0:000  Custom entries start
+28:988  0:000  Custom entry 0 Path:"\System\Library\CoreServices\boot.efi" Type:1 Flags:0x2 matching Volume:"mac"
+28:988  0:000      Checking volume "boot" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(1,MBR,0x0312B4E8,0x800,0xC800800)) ... skipped because media is ignored
+28:988  0:000      Checking volume "Mac" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)) ... skipped because media is ignored
+28:988  0:000      Checking volume "8GEFI" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)) ... skipped because media is ignored
+28:988  0:000      Checking volume "Yosemite Install(14A389)" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(2,GPT,75C6E04C-21E7-4522-912A-2BA09AC1B849,0x64028,0xE58FB0)) ... skipped because media is ignored
+28:988  0:000      Checking volume "EFI" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)) ... skipped
+28:988  0:000      Checking volume "win" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(3,GPT,F6172D29-D0E4-4926-B7DC-D111933DB8AF,0x1D0000,0xA000800)) ... skipped
+28:988  0:000      Checking volume "software" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(4,GPT,5F7A9ADC-96C4-44E4-BEDC-B47406401B7C,0x141D1000,0xC800800)) ... skipped
+28:988  0:000      Checking volume "data" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(5,GPT,074BC64F-1D08-4099-936B-7F0AB6FB2D86,0x209D1800,0x43800800)) ... skipped
+28:988  0:000      Checking volume "personal" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(6,GPT,97895B71-B5B9-4A19-ABF6-DC82372416DC,0x641D2000,0x6400800)) ... skipped
+28:988  0:000      Checking volume "backup" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(7,GPT,4BC2831B-7184-45F8-A9D5-ED6A7F449757,0x6A5D2800,0xA134000)) ... skipped
+28:988  0:000  Custom entry 1 Title:"new" Path:"\System\Library\CoreServices\boot.efi" Type:1 Flags:0x2 matching Volume:"mac"
+28:988  0:000      Checking volume "boot" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(1,MBR,0x0312B4E8,0x800,0xC800800)) ... skipped
+28:988  0:000      Checking volume "Mac" (PciRoot(0x0)\Pci(0x1A,0x0)\USB(0x0,0x0)\USB(0x1,0x0)\HD(2,MBR,0x0312B4E8,0xC801000,0xA000800)) ... skipped
+28:988  0:000      Checking volume "8GEFI" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(1,GPT,9176332A-96A4-4231-A919-8D9E09C214BE,0x28,0x64000)) ... skipped
+28:988  0:000      Checking volume "Yosemite Install(14A389)" (PciRoot(0x0)\Pci(0x1D,0x0)\USB(0x0,0x0)\USB(0x0,0x0)\HD(2,GPT,75C6E04C-21E7-4522-912A-2BA09AC1B849,0x64028,0xE58FB0)) ... skipped
+28:988  0:000      Checking volume "EFI" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(1,GPT,5F7317D7-D2AE-4BE5-85B7-57A3907F6D3A,0x800,0x18F800)) ... skipped
+28:988  0:000      Checking volume "win" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(3,GPT,F6172D29-D0E4-4926-B7DC-D111933DB8AF,0x1D0000,0xA000800)) ... skipped
+28:988  0:000      Checking volume "software" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(4,GPT,5F7A9ADC-96C4-44E4-BEDC-B47406401B7C,0x141D1000,0xC800800)) ... skipped
+28:988  0:000      Checking volume "data" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(5,GPT,074BC64F-1D08-4099-936B-7F0AB6FB2D86,0x209D1800,0x43800800)) ... skipped
+28:989  0:000      Checking volume "personal" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(6,GPT,97895B71-B5B9-4A19-ABF6-DC82372416DC,0x641D2000,0x6400800)) ... skipped
+28:989  0:000      Checking volume "backup" (PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0xFFFF,0x0)\HD(7,GPT,4BC2831B-7184-45F8-A9D5-ED6A7F449757,0x6A5D2800,0xA134000)) ... skipped
+28:989  0:000  Custom entries finish
+28:989  0:000  Scanning loaders...
+28:989  0:000   0: 'Whole Disc Boot' no file system
+28:989  0:000   1: 'boot'
+29:007  0:018   2: 'Mac'
+29:007  0:000      AddLoaderEntry for Volume Name=Mac
+29:007  0:000      Check if volume Is Hibernated:
+29:007  0:000      Check sleep image 'by signature':
+29:007  0:000      read prefs \Library\Preferences\SystemConfiguration\com.apple.PowerManagement.plist status=Success
+29:007  0:000      SleepImage name from pref: ImageVolume = 'Mac', ImageName = '\private\var\vm\sleepimage'
+29:007  0:000      Reading first 512 bytes of sleepimage ...
+29:007  0:000      Reading completed -> Success
+29:007  0:000       sleepimage offset could not be acquired
+29:007  0:000       hibernated: no - sign
+29:028  0:020   3: 'Legacy HD3' no file system
+29:028  0:000   4: 'Legacy HD4' no file system
+29:028  0:000   5: 'Whole Disc Boot' no file system
+29:028  0:000   6: '8GEFI'
+29:028  0:000      AddLoaderEntry for Volume Name=8GEFI
+30:135  1:107   7: 'Yosemite Install(14A389)'
+30:135  0:000      AddLoaderEntry for Volume Name=Yosemite Install(14A389)
+30:135  0:000      Check if volume Is Hibernated:
+30:135  0:000      Check sleep image 'by signature':
+30:135  0:000      read prefs \Library\Preferences\SystemConfiguration\com.apple.PowerManagement.plist status=Not Found
+30:135  0:000      using default sleep image name = \private\var\vm\sleepimage
+30:135  0:000      sleepimage not found -> Not Found
+30:135  0:000       hibernated: no - sign
+30:156  0:020   8: 'Whole Disc Boot' no file system
+30:156  0:000   9: 'EFI'
+30:156  0:000      AddLoaderEntry for Volume Name=EFI
+30:176  0:020  10: 'Legacy HD2' no file system
+30:176  0:000  11: 'win'
+30:195  0:018  12: 'software'
+30:213  0:018  13: 'data'
+30:232  0:018  14: 'personal'
+30:250  0:018  15: 'backup'
+30:269  0:018  Custom legacy start
+30:269  0:000  Custom legacy end
+30:269  0:000  Scanning legacy ...
+30:269  0:000   0: 'Whole Disc Boot' (legacy) not legacy
+30:269  0:000   1: 'boot' (vista,win) add legacy
+30:271  0:001   added 'Boot Windows from boot' OSType=2 Icon=vista,win
+30:271  0:000   2: 'Mac' (legacy) not legacy
+30:271  0:000   3: 'Legacy HD3' (legacy) not legacy
+30:271  0:000   4: 'Legacy HD4' (legacy) not legacy
+30:271  0:000   5: 'Whole Disc Boot' (legacy) not legacy
+30:271  0:000   6: '8GEFI' (clover) add legacy
+30:272  0:001   added 'Boot Clover from 8GEFI' OSType=3 Icon=clover
+30:272  0:000   7: 'Yosemite Install(14A389)' (legacy) not legacy
+30:272  0:000   8: 'Whole Disc Boot' (legacy) not legacy
+30:272  0:000   9: 'EFI' (vista,win) add legacy
+30:274  0:001   added 'Boot Windows from EFI' OSType=2 Icon=vista,win
+30:274  0:000  10: 'Legacy HD2' (legacy) not legacy
+30:274  0:000  11: 'win' (vista,win) add legacy
+30:275  0:001   added 'Boot Windows from win' OSType=2 Icon=vista,win
+30:275  0:000  12: 'software' (vista,win) add legacy
+30:276  0:001   added 'Boot Windows from software' OSType=2 Icon=vista,win
+30:276  0:000  13: 'data' (vista,win) add legacy
+30:278  0:001   added 'Boot Windows from data' OSType=2 Icon=vista,win
+30:278  0:000  14: 'personal' (vista,win) add legacy
+30:279  0:001   added 'Boot Windows from personal' OSType=2 Icon=vista,win
+30:279  0:000  15: 'backup' (vista,win) add legacy
+30:281  0:001   added 'Boot Windows from backup' OSType=2 Icon=vista,win
+30:281  0:000  Custom tool start
+30:281  0:000  Custom tool end
+30:281  0:000  found tool \EFI\CLOVER\tools\Shell64U.efi
+30:281  0:000  Checking EFI partition Volume 6 for Clover
+30:281  0:000   Found Clover
+30:281  0:000  Checking EFI partition Volume 9 for Clover
+30:281  0:000  GetEfiBootDeviceFromNvram: efi-boot-device-data not found
+30:281  0:000  EfiBootVolume not found
+30:281  0:000  Default boot entry not found
+30:281  0:000  DefaultIndex=-1 and MainMenu.EntryCount=18
+30:281  0:000  Use anime=logo_3D frames=50
+31:930  1:649  Found BIOS RSDP at F0000
+31:930  0:000  Printing ACPI tables from RSDP F0000 ...
+31:930  0:000   F0000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36
+31:930  0:000    (Xsdt: C973D098, Rsdt: C973D028)
+31:930  0:000    C973D098: 'XSDT', 'PARADISE', Rev: 1, Len: 172
+31:930  0:000    C973D028: 'RSDT', 'PARADISE', Rev: 1, Len: 104
+31:930  0:000    Tables in Xsdt: 17
+31:930  0:000    0. C974EC58: 'FACP', 'PARADISE', Rev: 5, Len: 268
+31:930  0:000        (Dsdt: C973D1D8, Facs: C97AAF80, XDsdt: C973D1D8, XFacs: 0)
+31:930  0:000        C973D1D8: 'DSDT', 'PARADISE', Rev: 2, Len: 72320
+31:931  0:000        C97AAF80: 'FACS', Ver: 2, Len: 64
+31:931  0:000    1. C974ED68: 'APIC', 'PARADISE', Rev: 3, Len: 146
+31:931  0:000    2. C974EE00: 'FPDT', 'A M I', Rev: 1, Len: 68
+31:931  0:000    3. C974EE48: 'FIDT', 'A M I', Rev: 1, Len: 156
+31:931  0:000    4. C974EEE8: 'ASF!', ' HCG', Rev: 32, Len: 165
+31:931  0:000    5. C974EF90: 'SLIC', 'PARADISE', Rev: 1, Len: 374
+31:931  0:000    6. C974F108: 'SSDT', 'PARADISE', Rev: 1, Len: 3986
+31:931  0:000    7. C97500A0: 'SSDT', 'PARADISE', Rev: 1, Len: 1337
+31:931  0:000    8. C97505E0: 'SSDT', 'PARADISE', Rev: 1, Len: 2776
+31:931  0:000    9. C97510B8: 'MCFG', 'PARADISE', Rev: 1, Len: 60
+31:931  0:000    10. C97510F8: 'HPET', 'PARADISE', Rev: 1, Len: 56
+31:931  0:000    11. C9751130: 'SSDT', 'PARADISE', Rev: 1, Len: 789
+31:931  0:000    12. C9751448: 'SSDT', 'PARADISE', Rev: 1, Len: 7239
+31:931  0:000    13. C9753090: 'SSDT', 'PARADISE', Rev: 1, Len: 4411
+31:931  0:000    14. C97541D0: 'DMAR', 'PARADISE', Rev: 1, Len: 184
+31:931  0:000    15. C9754288: 'SSDT', 'PARADISE', Rev: 1, Len: 7264
+31:931  0:000    16. C9755EE8: 'BGRT', 'PARADISE', Rev: 0, Len: 56
+31:931  0:000    Tables in Rsdt: 17
+31:931  0:000    0. C973D150: 'FACP', 'PARADISE', Rev: 2, Len: 132
+31:931  0:000        (Dsdt: C973D1D8, Facs: C97AAF40)
+31:931  0:000        C973D1D8: 'DSDT', 'PARADISE', Rev: 2, Len: 72320
+31:931  0:000        C97AAF40: 'FACS', Ver: 0, Len: 64
+31:931  0:000    1. C974ED68: 'APIC', 'PARADISE', Rev: 3, Len: 146
+31:931  0:000    2. C974EE00: 'FPDT', 'A M I', Rev: 1, Len: 68
+31:931  0:000    3. C974EE48: 'FIDT', 'A M I', Rev: 1, Len: 156
+31:931  0:000    4. C974EEE8: 'ASF!', ' HCG', Rev: 32, Len: 165
+31:931  0:000    5. C974EF90: 'SLIC', 'PARADISE', Rev: 1, Len: 374
+31:931  0:000    6. C974F108: 'SSDT', 'PARADISE', Rev: 1, Len: 3986
+31:931  0:000    7. C97500A0: 'SSDT', 'PARADISE', Rev: 1, Len: 1337
+31:931  0:000    8. C97505E0: 'SSDT', 'PARADISE', Rev: 1, Len: 2776
+31:931  0:000    9. C97510B8: 'MCFG', 'PARADISE', Rev: 1, Len: 60
+31:931  0:000    10. C97510F8: 'HPET', 'PARADISE', Rev: 1, Len: 56
+31:931  0:000    11. C9751130: 'SSDT', 'PARADISE', Rev: 1, Len: 789
+31:931  0:000    12. C9751448: 'SSDT', 'PARADISE', Rev: 1, Len: 7239
+31:931  0:000    13. C9753090: 'SSDT', 'PARADISE', Rev: 1, Len: 4411
+31:931  0:000    14. C97541D0: 'DMAR', 'PARADISE', Rev: 1, Len: 184
+31:931  0:000    15. C9754288: 'SSDT', 'PARADISE', Rev: 1, Len: 7264
+31:931  0:000    16. C9755EE8: 'BGRT', 'PARADISE', Rev: 0, Len: 56
+31:931  0:000  Found UEFI Acpi 2.0 RSDP at C973D000
+31:931  0:000  Saving ACPI tables from RSDP C973D000 to EFI\CLOVER\ACPI\origin ...
+31:931  0:000   C973D000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36 -> RSDP.aml
+34:665  2:733    (Xsdt: C973D098, Rsdt: C973D028)
+34:665  0:000    C973D098: 'XSDT', 'PARADISE', Rev: 1, Len: 172 -> XSDT.aml
+34:681  0:015    C973D028: 'RSDT', 'PARADISE', Rev: 1, Len: 104 -> RSDT.aml
+34:697  0:015    Tables in Xsdt: 17
+34:697  0:000    0. C974EC58: 'FACP', 'PARADISE', Rev: 5, Len: 268 -> FACP.aml
+34:712  0:015        (Dsdt: C973D1D8, Facs: C97AAF80, XDsdt: C973D1D8, XFacs: 0)
+34:712  0:000        C973D1D8: 'DSDT', 'PARADISE', Rev: 2, Len: 72320 -> DSDT.aml
+34:744  0:031        C97AAF80: 'FACS', Ver: 2, Len: 64 -> FACS.aml
+34:758  0:014    1. C974ED68: 'APIC', 'PARADISE', Rev: 3, Len: 146 -> APIC.aml
+34:773  0:014    2. C974EE00: 'FPDT', 'A M I', Rev: 1, Len: 68 -> FPDT.aml
+34:788  0:014    3. C974EE48: 'FIDT', 'A M I', Rev: 1, Len: 156 -> FIDT.aml
+34:803  0:014    4. C974EEE8: 'ASF!', ' HCG', Rev: 32, Len: 165 -> ASF!.aml
+34:818  0:015    5. C974EF90: 'SLIC', 'PARADISE', Rev: 1, Len: 374 -> SLIC.aml
+34:833  0:014    6. C974F108: 'SSDT', 'PARADISE', Rev: 1, Len: 3986 -> SSDT-0.aml
+34:847  0:014    7. C97500A0: 'SSDT', 'PARADISE', Rev: 1, Len: 1337 -> SSDT-1.aml
+34:862  0:014    8. C97505E0: 'SSDT', 'PARADISE', Rev: 1, Len: 2776
+ Found hidden SSDT 4 pcs
+34:862  0:000        * C70B5A98: '$', '', Rev: 0, Len: 23117  24 05 00 10 4D 5A 00 00 00 00 00 00 00 00 00 00       * C90FE618: 'SSDT', 'ApIst', Rev: 1, Len: 1450  53 53 44 54 AA 05 00 00 01 D3 50 6D 52 65 66 00 Internal length = 1450 -> SSDT-3x.aml
+34:877  0:014        * C90FEC18: 'SSDT', 'Cpu0Cst', Rev: 1, Len: 979  53 53 44 54 D3 03 00 00 01 B3 50 6D 52 65 66 00 Internal length = 979 -> SSDT-4x.aml
+34:892  0:014        * C90FDD98: 'SSDT', 'ApCst', Rev: 1, Len: 281  53 53 44 54 19 01 00 00 01 EF 50 6D 52 65 66 00 Internal length = 281 -> SSDT-5x.aml
+34:907  0:015   -> SSDT-2.aml
+34:924  0:016    9. C97510B8: 'MCFG', 'PARADISE', Rev: 1, Len: 60 -> MCFG.aml
+34:939  0:014    10. C97510F8: 'HPET', 'PARADISE', Rev: 1, Len: 56 -> HPET.aml
+34:953  0:014    11. C9751130: 'SSDT', 'PARADISE', Rev: 1, Len: 789 -> SSDT-6.aml
+34:968  0:014    12. C9751448: 'SSDT', 'PARADISE', Rev: 1, Len: 7239 -> SSDT-7.aml
+34:983  0:015    13. C9753090: 'SSDT', 'PARADISE', Rev: 1, Len: 4411 -> SSDT-8.aml
+35:014  0:030    14. C97541D0: 'DMAR', 'PARADISE', Rev: 1, Len: 184 -> DMAR.aml
+35:028  0:014    15. C9754288: 'SSDT', 'PARADISE', Rev: 1, Len: 7264 -> SSDT-9.aml
+35:045  0:016    16. C9755EE8: 'BGRT', 'PARADISE', Rev: 0, Len: 56 -> BGRT.aml
+35:060  0:014    Tables in Rsdt: 17
+35:060  0:000    0. C973D150: 'FACP', 'PARADISE', Rev: 2, Len: 132 -> RSDT-FACP.aml
+35:075  0:014        (Dsdt: C973D1D8, Facs: C97AAF40)
+35:075  0:000        C973D1D8: 'DSDT', 'PARADISE', Rev: 2, Len: 72320
+35:075  0:000        C97AAF40: 'FACS', Ver: 0, Len: 64 -> RSDT-FACS.aml
+35:090  0:014    1. C974ED68: 'APIC', 'PARADISE', Rev: 3, Len: 146
+35:090  0:000    2. C974EE00: 'FPDT', 'A M I', Rev: 1, Len: 68
+35:090  0:000    3. C974EE48: 'FIDT', 'A M I', Rev: 1, Len: 156
+35:090  0:000    4. C974EEE8: 'ASF!', ' HCG', Rev: 32, Len: 165
+35:090  0:000    5. C974EF90: 'SLIC', 'PARADISE', Rev: 1, Len: 374
+35:090  0:000    6. C974F108: 'SSDT', 'PARADISE', Rev: 1, Len: 3986
+35:090  0:000    7. C97500A0: 'SSDT', 'PARADISE', Rev: 1, Len: 1337
+35:090  0:000    8. C97505E0: 'SSDT', 'PARADISE', Rev: 1, Len: 2776
+35:090  0:000    9. C97510B8: 'MCFG', 'PARADISE', Rev: 1, Len: 60
+35:090  0:000    10. C97510F8: 'HPET', 'PARADISE', Rev: 1, Len: 56
+35:090  0:000    11. C9751130: 'SSDT', 'PARADISE', Rev: 1, Len: 789
+35:090  0:000    12. C9751448: 'SSDT', 'PARADISE', Rev: 1, Len: 7239
+35:090  0:000    13. C9753090: 'SSDT', 'PARADISE', Rev: 1, Len: 4411
+35:090  0:000    14. C97541D0: 'DMAR', 'PARADISE', Rev: 1, Len: 184
+35:090  0:000    15. C9754288: 'SSDT', 'PARADISE', Rev: 1, Len: 7264
+35:090  0:000    16. C9755EE8: 'BGRT', 'PARADISE', Rev: 0, Len: 56
+35:090  0:000  Found UEFI Acpi 1.0 RSDP at C973D000
+35:090  0:000  Printing ACPI tables from RSDP C973D000 ...
+35:090  0:000   C973D000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36
+35:090  0:000    (Xsdt: C973D098, Rsdt: C973D028)
+35:090  0:000    C973D098: 'XSDT', 'PARADISE', Rev: 1, Len: 172
+35:090  0:000    C973D028: 'RSDT', 'PARADISE', Rev: 1, Len: 104
+35:090  0:000    Tables in Xsdt: 17
+35:090  0:000    0. C974EC58: 'FACP', 'PARADISE', Rev: 5, Len: 268
+35:090  0:000        (Dsdt: C973D1D8, Facs: C97AAF80, XDsdt: C973D1D8, XFacs: 0)
+35:090  0:000        C973D1D8: 'DSDT', 'PARADISE', Rev: 2, Len: 72320
+35:091  0:000        C97AAF80: 'FACS', Ver: 2, Len: 64
+35:091  0:000    1. C974ED68: 'APIC', 'PARADISE', Rev: 3, Len: 146
+35:091  0:000    2. C974EE00: 'FPDT', 'A M I', Rev: 1, Len: 68
+35:091  0:000    3. C974EE48: 'FIDT', 'A M I', Rev: 1, Len: 156
+35:091  0:000    4. C974EEE8: 'ASF!', ' HCG', Rev: 32, Len: 165
+35:091  0:000    5. C974EF90: 'SLIC', 'PARADISE', Rev: 1, Len: 374
+35:091  0:000    6. C974F108: 'SSDT', 'PARADISE', Rev: 1, Len: 3986
+35:091  0:000    7. C97500A0: 'SSDT', 'PARADISE', Rev: 1, Len: 1337
+35:091  0:000    8. C97505E0: 'SSDT', 'PARADISE', Rev: 1, Len: 2776
+35:091  0:000    9. C97510B8: 'MCFG', 'PARADISE', Rev: 1, Len: 60
+35:091  0:000    10. C97510F8: 'HPET', 'PARADISE', Rev: 1, Len: 56
+35:091  0:000    11. C9751130: 'SSDT', 'PARADISE', Rev: 1, Len: 789
+35:091  0:000    12. C9751448: 'SSDT', 'PARADISE', Rev: 1, Len: 7239
+35:091  0:000    13. C9753090: 'SSDT', 'PARADISE', Rev: 1, Len: 4411
+35:091  0:000    14. C97541D0: 'DMAR', 'PARADISE', Rev: 1, Len: 184
+35:091  0:000    15. C9754288: 'SSDT', 'PARADISE', Rev: 1, Len: 7264
+35:091  0:000    16. C9755EE8: 'BGRT', 'PARADISE', Rev: 0, Len: 56
+35:091  0:000    Tables in Rsdt: 17
+35:091  0:000    0. C973D150: 'FACP', 'PARADISE', Rev: 2, Len: 132
+35:091  0:000        (Dsdt: C973D1D8, Facs: C97AAF40)
+35:091  0:000        C973D1D8: 'DSDT', 'PARADISE', Rev: 2, Len: 72320
+35:092  0:000        C97AAF40: 'FACS', Ver: 0, Len: 64
+35:092  0:000    1. C974ED68: 'APIC', 'PARADISE', Rev: 3, Len: 146
+35:092  0:000    2. C974EE00: 'FPDT', 'A M I', Rev: 1, Len: 68
+35:092  0:000    3. C974EE48: 'FIDT', 'A M I', Rev: 1, Len: 156
+35:092  0:000    4. C974EEE8: 'ASF!', ' HCG', Rev: 32, Len: 165
+35:092  0:000    5. C974EF90: 'SLIC', 'PARADISE', Rev: 1, Len: 374
+35:092  0:000    6. C974F108: 'SSDT', 'PARADISE', Rev: 1, Len: 3986
+35:092  0:000    7. C97500A0: 'SSDT', 'PARADISE', Rev: 1, Len: 1337
+35:092  0:000    8. C97505E0: 'SSDT', 'PARADISE', Rev: 1, Len: 2776
+35:092  0:000    9. C97510B8: 'MCFG', 'PARADISE', Rev: 1, Len: 60
+35:092  0:000    10. C97510F8: 'HPET', 'PARADISE', Rev: 1, Len: 56
+35:092  0:000    11. C9751130: 'SSDT', 'PARADISE', Rev: 1, Len: 789
+35:092  0:000    12. C9751448: 'SSDT', 'PARADISE', Rev: 1, Len: 7239
+35:092  0:000    13. C9753090: 'SSDT', 'PARADISE', Rev: 1, Len: 4411
+35:092  0:000    14. C97541D0: 'DMAR', 'PARADISE', Rev: 1, Len: 184
+35:092  0:000    15. C9754288: 'SSDT', 'PARADISE', Rev: 1, Len: 7264
+35:092  0:000    16. C9755EE8: 'BGRT', 'PARADISE', Rev: 0, Len: 56

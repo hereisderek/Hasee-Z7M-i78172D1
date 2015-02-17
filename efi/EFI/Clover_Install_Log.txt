@@ -1,0 +1,65 @@
+
+Clover EFI installer log - Sun Feb 15 19:21:06 CST 2015
+Installer version: v2.3k r3156 EFI bootloader
+======================================================
+/dev/disk0
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *1.0 TB     disk0
+   1:               Windows_NTFS windows                 85.9 GB    disk0s1
+   2:                      Linux                         85.9 GB    disk0s2
+   3:               Windows_NTFS software                85.9 GB    disk0s5
+   4:               Windows_NTFS data                    601.3 GB   disk0s6
+   5:               Windows_NTFS personal                53.7 GB    disk0s7
+   6:               Windows_NTFS backups                 87.5 GB    disk0s8
+/dev/disk1
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *1.0 TB     disk1
+   1:                        EFI 1t-efi                  628.1 MB   disk1s1
+   2:         Microsoft Reserved                         134.2 MB   disk1s2
+   3:       Microsoft Basic Data BOOT_1TP                21.5 GB    disk1s3
+   4:       Microsoft Basic Data win_1tp                 85.9 GB    disk1s4
+   5:       Microsoft Basic Data software_1tp            85.9 GB    disk1s5
+   6:                  Apple_HFS Macintosh HD            85.2 GB    disk1s6
+   7:                  Apple_HFS Recovery HD             650.0 MB   disk1s7
+   8:                  Apple_HFS par8                    85.8 GB    disk1s8
+   9:       Microsoft Basic Data data_1tp                536.9 GB   disk1s9
+  10:       Microsoft Basic Data backup                  42.9 GB    disk1s10
+  11: DE94BBA4-06D1-4D40-A16A-BFD50179D6AC               54.5 GB    disk1s11
+/dev/disk2
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *8.0 GB     disk2
+   1:                        EFI 8GEFI                   209.7 MB   disk2s1
+   2:                  Apple_HFS Yosemite Install(14A... 7.7 GB     disk2s2
+======================================================
+Backing up EFI files
+
+Backing up stage2 file /Volumes/Yosemite Install(14A389)/EFIROOTDIR/boot  to /Volumes/Yosemite Install(14A389)/EFI-Backups/r3168/2015-02-15-19h21/boot
+Backing up /Volumes/Yosemite Install(14A389)/EFIROOTDIR/EFI folder to /Volumes/Yosemite Install(14A389)/EFI-Backups/r3168/2015-02-15-19h21/EFI
+No Active Partition
+
+Stage 0 - Writting boot0af to /dev/disk2
+/Volumes/Yosemite Install(14A389)/usr/local/bin/fdisk440 -u -f /Volumes/Yosemite Install(14A389)/usr/standalone/i386/boot0af -y /dev/disk2
+
+Stage 1 - Writting boot1f32 to /dev/rdisk2s1
+dd if=/dev/rdisk2s1 count=1 bs=512 of=/tmp/origbs
+boot volume format is FAT32
+cp /tmp/boot1f32 /tmp/newbs
+dd if=/tmp/origbs of=/tmp/newbs skip=3 seek=3 bs=1 count=87 conv=notrunc
+dd if=/tmp/newbs of=/dev/rdisk2s1
+
+Stage 2 - Written boot6 (x64) to /Volumes/ESP/boot
+
+Removing drivers32/VBoxHfs-32.efi driver because HFSPlus driver present
+
+Removing drivers32UEFI/VBoxHfs-32.efi driver because HFSPlus driver present
+
+Removing drivers64/VBoxHfs-64.efi driver because HFSPlus driver present
+======================================================
+Installing RC Scripts
+
+Installing RC scripts on target volume '/Volumes/Yosemite Install(14A389)'
+
+
+======================================================
+=========== Clover EFI Installation Finish ===========
+======================================================
