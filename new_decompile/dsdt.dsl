@@ -4563,15 +4563,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Name (_HID, EisaId ("PNP0103"))  // _HID: Hardware ID
                     Name (_UID, Zero)  // _UID: Unique ID
                     Name (BUF0, ResourceTemplate()
-                {
-                    IRQNoFlags() { 0, 8, 11, 15 }
-                    Memory32Fixed (ReadWrite,
-                    0xFED00000,         // Address Base
-                    0x00000400,         // Address Length
-                    _Y0F)
-                })
-                Name (_STA, 0x0F)
-                Method (_CRS, 0, NotSerialized)
+                    {
+                        IRQNoFlags() { 0, 8, 11, 15 }
+                        Memory32Fixed (ReadWrite,
+                            0xFED00000,         // Address Base
+                            0x00000400,         // Address Length
+                            _Y0F
+                            )
+                    })
+                    Name (_STA, 0x0F)
+                    Method (_CRS, 0, NotSerialized)
                     {
                         Return (BUF0)
                     }
@@ -6207,17 +6208,19 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_DSM, 4, NotSerialized)
             {
                 Store (Package () {
+                    
                     "AAPL,clock-id", Buffer() { 0x01 },
                     "AAPL,slot-name", "Built In",
                     "name", "Intel EHCI Controller",
                     "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB EHCI #1"},
-                    "device_type", Buffer (0x0E) {"USB Controller"},
+                    "device_type", Buffer (0x0E) {"EHCI"},
                     "AAPL,current-available", 0x0834,
                     "AAPL,current-extra", 0x0898,
 //                    "AAPL,current-in-sleep", 0x0640,    // left blank
 //                    "AAPL,current-extra-in-sleep", 0x0834,    // left blank
 //                    "AAPL,max-port-current-in-sleep", 0x0834,    // left blank
                     "AAPL,device-internal", 0x02,
+                    "device-id", Buffer (0x04){0x26, 0x8C, 0x00, 0x00}, 
                     Buffer (One) {0x00}
                 }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
@@ -6510,13 +6513,15 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     "AAPL,slot-name", "Built In",
                     "name", "Intel EHCI Controller",
                     "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB EHCI #1"},
-                    "device_type", Buffer (0x0E) {"USB Controller"},
-                    "AAPL,current-available", 0x0834,
-                    "AAPL,current-extra", 0x0898,
+                    "device_type", Buffer (0x0E) {"EHCI"},
+//                    "AAPL,current-available", 0x0834,
+//                    "AAPL,current-extra", 0x0898,
 //                    "AAPL,current-in-sleep", 0x0640,    // left blank
 //                    "AAPL,current-extra-in-sleep", 0x0834,    // left blank
 //                    "AAPL,max-port-current-in-sleep", 0x0834,    // left blank
+                    "AAPL,standard-port-current-in-sleep", 0x01F4, 
                     "AAPL,device-internal", 0x02,
+                    "device-id", Buffer (0x04){0x2d, 0x8C, 0x00, 0x00}, 
                     Buffer (One) {0x00}
                 }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
@@ -6644,12 +6649,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     "AAPL,slot-name", "Built In",
                     "name", "Intel XHCI Controller",
                     "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB xHCI"},
-                    "device_type", Buffer (0x0E) {"USB Controller"},
-                    "AAPL,current-available", 0x0834,
-                    "AAPL,current-extra", 0x0898,
-                    "AAPL,current-in-sleep", 0x0640,
-                    "AAPL,max-port-current-in-sleep", 0x0834,
+                    "device_type", Buffer (0x0E) {"XHC"},
+//                    "AAPL,current-available", 0x0834,
+//                    "AAPL,current-extra", 0x0898,
+//                    "AAPL,current-in-sleep", 0x0640,
+//                    "AAPL,max-port-current-in-sleep", 0x0834,
                     "AAPL,device-internal", 0x02,
+                    "device-id", Buffer (0x04){0x31, 0x8C, 0x00, 0x00}, 
                     Buffer (One) {0x00}
                 }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
