@@ -87,13 +87,19 @@
 				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
+				<string>Cpu0Ist</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
 				<string>CpuPm</string>
 			</dict>
 			<dict>
 				<key>Signature</key>
 				<string>SSDT</string>
 				<key>TableId</key>
-				<string>Cpu0Cst</string>
+				<string>ApIst</string>
 			</dict>
 			<dict>
 				<key>Signature</key>
@@ -103,19 +109,13 @@
 			</dict>
 			<dict>
 				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Cst</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
 				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>Cpu0Ist</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>ApIst</string>
 			</dict>
 		</array>
 		<key>HaltEnabler</key>
@@ -243,9 +243,9 @@
 		</dict>
 		<key>Hide</key>
 		<array>
-			<string>VolumeUUID_NOT_SHOWN</string>
 			<string>EntryPath_NOT_SHOWN</string>
 			<string>VolumeName_NOT_SHOWN</string>
+			<string>VolumeUUID_NOT_SHOWN</string>
 		</array>
 		<key>Language</key>
 		<string>en:0</string>
@@ -265,6 +265,12 @@
 	</dict>
 	<key>Graphics</key>
 	<dict>
+		<key>CustomEDID</key>
+		<data>
+		AP///////wAw5E8EAAAAAAAYAQSVIxN46gz1oFtVkiYMUFQAAAABAQEBAQEB
+		AQEBAQEBAQEBLjaAoHA4H0AwIDUAWcIQAAAZAAAAAAAAAAAAAAAAAAAAAAAA
+		AAAA/gBMRyBEaXNwbGF5CiAgAAAA/gBMUDE1NldGNC1TUEwxABM=
+		</data>
 		<key>FBName</key>
 		<string></string>
 		<key>Inject</key>
@@ -276,6 +282,8 @@
 			<key>NVidia</key>
 			<false/>
 		</dict>
+		<key>InjectEDID</key>
+		<true/>
 		<key>ig-platform-id</key>
 		<string>0x0a260006</string>
 	</dict>
@@ -297,29 +305,17 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>0x0a260006 9MB cursor bytes patch</string>
+				<string>SingleLink Patch 1</string>
 				<key>Find</key>
 				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAA=
+				xwcBAAAAQcdHIA==
 				</data>
 				<key>Name</key>
-				<string>disabled:AppleIntelFramebufferAzul</string>
+				<string>SingleLink_1</string>
 				<key>Replace</key>
 				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAkAA=
+				xwcAAAAAQcdHIA==
 				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Power states 1- 0</string>
-				<key>Find</key>
-				<string>PGtleT5Qb3dlclN0YXRlczwva2V5Pgo8aW50ZWdlcj4xPC9pbnRlZ2VyPg==</string>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>intelhdgraphicsFB</string>
-				<key>Replace</key>
-				<string>PGtleT5Qb3dlclN0YXRlczwva2V5Pgo8aW50ZWdlcj4wPC9pbnRlZ2VyPg==</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -337,58 +333,16 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio, unsupported HDAU 0c0c, 1 of 2 (range check)</string>
+				<string>0x0a260006 9MB cursor bytes patch</string>
 				<key>Find</key>
 				<data>
-				PQsMAAA=
+				BgAmCgEDAwMAAAACAAAwAQAAYAA=
 				</data>
 				<key>Name</key>
-				<string>disabled:AppleHDAController</string>
+				<string>disabled:AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				PQwMAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>LVDS+VGA Patch 1</string>
-				<key>Find</key>
-				<data>
-				MEkBEQEQCAA=
-				</data>
-				<key>Name</key>
-				<string>LVDS_VGA-1</string>
-				<key>Replace</key>
-				<data>
-				MEkBEQUQCAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>LVDS_VGA-2</string>
-				<key>Find</key>
-				<data>
-				MEkBAQEACAA=
-				</data>
-				<key>Name</key>
-				<string>LVDS_VGA-2</string>
-				<key>Replace</key>
-				<data>
-				MEkBAQUACAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
-				<key>Find</key>
-				<data>
-				AEFQUExFIFNTRAA=
-				</data>
-				<key>Name</key>
-				<string>disabled:IOAHCIBlockStorage</string>
-				<key>Replace</key>
-				<data>
-				AAAAAAAAAAAAAAA=
+				BgAmCgEDAwMAAAACAAAwAQAAkAA=
 				</data>
 			</dict>
 			<dict>
@@ -407,30 +361,30 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio, port 0204, 0x0a260005 0x0a260006</string>
+				<string>Boot graphics glitch, 10.10.0/10.10.1 (1 of 2)</string>
 				<key>Find</key>
 				<data>
-				AgQJAAAEAACHAAAA
-				</data>
-				<key>Name</key>
-				<string>disabled:AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AgQJAAAIAACHAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.0/10.10.1 (2 of 2)</string>
-				<key>Find</key>
-				<data>
-				QYjE6wM=
+				hcB0XUg=
 				</data>
 				<key>Name</key>
 				<string>disabled:IOGraphicsFamily</string>
 				<key>Replace</key>
 				<data>
-				QYjE6yM=
+				McB0W0g=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>General patch</string>
+				<key>Find</key>
+				<data>
+				D0XIQomMM/ABAA==
+				</data>
+				<key>Name</key>
+				<string>GeneralPatch</string>
+				<key>Replace</key>
+				<data>
+				kJCQQomMM/ABAA==
 				</data>
 			</dict>
 			<dict>
@@ -445,6 +399,60 @@
 				<key>Replace</key>
 				<data>
 				AQUJAAAIAACHAAAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Yosemite Patch</string>
+				<key>Find</key>
+				<data>
+				/7gAYAAJvgBgAAQPRPAJ1g==
+				</data>
+				<key>Name</key>
+				<string>YosemitePatch</string>
+				<key>Replace</key>
+				<data>
+				/7gAYAAIvgBgAAQPRPAJ1g==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, unsupported HDAU 0c0c, 1 of 2 (range check)</string>
+				<key>Find</key>
+				<data>
+				PQsMAAA=
+				</data>
+				<key>Name</key>
+				<string>disabled:AppleHDAController</string>
+				<key>Replace</key>
+				<data>
+				PQwMAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Power states 1- 0</string>
+				<key>Find</key>
+				<string>PGtleT5Qb3dlclN0YXRlczwva2V5Pgo8aW50ZWdlcj4xPC9pbnRlZ2VyPg==</string>
+				<key>InfoPlistPatch</key>
+				<true/>
+				<key>Name</key>
+				<string>intelhdgraphicsFB</string>
+				<key>Replace</key>
+				<string>PGtleT5Qb3dlclN0YXRlczwva2V5Pgo8aW50ZWdlcj4wPC9pbnRlZ2VyPg==</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable TRIM for SSD</string>
+				<key>Find</key>
+				<data>
+				AEFQUExFIFNTRAA=
+				</data>
+				<key>Name</key>
+				<string>disabled:IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>
+				AAAAAAAAAAAAAAA=
 				</data>
 			</dict>
 			<dict>
@@ -465,72 +473,16 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SingleLink Patch 1</string>
+				<string>Enable TRIM</string>
 				<key>Find</key>
 				<data>
-				xwcBAAAAQcdHIA==
+				QVBQTEUgU1NEAA==
 				</data>
 				<key>Name</key>
-				<string>SingleLink_1</string>
+				<string>IOAHCIBlockStorage</string>
 				<key>Replace</key>
 				<data>
-				xwcAAAAAQcdHIA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>General patch</string>
-				<key>Find</key>
-				<data>
-				D0XIQomMM/ABAA==
-				</data>
-				<key>Name</key>
-				<string>GeneralPatch</string>
-				<key>Replace</key>
-				<data>
-				kJCQQomMM/ABAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio, port 0105, 0x0a2e0008, 0x0a16000c, 0x0a2e000d, 0x0a26000d</string>
-				<key>Find</key>
-				<data>
-				AQUJAAAEAAAHAQAA
-				</data>
-				<key>Name</key>
-				<string>disabled:AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AQUJAAAIAAAHAQAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable internal display after sleep for 0x0a2e000a, 0x0a26000a</string>
-				<key>Find</key>
-				<data>
-				AQAAAEAAAADWAAAABQUAAA==
-				</data>
-				<key>Name</key>
-				<string>disabled:AppleIntelFrameBufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AQAAAEAAAAAeAAAABQUAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Yosemite Patch</string>
-				<key>Find</key>
-				<data>
-				/7gAYAAJvgBgAAQPRPAJ1g==
-				</data>
-				<key>Name</key>
-				<string>YosemitePatch</string>
-				<key>Replace</key>
-				<data>
-				/7gAYAAIvgBgAAQPRPAJ1g==
+				AAAAAAAAAAAAAA==
 				</data>
 			</dict>
 			<dict>
@@ -549,30 +501,16 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.2</string>
+				<string>HDMI-audio, port 0204, 0x0a260005 0x0a260006</string>
 				<key>Find</key>
 				<data>
-				QYjE6xE=
+				AgQJAAAEAACHAAAA
 				</data>
 				<key>Name</key>
-				<string>disabled:IOGraphicsFamily</string>
+				<string>disabled:AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				QYjE6zE=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.0/10.10.1 (1 of 2)</string>
-				<key>Find</key>
-				<data>
-				hcB0XUg=
-				</data>
-				<key>Name</key>
-				<string>disabled:IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				McB0W0g=
+				AgQJAAAIAACHAAAA
 				</data>
 			</dict>
 			<dict>
@@ -591,16 +529,86 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Enable TRIM</string>
+				<string>LVDS_VGA-2</string>
 				<key>Find</key>
 				<data>
-				QVBQTEUgU1NEAA==
+				MEkBAQEACAA=
 				</data>
 				<key>Name</key>
-				<string>IOAHCIBlockStorage</string>
+				<string>LVDS_VGA-2</string>
 				<key>Replace</key>
 				<data>
-				AAAAAAAAAAAAAA==
+				MEkBAQUACAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>LVDS+VGA Patch 1</string>
+				<key>Find</key>
+				<data>
+				MEkBEQEQCAA=
+				</data>
+				<key>Name</key>
+				<string>LVDS_VGA-1</string>
+				<key>Replace</key>
+				<data>
+				MEkBEQUQCAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable internal display after sleep for 0x0a2e000a, 0x0a26000a</string>
+				<key>Find</key>
+				<data>
+				AQAAAEAAAADWAAAABQUAAA==
+				</data>
+				<key>Name</key>
+				<string>disabled:AppleIntelFrameBufferAzul</string>
+				<key>Replace</key>
+				<data>
+				AQAAAEAAAAAeAAAABQUAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.0/10.10.1 (2 of 2)</string>
+				<key>Find</key>
+				<data>
+				QYjE6wM=
+				</data>
+				<key>Name</key>
+				<string>disabled:IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>
+				QYjE6yM=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.2</string>
+				<key>Find</key>
+				<data>
+				QYjE6xE=
+				</data>
+				<key>Name</key>
+				<string>disabled:IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>
+				QYjE6zE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0105, 0x0a2e0008, 0x0a16000c, 0x0a2e000d, 0x0a26000d</string>
+				<key>Find</key>
+				<data>
+				AQUJAAAEAAAHAQAA
+				</data>
+				<key>Name</key>
+				<string>disabled:AppleIntelFramebufferAzul</string>
+				<key>Replace</key>
+				<data>
+				AQUJAAAIAAAHAQAA
 				</data>
 			</dict>
 		</array>

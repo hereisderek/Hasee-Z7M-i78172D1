@@ -6191,11 +6191,20 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 }
             }
 
+//            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+//            {
+//                Return (GPRW (0x0D, 0x03))
+//            }
+//            Name (_PRW, Package (0x02)
+//            {
+//                0x09,
+//                0x04
+//            })
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
-                Return (GPRW (0x0D, 0x03))
+                Return (GPRW (0x09, 0x04))
             }
-            
+
             Name (XHCN, One)
             Method (XHCA, 0, NotSerialized) { Store (1, ^^XHC1.PAHC) }
             Method (XHCB, 0, NotSerialized) { Store (1, ^^XHC1.PBHC) }
@@ -6221,6 +6230,26 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 //                    "AAPL,max-port-current-in-sleep", 0x0834,    // left blank
                     "AAPL,device-internal", 0x02,
                     "device-id", Buffer (0x04){0x26, 0x8C, 0x00, 0x00}, 
+                    /*
+                    "device_type", 
+                        Buffer (0x0F)
+                        {
+                            "USB Controller"
+                        }, 
+
+                        "AAPL,current-available", 
+                        0x0834, 
+                        "AAPL,current-extra", 
+                        0x0898, 
+                        "AAPL,current-in-sleep", 
+                        0x0640, 
+                        "AAPL,current-extra-in-sleep", 
+                        0x0834, 
+                        "AAPL,max-port-current-in-sleep", 
+                        0x0834, 
+                        "AAPL,device-internal", 
+                        0x02, 
+                    */
                     Buffer (One) {0x00}
                 }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
@@ -6500,10 +6529,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 }
             }
 
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-            {
-                Return (GPRW (0x0D, 0x03))
-            }
+//            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+//            {
+//                Return (GPRW (0x0D, 0x03))
+//            }
             
             Name (XHCN, One)
             Method (_DSM, 4, NotSerialized)
@@ -6631,7 +6660,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 }
             }
             
-            Method (_PRW, 0, NotSerialized) { Return (GPRW (0x0D, 0x04)) }
+//            Method (_PRW, 0, NotSerialized) { Return (GPRW (0x0D, 0x04)) }
             // alternate for above
             //Method (_PRW, 0, NotSerialized) { Return (Package() { 0x0D, 0x04 }) }
             Method (XHCA, 0, NotSerialized) { Store (One, PAHC) }
@@ -6683,10 +6712,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 PMES,   1
             }
 
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-            {
-                Return (GPRW (0x0D, 0x04))
-            }
+//            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+//            {
+//                Return (GPRW (0x0D, 0x04))
+//            }
             Method (_DSM, 4, NotSerialized)
             {
                 Store (Package (0x0E) {
