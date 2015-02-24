@@ -6728,15 +6728,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             {
                 Store (Package () {
                     "AAPL,slot-name", "Built In",
-                    "name", "Realtek Audio Controller",
-                    "model", Buffer () {"Realtek ALC892 Audio Controller"},
-                    "device_type", Buffer (0x10) {"Audio Controller"},
-                    "layout-id", Buffer (0x04) {0x01,0x00,0x00,0x00},
-                    "PinConfigurations", Buffer (Zero) {},
-                    "hda-gfx", Buffer (0x0A) {"onboard-1"},
-                    "built-in", Buffer (One) { 0x01 },
-                    "codec-id", Buffer (0x04) { 0x92, 0x08, 0xEC, 0x10 },
-                    "layout-id", Buffer (0x04) { 0x7C, 0x03, 0x00, 0x00 },
+//                    "name", "Realtek Audio Controller",
+//                    "model", Buffer () {"Realtek ALC892 Audio Controller"},
+//                    "device_type", Buffer (0x10) {"Audio Controller"},
+//                    "layout-id", Buffer (0x04) {0x01,0x00,0x00,0x00},
+                    "PinConfigurations", Buffer (Zero) {Zero},
+//                    "hda-gfx", Buffer (0x0A) {"onboard-1"},
+//                    "built-in", Buffer (One) { 0x00 },
+//                    "codec-id", Buffer (0x04) { 0x92, 0x08, 0xEC, 0x10 },
+//                    "layout-id", Buffer (0x04) { 0x7C, 0x03, 0x00, 0x00 },
+                    "device-type", Buffer (0x0B) { "VIA VT1802" }, 
+                    "layout-id", Buffer (0x04) { 0x03, 0x00, 0x00, 0x00 }, 
                 }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                 Return (Local0)
