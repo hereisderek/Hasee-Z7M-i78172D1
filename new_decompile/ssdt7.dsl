@@ -69,6 +69,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (RMDT.P5, MethodObj)
     External (RMDT.P6, MethodObj)
     External (RMDT.P7, MethodObj)
+    
+    External (_SB_.DTGP, MethodObj)
 
     Scope (\_SB.PCI0)
     {
@@ -1516,7 +1518,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                         CreateField (Arg2, 0xE0, 0x20, XRG0)
                         If (CondRefOf (\_SB.PCI0.IGPU._DSM))
                         {
-                            Return (\_SB.PCI0.IGPU._DSM)
+                            Return (\_SB.PCI0.IGPU._DSM(MUID, REVI, SFNC, XRG0))
 //                            MUID
 //                            REVI
 //                            SFNC

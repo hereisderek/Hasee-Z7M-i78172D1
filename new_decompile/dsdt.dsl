@@ -669,6 +669,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     }
     // -----------> MARK_END
 
+    
     Scope (_SB)
     {
         Name (PR00, Package (0x1F)
@@ -5345,11 +5346,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         If (And (CTRL, 0x02))
                         {
-                            NHPG ()
+//                            NHPG ()
+                            \_SB.PCI0.NHPG ()
                         }
                         If (And (CTRL, 0x04))
                         {
-                            NPME ()
+//                            NPME ()
+                            \_SB.PCI0.NPME ()
                         }
                     }
                     If (LNotEqual (Arg1, One))
@@ -6529,10 +6532,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 }
             }
 
-//            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-//            {
-//                Return (GPRW (0x0D, 0x03))
-//            }
+            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            {
+                Return (GPRW (0x09, 0x04))
+            }
             
             Name (XHCN, One)
             Method (_DSM, 4, NotSerialized)
@@ -6660,9 +6663,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 }
             }
             
-//            Method (_PRW, 0, NotSerialized) { Return (GPRW (0x0D, 0x04)) }
-            // alternate for above
-            //Method (_PRW, 0, NotSerialized) { Return (Package() { 0x0D, 0x04 }) }
+            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            {
+                Return (GPRW (0x09, 0x04))
+            }
             Method (XHCA, 0, NotSerialized) { Store (One, PAHC) }
             Method (XHCB, 0, NotSerialized) { Store (One, PBHC) }
             Method (XHCC, 0, NotSerialized) { Store (One, PCHC) }
@@ -6716,16 +6720,23 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 //            {
 //                Return (GPRW (0x0D, 0x04))
 //            }
+            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            {
+                Return (GPRW (0x09, 0x04))
+            }
             Method (_DSM, 4, NotSerialized)
             {
-                Store (Package (0x0E) {
+                Store (Package () {
                     "AAPL,slot-name", "Built In",
                     "name", "Realtek Audio Controller",
                     "model", Buffer () {"Realtek ALC892 Audio Controller"},
                     "device_type", Buffer (0x10) {"Audio Controller"},
                     "layout-id", Buffer (0x04) {0x01,0x00,0x00,0x00},
                     "PinConfigurations", Buffer (Zero) {},
-                    "hda-gfx", Buffer (0x0A) {"onboard-1"}
+                    "hda-gfx", Buffer (0x0A) {"onboard-1"},
+                    "built-in", Buffer (One) { 0x01 },
+                    "codec-id", Buffer (0x04) { 0x92, 0x08, 0xEC, 0x10 },
+                    "layout-id", Buffer (0x04) { 0x7C, 0x03, 0x00, 0x00 },
                 }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                 Return (Local0)
@@ -17288,7 +17299,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     Method (PINI, 0, NotSerialized)
     {
     }
-    Method (DTGP, 5, NotSerialized)
+        Method (DTGP, 5, NotSerialized)
     {
         If (LEqual (Arg0, Buffer (0x10)
         {
@@ -17318,6 +17329,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         }, Arg4)
         Return (Zero)
     }
+
 /*
         --------------------------------------------
         MARK --merged from ssdt 5
@@ -17745,6 +17757,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         Store (TCMD, ACMD)
                     }
                 }
+            }
+            Method (_DSM, 4, NotSerialized)
+            {
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "device-id", Buffer() { 0x0c, 0x0a, 0x00, 0x00 },
+                    "RM,device-id", Buffer() { 0x0c, 0x0a, 0x00, 0x00 },
+                    "hda-gfx", Buffer() { "onboard-1" },
+                })
             }
         }
 
@@ -19087,7 +19109,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     "device-id", Buffer() { 0x12, 0x04, 0x00, 0x00 },
                     "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
                     "hda-gfx", Buffer() { "onboard-1" },
-                    "model", Buffer() { "Intel HD 4600" },
+                    "model", Buffer () {"Intel Iris Pro"},
+                    "name", "display",
+                    "AAPL,iokit-ndrv", Buffer () {0xf0, 0x5c, 0x55, 0x97, 0x7f, 0xff, 0xff, 0xff},
+                    "compatible", "IGPU",
+                    "RM,device-id", Buffer() { 0x12, 0x04, 0x00, 0x00 },
                 })
             }
             OperationRegion (RMPC, PCI_Config, 0x10, 4)
