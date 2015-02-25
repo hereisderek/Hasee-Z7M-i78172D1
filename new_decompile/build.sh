@@ -32,15 +32,16 @@ function _findIasl()
 #rm build/*.hex build/*.aml
 rm -r build
 mkdir build
-mkdir build/hex
+#mkdir build/hex
 for filename in `ls *.dsl`  
 do  
         #filename="${filename##*/}"
         echo " compiling $filename  "
-        iasl -ta $filename | grep Error
+        iasl $filename | grep Error
         mv ${filename%.*}.aml ./build/
-        mv ${filename%.*}.hex ./build/hex
+        #mv ${filename%.*}.hex ./build/hex
+        rm *.hex
 
-        echo "${filename%.*}.aml"
+        #echo "${filename%.*}.aml"
         # Everything what you want
 done

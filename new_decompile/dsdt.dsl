@@ -6735,7 +6735,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     "PinConfigurations", Buffer (Zero) {Zero},
 //                    "hda-gfx", Buffer (0x0A) {"onboard-1"},
                     "built-in", Buffer (One) { 0x00 },
-//                    "codec-id", Buffer (0x04) { 0x92, 0x08, 0xEC, 0x10 },
+                    "codec-id", Buffer (0x04) { 0x92, 0x08, 0xEC, 0x10 },
 //                    "layout-id", Buffer (0x04) { 0x7C, 0x03, 0x00, 0x00 },
                     "device-type", Buffer (0x0B) { "VIA VT1802" }, 
                     "layout-id", Buffer (0x04) { 0x03, 0x00, 0x00, 0x00 }, 
