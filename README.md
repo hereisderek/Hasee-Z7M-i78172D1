@@ -43,6 +43,9 @@ AppleHDA:
 http://www.insanelymac.com/forum/topic/298663-applehda-for-yosemite/
 http://www.insanelymac.com/forum/topic/295001-guide-to-patch-applehda-for-your-codec/
 
+VoodooHDA:
+http://bbs.pcbeta.com/viewthread-958157-1-1.html
+
 useful patch repo:
 http://raw.github.com/Yuki-Judai/dxxs-DSDT-Patch/master
 http://raw.github.com/RehabMan/Laptop-DSDT-Patch/master

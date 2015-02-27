@@ -30,32 +30,6 @@ GPIO: 0x40000002 NumGPIO=2 NumGPO=0 NumGPI=0 GPIWake=0 GPIUnsol=1
 Patching widget caps nid=29 0x00400400 -> 0x00700400
  nid 30 0x01441140 as  4 seq  0 SPDIF-out     Jack  RCA     Rear    External Black   misc 0 NoPresenceDetect
  nid 31 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect
-
-
-
- nid 18 0x90a60150 as  5 seq  0 Microphone    Fixed Digital N/A     Internal Unknown misc 0 NoPresenceDetect
- nid 20 0x90170110 as  1 seq  0 Speaker       Fixed Analog  N/A     Internal Unknown misc 0 NoPresenceDetect
-
-Patching widget caps nid=29 0x00400400 -> 0x00700400
-
- nid 27 0x01011030 as  3 seq  0 Line-out      Jack  1/8     Rear    External Black   misc 0			*
- nid 23 0x01011020 as  2 seq  0 Line-out      Jack  1/8     Rear    External Black   misc 0
- nid 24 0x01a11060 as  6 seq  0 Microphone    Jack  1/8     Rear    External Black   misc 0			*
-
- nid 17 0x4010c000 as  0 seq  0 Speaker       None  Unknown N/A     External Res.C   misc 0
-
- nid 21 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect
- nid 22 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect
- nid 25 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect	*
- nid 26 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect	*
- nid 28 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect
- nid 31 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect
-
- nid 30 0x01441140 as  4 seq  0 SPDIF-out     Jack  RCA     Rear    External Black   misc 0 NoPresenceDetect	*
-
-
-
-
 Parsing vendor patch...
 Nodes patching. Codec = 0 
 NumNodes = 0
@@ -128,27 +102,6 @@ Patched pins configuration:
  nid 28 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect [DISABLED]
  nid 30 0x01441140 as  4 seq  0 SPDIF-out     Jack  RCA     Rear    External Black   misc 0 NoPresenceDetect
  nid 31 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect [DISABLED]
-
-———————————
- nid 18 0x90a6015f as  5 seq  0 Microphone    Fixed Digital N/A     Internal Orange misc 0 NoPresenceDetect
- nid 20 0x9017011f as  1 seq  0 Speaker       Fixed Analog  N/A     Internal Yellow misc 0 NoPresenceDetect
-
- nid 27 0x01011010 as  3 seq  0 Line-out      Jack  1/8     Rear    External Black   misc 0			*
- nid 23 0x01011020 as  2 seq  0 Line-out      Jack  1/8     Rear    External Black   misc 0
- nid 24 0x01a11060 as  6 seq  0 Microphone    Jack  1/8     Rear    External Black   misc 0
-
- nid 30 0x01451140 as  4 seq  0 SPDIF-out     Jack  RCA     Rear    External Black   misc 0 NoPresenceDetect
-
-——————————-
- nid 17 0x4010c000 as  0 seq  0 Speaker       None  Unknown N/A     External Res.C   misc 0 [DISABLED]
- nid 21 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect [DISABLED]
- nid 22 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect [DISABLED]
- nid 25 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect [DISABLED]
- nid 26 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect [DISABLED]
- nid 28 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect [DISABLED]
- nid 31 0x411111f0 as 15 seq  0 Speaker       None  1/8     Rear    External Black   misc 0 NoPresenceDetect [DISABLED]
-
-
 Parsing pin associations...
 6 associations found:
 Association 0 (1) out:
