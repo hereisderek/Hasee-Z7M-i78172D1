@@ -6541,7 +6541,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_DSM, 4, NotSerialized)
             {
                 Store (Package () {
-                    "AAPL,clock-id", Buffer() { 0x01 },
+                    "AAPL,clock-id", Buffer() { 0x02 },
                     "AAPL,slot-name", "Built In",
                     "name", "Intel EHCI Controller",
                     "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB EHCI #1"},
@@ -6678,7 +6678,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Method (_DSM, 4, NotSerialized)
             {
                 Store (Package () {
-                    "AAPL,clock-id", Buffer() { 0x02 },
+                    "AAPL,clock-id", Buffer() { 0x03 },
                     "AAPL,slot-name", "Built In",
                     "name", "Intel XHCI Controller",
                     "model", Buffer(0x3E) {"8 Series/C220 Series Chipset Family USB xHCI"},
@@ -6689,6 +6689,11 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 //                    "AAPL,max-port-current-in-sleep", 0x0834,
                     "AAPL,device-internal", 0x02,
                     "device-id", Buffer (0x04){0x31, 0x8C, 0x00, 0x00}, 
+                    
+                    "AAPL,device-internal", 0x02, 
+                    "built-in", Buffer (One) {0x00},
+                    "subsystem-id", Buffer (0x04){0x70, 0x72, 0x00, 0x00},
+                    "subsystem-vendor-id", Buffer (0x04){0x86, 0x80, 0x00, 0x00}, 
                     Buffer (One) {0x00}
                 }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
@@ -13516,6 +13521,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         Device (PWRB)
         {
             Name (_HID, EisaId ("PNP0C0C"))  // _HID: Hardware ID
+            Name (_CID, EisaId ("PNP0C0C"))  
             Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
             {
                 0x08, 
@@ -19111,7 +19117,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     "device-id", Buffer() { 0x12, 0x04, 0x00, 0x00 },
                     "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
                     "hda-gfx", Buffer() { "onboard-1" },
-                    "model", Buffer () {"Intel Iris Pro"},
+//                    "model", Buffer () {"Intel Iris Pro"},
+                    "model", Buffer() { "Intel HD 4600" },
                     "name", "display",
                     "AAPL,iokit-ndrv", Buffer () {0xf0, 0x5c, 0x55, 0x97, 0x7f, 0xff, 0xff, 0xff},
                     "compatible", "IGPU",

@@ -1,0 +1,43 @@
+
+Clover EFI installer log - Sun Mar  8 10:49:39 CST 2015
+Installer version: v2.3k r3192 EFI bootloader
+======================================================
+/dev/disk0
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *1.0 TB     disk0
+   1:                        EFI EFI                     524.3 MB   disk0s1
+   2:         Microsoft Reserved                         134.2 MB   disk0s2
+   3:       Microsoft Basic Data win                     85.9 GB    disk0s3
+   4:                  Apple_HFS Hackintosh              85.3 GB    disk0s4
+   5:                 Apple_Boot Recovery HD             650.0 MB   disk0s5
+   6:       Microsoft Basic Data software                107.4 GB   disk0s6
+   7:       Microsoft Basic Data data                    579.8 GB   disk0s7
+   8:       Microsoft Basic Data personal                53.7 GB    disk0s8
+   9:       Microsoft Basic Data backup                  86.5 GB    disk0s9
+/dev/disk1
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     Apple_partition_scheme                        *13.2 MB    disk1
+   1:        Apple_partition_map                         32.3 KB    disk1s1
+   2:                  Apple_HFS BearExtender-5.4        8.9 MB     disk1s2
+======================================================
+Backing up EFI files
+
+Backing up /Volumes/Hackintosh/EFIROOTDIR/EFI folder to /Volumes/Hackintosh/EFI-Backups/r3190/2015-03-08-10h49/EFI
+======================================================
+Installing BootSectors/BootLoader
+
+Stage 0 - Don't write any of boot0af, boot0md, boot0ss to /
+Stage 1 - Don't write any of boot1h2, boot1f32alt, boot1xalt to /
+
+Removing drivers32UEFI/VBoxHfs-32.efi driver because HFSPlus driver present
+
+Removing drivers64UEFI/VBoxHfs-64.efi driver because HFSPlus driver present
+======================================================
+Installing RC Scripts
+
+Installing RC scripts on target volume '/'
+
+
+======================================================
+=========== Clover EFI Installation Finish ===========
+======================================================

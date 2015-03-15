@@ -374,7 +374,7 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         {
             //MARK
             \rmdt.p1("_SB.PCI0.PEGP SSDT7  _ON enter")
-            FOOF()
+            \_SB.PCI0.PEG0.PEGP.FOOF()
 //            Return(Zero)
             
             P8XH (Zero, 0x78)
@@ -429,6 +429,10 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         }
         Method (_WAK, 1, Serialized)  // _WAK: Wake
         {
+            // MARK
+            \rmdt.p1("_SB.PCI0.PEGP SSDT7  _WAK enter")
+            \_SB.PCI0.PEG0.PEGP.FOOF()
+            Return(Zero)
             PINI()
         }
     }
