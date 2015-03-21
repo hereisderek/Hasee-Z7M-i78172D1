@@ -3267,6 +3267,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Device (RP05)
             {
                 Name (_ADR, 0x001C0004)  // _ADR: Address
+                
                 OperationRegion (PXCS, PCI_Config, Zero, 0x0380)
                 Field (PXCS, AnyAcc, NoLock, Preserve)
                 {
@@ -3305,9 +3306,28 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     L23R,   1, 
                     Offset (0x324), 
                         ,   3, 
-                    LEDM,   1
-                }
+                    LEDM,   1,
+//                    SBBN,   8, 
+// MARK
+                    GP49,   1, 
 
+//                    Offset (0x04), 
+                    BMIE,   3, 
+//                    Offset (0x19), 
+                    SECB,   8, 
+                    SBBN,   8, 
+//                    Offset (0x1E), 
+//                        ,   13, 
+                    MABT,   1, 
+//                    Offset (0x4A), 
+//                        ,   5, 
+                    TPEN,   1, 
+//                    Offset (0x50), 
+//                        ,   4, 
+//                    LDIS,   1, 
+//                        ,   24, 
+                    LACT,   1
+                }
                 Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
                 {
                     Offset (0xDC), 
@@ -3327,6 +3347,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         Return (0x0F)
                     }
                 }
+                Name (LPFL, 0x00)
+                Name (BMIS, 0x00)
+                Name (SNBS, 0x00)
+                Name (SOBS, 0x00)
 
                 Name (LTRV, Package (0x04)
                 {
@@ -3337,6 +3361,113 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 })
                 Name (OPTS, Zero)
                 Name (RPAV, Zero)
+                Method (C4PU, 0, Serialized)
+                {
+                    Store (SOBS, SBBN)
+                    Store (SNBS, SECB)
+                    Store (BMIS, BMIE)
+                    Store (0x00, LDIS)
+                    Store (0x00, Local0)
+                    Store (Or (LPFL, 0x20), LPFL)
+                    Store (0x01, GP49)
+                    While (0x01)
+                    {
+                        Sleep (0x05)
+                        Sleep (0x64)
+                        Store (0x00, Local1)
+                        Add (Timer, 0x00989680, Local2)
+                        While (LLessEqual (Timer, Local2))
+                        {
+                            If (LAnd (LEqual (LACT, 0x01), LNotEqual (\_SB.PCI0.RP05.SDXC.AVND, 0xFFFF)))
+                            {
+                                Store (0x01, Local1)
+                                Break
+                            }
+
+                            Sleep (0x0A)
+                        }
+
+                        If (LEqual (Local1, 0x01))
+                        {
+                            Store (And (LPFL, Not (0x20)), LPFL)
+                            Store (0x01, MABT)
+                            Break
+                        }
+
+                        If (LEqual (Local0, 0x04))
+                        {
+                            Store (Or (LPFL, Or (0x20, 0x80)), LPFL)
+                            Break
+                        }
+
+                        Increment (Local0)
+                        Store (0x00, GP49)
+                        Sleep (0x64)
+                        Store (0x01, GP49)
+                    }
+
+                    Return (Zero)
+                }
+
+                Method (C4PD, 0, Serialized)
+                {
+                    Store (Or (LPFL, 0x10), LPFL)
+                    Store (BMIE, BMIS)
+                    Store (SECB, SNBS)
+                    Store (SBBN, SOBS)
+                    Store (0x00, BMIE)
+                    Store (0xFF, SECB)
+                    Store (0xFE, SBBN)
+                    Store (TPEN, Local0)
+                    Store (0x01, LDIS)
+                    Add (Timer, 0x00989680, Local0)
+                    While (LLessEqual (Timer, Local0))
+                    {
+                        If (LEqual (LACT, 0x00))
+                        {
+                            Store (And (LPFL, Not (0x10)), LPFL)
+                            Break
+                        }
+
+                        Sleep (0x0A)
+                    }
+
+                    If (And (LPFL, 0x10))
+                    {
+                        Store (Or (LPFL, Or (0x10, 0x40)), LPFL)
+                    }
+
+                    Store (0x00, GP49)
+                    Sleep (0x32)
+                }
+
+                Method (C4LP, 0, Serialized)
+                {
+                    If (LNot (OSDW ()))
+                    {
+                        Return (Zero)
+                    }
+
+                    If (LAnd (LEqual (And (LPFL, 0x04), 0x00), LEqual (And (
+                        LPFL, 0x02), 0x02)))
+                    {
+                        Store (And (LPFL, Not (0x10)), LPFL)
+                        C4PD ()
+                        Store (Or (LPFL, 0x04), LPFL)
+                        Return (Zero)
+                    }
+
+                    If (LAnd (LEqual (And (LPFL, 0x04), 0x04), LNotEqual (
+                        And (LPFL, 0x02), 0x02)))
+                    {
+                        Store (And (LPFL, Not (0x20)), LPFL)
+                        C4PU ()
+                        Store (And (LPFL, Not (0x04)), LPFL)
+                        Return (Zero)
+                    }
+
+                    Return (Zero)
+                }
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
@@ -3468,7 +3599,73 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         }
                     }
                 }
+                // MARK for sd card reader
+                Device (SDXC)
+                {
+                    Name (_HID, "INT33C6")  // _HID: Hardware ID
+                    Name (_CID, "PNP0D40")  // _CID: Compatible ID
+                    Name (_UID, One)  // _UID: Unique ID
+//                    Name (_ADR, 0x00170000)  // _ADR: Address
+                    Name (_ADR, Zero)  // _ADR: Address
+                    Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                    {
+                        
+                        Return (Package (0x02)
+                            {
+                                0x1E, 
+                                0x03
+                            })
+                    }
 
+                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                    {
+                        Return (0x00)
+                    }
+
+                    OperationRegion (ARE1, PCI_Config, 0x00, 0x20)
+                    Field (ARE1, ByteAcc, NoLock, Preserve)
+                    {
+                        AVND,   16, 
+                        Offset (0x10), 
+                        BARL,   32, 
+                        BARH,   32
+                    }
+
+                    Name (SDAF, 0x04)
+                    Name (_GPE, 0x1E)  // _GPE: General Purpose Events
+                    Method (SLPR, 1, Serialized)
+                    {
+                        If (Arg0)
+                        {
+                            Store (Or (LPFL, 0x02), LPFL)
+                        }
+                        Else
+                        {
+                            Store (And (LPFL, Not (0x02)), LPFL)
+                        }
+
+                        C4LP ()
+                        Return (LPFL)
+                    }
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        Store (Package () {
+                            "built-in", Buffer (One) {0x00},
+//                            "location", Buffer (0x02) {"1"},
+                            "name", "pci14e4,16bc",
+                            "compatible", Buffer(0x10){"pci14e4,16bc"},
+                            "device-id", Buffer(0x04) { 0xbc, 0x16, 0x00, 0x00 },
+                            "vendor-id", Buffer(0x04) { 0xe4, 0x14, 0x00, 0x00 },
+                            "IOName", Buffer(0x10){"pci14e4,16bc"},
+                            "IOPCIMSIMode", Buffer () {"True"},
+                            
+                            
+                        }, Local0)
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
+                    }
+                }
+                
                 Method (HPME, 0, Serialized)
                 {
                     Sleep (0x64)
@@ -17307,7 +17504,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     Method (PINI, 0, NotSerialized)
     {
     }
-        Method (DTGP, 5, NotSerialized)
+    Method (DTGP, 5, NotSerialized)
     {
         If (LEqual (Arg0, Buffer (0x10)
         {
@@ -17336,6 +17533,17 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             0x00
         }, Arg4)
         Return (Zero)
+    }
+    Method (OSDW, 0, NotSerialized)
+    {
+	    If (LEqual (OSYS, 0x2710))
+	    {
+		    Return (One)
+	    }
+	    Else
+	    {
+		    Return (Zero)
+	    }
     }
 
 /*

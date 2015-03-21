@@ -133,7 +133,8 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
         {
 //            MARK
-            FOOF()
+            \_SB.PCI0.PEG0.PEGP.FOOF()
+            \_SB.PCI0.PEG0.PEGP._OFF ()
             If (LEqual (OPCE, 0x03))
             {
                 If (LEqual (DGPS, Zero))
@@ -432,8 +433,9 @@ DefinitionBlock ("ssdt7.aml", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
             // MARK
             \rmdt.p1("_SB.PCI0.PEGP SSDT7  _WAK enter")
             \_SB.PCI0.PEG0.PEGP.FOOF()
-            Return(Zero)
             PINI()
+            Return(Zero)
+            
         }
     }
 
