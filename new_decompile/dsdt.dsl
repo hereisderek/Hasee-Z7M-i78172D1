@@ -3607,13 +3607,22 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Name (_UID, One)  // _UID: Unique ID
 //                    Name (_ADR, 0x00170000)  // _ADR: Address
                     Name (_ADR, Zero)  // _ADR: Address
+//                    Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+//                    {
+//                        
+//                        Return (Package (0x02)
+//                            {
+//                                0x1E, 
+//                                0x03
+//                            })
+//                    }
                     Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
                     {
                         
                         Return (Package (0x02)
                             {
-                                0x1E, 
-                                0x03
+                                0x09, 
+                                0x04
                             })
                     }
 
@@ -3652,12 +3661,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         Store (Package () {
                             "built-in", Buffer (One) {0x00},
 //                            "location", Buffer (0x02) {"1"},
-                            "name", "pci14e4,16bc",
-                            "compatible", Buffer(0x10){"pci14e4,16bc"},
-                            "device-id", Buffer(0x04) { 0xbc, 0x16, 0x00, 0x00 },
-                            "vendor-id", Buffer(0x04) { 0xe4, 0x14, 0x00, 0x00 },
-                            "IOName", Buffer(0x10){"pci14e4,16bc"},
-                            "IOPCIMSIMode", Buffer () {"True"},
+//                            "name", "pci14e4,16bc",
+//                            "compatible", Buffer(0x10){"pci14e4,16bc"},
+//                            "device-id", Buffer(0x04) { 0xbc, 0x16, 0x00, 0x00 },
+//                            "vendor-id", Buffer(0x04) { 0xe4, 0x14, 0x00, 0x00 },
+//                            "IOName", Buffer(0x10){"pci14e4,16bc"},
+//                            "IOPCIMSIMode", Buffer () {"True"},
                             
                             
                         }, Local0)
