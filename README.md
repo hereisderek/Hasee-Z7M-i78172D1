@@ -1,5 +1,6 @@
 #	hasee Z7M-i78172D1 DSDT for Mac os
 =============================
+## this repo has been deprecated, please refer to (https://github.com/1and1get2/CP65S)[https://github.com/1and1get2/CP65S] for newer version
 
 Common Patches
 
